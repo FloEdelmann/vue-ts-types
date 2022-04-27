@@ -1,0 +1,28 @@
+{
+  "name": "vue-ts-types",
+  "version": "0.1.0",
+  "description": "Lightweight TypeScript-first Vue prop type definitions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FloEdelmann/vue-ts-types.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "typescript",
+    "vue2",
+    "vue3",
+    "vuejs2",
+    "vuejs3"
+  ],
+  "author": "Flo Edelmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FloEdelmann/vue-ts-types/issues"
+  },
+  "homepage": "https://github.com/FloEdelmann/vue-ts-types"
+}
