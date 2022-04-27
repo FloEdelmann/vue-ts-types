@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/FloEdelmann/vue-ts-types/issues"
   },
-  "homepage": "https://github.com/FloEdelmann/vue-ts-types"
+  "homepage": "https://github.com/FloEdelmann/vue-ts-types",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
 }
