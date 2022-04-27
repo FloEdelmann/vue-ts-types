@@ -27,6 +27,10 @@
   },
   "homepage": "https://github.com/FloEdelmann/vue-ts-types",
   "devDependencies": {
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "vue": "^2.6.14"
+  },
+  "peerDependencies": {
+    "vue": "^2.6 || ^3.2"
   }
 }

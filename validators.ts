@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import type { Constructor } from './types'
 
 export type Validator = (value: unknown) => string | undefined
@@ -13,7 +14,7 @@ export function vuePropValidator(userValidator?: Validator, ...typeValidators: V
     for (const validator of validators) {
       const errorMessage = validator(value)
       if (errorMessage) {
-        console.warn(`${errorMessage} (received: '${value}')`)
+        Vue.util.warn(`${errorMessage} (received: '${value}')`)
         return false
       }
     }
