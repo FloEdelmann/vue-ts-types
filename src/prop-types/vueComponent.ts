@@ -3,7 +3,7 @@ import type { DefaultPropOptions, RequiredPropOptions } from '../types';
 import type { Validator } from '../validators';
 import { vuePropValidator } from '../validators';
 
-type VueComponent = ComponentOptions<Vue> | VueConstructor<Vue> | string
+export type VueComponent = ComponentOptions<Vue> | VueConstructor<Vue> | string
 
 export const vueComponentProp = (validator?: Validator): DefaultPropOptions<VueComponent | undefined> => ({
   type: [Object, String],
