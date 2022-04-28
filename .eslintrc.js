@@ -134,4 +134,26 @@ module.exports = {
     'node_modules',
     'dist',
   ],
+  overrides: [
+    {
+      files: ['tests/**'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended'],
+      rules: {
+        // additional Jest rules
+        'jest/consistent-test-it': 'error',
+        'jest/no-duplicate-hooks': 'error',
+        'jest/no-test-return-statement': 'error',
+        'jest/prefer-called-with': 'warn',
+        'jest/prefer-comparison-matcher': 'warn',
+        'jest/prefer-equality-matcher': 'warn',
+        'jest/prefer-expect-resolves': 'warn',
+        'jest/prefer-hooks-on-top': 'warn',
+        'jest/prefer-spy-on': 'warn',
+        'jest/prefer-strict-equal': 'warn',
+        'jest/require-to-throw-message': 'warn',
+        'jest/require-top-level-describe': 'warn',
+      },
+    },
+  ],
 };
