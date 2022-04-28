@@ -26,5 +26,9 @@ const getOneOfType = <T extends readonly unknown[]>(values: T): PropType<T[numbe
   return allowedTypes;
 };
 
+/**
+ * Allows any of the specified allowed values (validated at runtime and compile time).
+ * Type parameter `T` can be used to adjust the inferred type at compile time, this is usually not necessary.
+ */
 export const oneOfProp = <T extends readonly unknown[]>(allowedValues: T, validator?: Validator): PropOptionsGenerator<T[number]> =>
   propOptionsGenerator(getOneOfType(allowedValues), validator, isOneOf(allowedValues));

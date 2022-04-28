@@ -7,7 +7,12 @@ interface FunctionPropOptionsGenerator<T> {
   required: RequiredPropOptions<T> & { default?: () => T };
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types -- we can't restrict the type here
+/* eslint-disable @typescript-eslint/ban-types */
+
+/**
+ * Allows any function. No further runtime validation is performed by default.
+ * Type parameter `T` can be used to restrict the type to a specific function signature at compile time.
+ */
 export const functionProp = <T extends Function>(validator?: Validator): FunctionPropOptionsGenerator<T> => ({
   optional: {
     type: Function,
