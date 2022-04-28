@@ -34,6 +34,7 @@
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
+    "@vue/composition-api": "^1.6.0",
     "eslint": "^8.14.0",
     "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-unicorn": "^42.0.0",
