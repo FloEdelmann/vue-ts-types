@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
+    "lint": "eslint .",
     "build": "tsc --project tsconfig.build.json"
   },
   "repository": {
@@ -29,6 +30,9 @@
   "homepage": "https://github.com/FloEdelmann/vue-ts-types",
   "devDependencies": {
     "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0",
     "jest": "^28.0.2",
     "ts-jest": "^28.0.0-next.1",
     "ts-node": "^10.7.0",

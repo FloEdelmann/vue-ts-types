@@ -1,8 +1,8 @@
 interface PropOptions<T> {
-  type?: PropType<T>
-  required?: boolean
-  default?: T | (() => T | null | undefined) | null | undefined
-  validator?(value: T): boolean
+  type?: PropType<T>;
+  required?: boolean;
+  default?: T | (() => T | null | undefined) | null | undefined;
+  validator?(value: T): boolean;
 }
 
 export type PropType<T> = PropConstructor<T> | PropConstructor<T>[]

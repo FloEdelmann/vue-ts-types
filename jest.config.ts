@@ -1,4 +1,4 @@
-import type { InitialOptionsTsJest } from 'ts-jest/dist/types'
+import type { InitialOptionsTsJest } from 'ts-jest/dist/types';
 
 const config: InitialOptionsTsJest = {
   clearMocks: true,
@@ -6,6 +6,6 @@ const config: InitialOptionsTsJest = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest/legacy',
   },
-}
+};
 
-export default config
+export default config;
