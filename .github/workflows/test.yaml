@@ -1,0 +1,98 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  test:
+    name: Test
+    strategy:
+      matrix:
+        version: [12, 14, 16]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.1.1
+        with:
+          node-version: ${{ matrix.version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm
+      - name: Test
+        run: npm run test
+
+  test-types:
+    name: Test types
+    strategy:
+      matrix:
+        version: [12, 14, 16]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.1.1
+        with:
+          node-version: ${{ matrix.version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm
+      - name: Test
+        run: npm run test:types
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.1.1
+        with:
+          node-version: 16
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm
+      - name: Lint
+        run: npm run lint
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.1.1
+        with:
+          node-version: 16
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm
+      - name: Build
+        run: npm run build
