@@ -1,54 +1,54 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
 import type * as Vue2 from 'vue/types/options';
 import type * as CompositionApi from '@vue/composition-api';
-import { integerProp, integerDefaultProp, integerRequiredProp } from '../../src/prop-types/integer';
+import { integerProp } from '../../src/prop-types/integer';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
 
-describe('integerProp', () => {
+describe('integerProp().optional', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<number | undefined>>(integerProp());
-    expectNotAssignable<Vue2.PropOptions<number>>(integerProp());
+    expectAssignable<Vue2.PropOptions<number | undefined>>(integerProp().optional);
+    expectNotAssignable<Vue2.PropOptions<number>>(integerProp().optional);
 
     expectType<Vue2ComponentWithProp<number | undefined>>(
-      createVue2Component(integerProp()),
+      createVue2Component(integerProp().optional),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<number | undefined>>(integerProp());
-    expectNotAssignable<CompositionApi.PropOptions<number>>(integerProp());
+    expectAssignable<CompositionApi.PropOptions<number | undefined>>(integerProp().optional);
+    expectNotAssignable<CompositionApi.PropOptions<number>>(integerProp().optional);
   });
 });
 
-describe('integerDefaultProp', () => {
+describe('integerProp().withDefault', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<number>>(integerDefaultProp(27));
-    expectNotAssignable<Vue2.PropOptions<string>>(integerDefaultProp(27));
+    expectAssignable<Vue2.PropOptions<number>>(integerProp().withDefault(27));
+    expectNotAssignable<Vue2.PropOptions<string>>(integerProp().withDefault(27));
 
     expectType<Vue2ComponentWithProp<number>>(
-      createVue2Component(integerDefaultProp(27)),
+      createVue2Component(integerProp().withDefault(27)),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<number>>(integerDefaultProp(27));
-    expectNotAssignable<CompositionApi.PropOptions<string>>(integerDefaultProp(27));
+    expectAssignable<CompositionApi.PropOptions<number>>(integerProp().withDefault(27));
+    expectNotAssignable<CompositionApi.PropOptions<string>>(integerProp().withDefault(27));
   });
 });
 
-describe('integerRequiredProp', () => {
+describe('integerProp().required', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<number>>(integerRequiredProp());
-    expectNotAssignable<Vue2.PropOptions<string>>(integerRequiredProp());
+    expectAssignable<Vue2.PropOptions<number>>(integerProp().required);
+    expectNotAssignable<Vue2.PropOptions<string>>(integerProp().required);
 
     expectType<Vue2ComponentWithProp<number>>(
-      createVue2Component(integerRequiredProp()),
+      createVue2Component(integerProp().required),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<number>>(integerRequiredProp());
-    expectNotAssignable<CompositionApi.PropOptions<string>>(integerRequiredProp());
+    expectAssignable<CompositionApi.PropOptions<number>>(integerProp().required);
+    expectNotAssignable<CompositionApi.PropOptions<string>>(integerProp().required);
   });
 });

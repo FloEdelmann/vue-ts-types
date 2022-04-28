@@ -1,8 +1,8 @@
-import { anyProp, anyDefaultProp, anyRequiredProp } from '../../src/prop-types/any';
+import { anyProp } from '../../src/prop-types/any';
 
-describe('anyProp', () => {
+describe('anyProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(anyProp()).toStrictEqual({
+    expect(anyProp().optional).toStrictEqual({
       type: undefined,
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('anyProp', () => {
   });
 });
 
-describe('anyDefaultProp', () => {
+describe('anyProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(anyDefaultProp('foo')).toStrictEqual({
+    expect(anyProp().withDefault('foo')).toStrictEqual({
       type: undefined,
       required: false,
       default: 'foo',
@@ -22,9 +22,9 @@ describe('anyDefaultProp', () => {
   });
 });
 
-describe('anyRequiredProp', () => {
+describe('anyProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(anyRequiredProp()).toStrictEqual({
+    expect(anyProp().required).toStrictEqual({
       type: undefined,
       required: true,
       validator: undefined,

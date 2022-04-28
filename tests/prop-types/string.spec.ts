@@ -1,8 +1,8 @@
-import { stringProp, stringDefaultProp, stringRequiredProp } from '../../src/prop-types/string';
+import { stringProp } from '../../src/prop-types/string';
 
-describe('stringProp', () => {
+describe('stringProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(stringProp()).toStrictEqual({
+    expect(stringProp().optional).toStrictEqual({
       type: String,
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('stringProp', () => {
   });
 });
 
-describe('stringDefaultProp', () => {
+describe('stringProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(stringDefaultProp('foo')).toStrictEqual({
+    expect(stringProp().withDefault('foo')).toStrictEqual({
       type: String,
       required: false,
       default: 'foo',
@@ -22,9 +22,9 @@ describe('stringDefaultProp', () => {
   });
 });
 
-describe('stringRequiredProp', () => {
+describe('stringProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(stringRequiredProp()).toStrictEqual({
+    expect(stringProp().required).toStrictEqual({
       type: String,
       required: true,
       validator: undefined,

@@ -17,6 +17,12 @@ export type PropConstructor<T> =
 export type RequiredPropOptions<T> = PropOptions<T> & { required: true }
 export type DefaultPropOptions<T> = PropOptions<T> & { default: unknown }
 
+export interface PropOptionsGenerator<T> {
+  optional: DefaultPropOptions<T | undefined>;
+  withDefault: (defaultValue: OneOfDefaultType<T>) => DefaultPropOptions<T>;
+  required: RequiredPropOptions<T>;
+}
+
 /** Allow simple values for primitive types, require generator function for complex types */
 export type OneOfDefaultType<T> = T extends boolean | number | string | symbol | null | undefined ? T : (() => T)
 

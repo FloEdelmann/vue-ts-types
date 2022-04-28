@@ -1,8 +1,8 @@
-import { integerProp, integerDefaultProp, integerRequiredProp } from '../../src/prop-types/integer';
+import { integerProp } from '../../src/prop-types/integer';
 
-describe('integerProp', () => {
+describe('integerProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(integerProp()).toStrictEqual({
+    expect(integerProp().optional).toStrictEqual({
       type: Number,
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('integerProp', () => {
   });
 });
 
-describe('integerDefaultProp', () => {
+describe('integerProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(integerDefaultProp(27)).toStrictEqual({
+    expect(integerProp().withDefault(27)).toStrictEqual({
       type: Number,
       required: false,
       default: 27,
@@ -22,9 +22,9 @@ describe('integerDefaultProp', () => {
   });
 });
 
-describe('integerRequiredProp', () => {
+describe('integerProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(integerRequiredProp()).toStrictEqual({
+    expect(integerProp().required).toStrictEqual({
       type: Number,
       required: true,
       validator: expect.any(Function),

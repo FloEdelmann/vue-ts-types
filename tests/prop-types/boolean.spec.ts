@@ -1,8 +1,8 @@
-import { booleanProp, booleanDefaultProp, booleanRequiredProp } from '../../src/prop-types/boolean';
+import { booleanProp } from '../../src/prop-types/boolean';
 
-describe('booleanProp', () => {
+describe('booleanProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(booleanProp()).toStrictEqual({
+    expect(booleanProp().optional).toStrictEqual({
       type: Boolean,
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('booleanProp', () => {
   });
 });
 
-describe('booleanDefaultProp', () => {
+describe('booleanProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(booleanDefaultProp(false)).toStrictEqual({
+    expect(booleanProp().withDefault(false)).toStrictEqual({
       type: Boolean,
       required: false,
       default: false,
@@ -22,9 +22,9 @@ describe('booleanDefaultProp', () => {
   });
 });
 
-describe('booleanRequiredProp', () => {
+describe('booleanProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(booleanRequiredProp()).toStrictEqual({
+    expect(booleanProp().required).toStrictEqual({
       type: Boolean,
       required: true,
       validator: undefined,

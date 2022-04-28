@@ -1,8 +1,8 @@
-import { functionProp, functionRequiredProp } from '../../src/prop-types/function';
+import { functionProp } from '../../src/prop-types/function';
 
-describe('functionProp', () => {
+describe('functionProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(functionProp()).toStrictEqual({
+    expect(functionProp().optional).toStrictEqual({
       type: Function,
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('functionProp', () => {
   });
 });
 
-describe('functionRequiredProp', () => {
+describe('functionProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(functionRequiredProp()).toStrictEqual({
+    expect(functionProp().required).toStrictEqual({
       type: Function,
       required: true,
       validator: undefined,

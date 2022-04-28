@@ -1,8 +1,8 @@
-import { objectProp, objectDefaultProp, objectRequiredProp } from '../../src/prop-types/object';
+import { objectProp } from '../../src/prop-types/object';
 
-describe('objectProp', () => {
+describe('objectProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(objectProp()).toStrictEqual({
+    expect(objectProp().optional).toStrictEqual({
       type: Object,
       required: false,
       default: undefined,
@@ -11,20 +11,22 @@ describe('objectProp', () => {
   });
 });
 
-describe('objectDefaultProp', () => {
+const defaultGenerator = () => ({ foo: 'bar' });
+
+describe('objectProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(objectDefaultProp({ foo: 'bar' })).toStrictEqual({
+    expect(objectProp().withDefault(defaultGenerator)).toStrictEqual({
       type: Object,
       required: false,
-      default: expect.any(Function),
+      default: defaultGenerator,
       validator: undefined,
     });
   });
 });
 
-describe('objectRequiredProp', () => {
+describe('objectProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(objectRequiredProp()).toStrictEqual({
+    expect(objectProp().required).toStrictEqual({
       type: Object,
       required: true,
       validator: undefined,

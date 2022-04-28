@@ -1,8 +1,8 @@
-import { vueComponentProp, vueComponentRequiredProp } from '../../src/prop-types/vueComponent';
+import { vueComponentProp } from '../../src/prop-types/vueComponent';
 
-describe('vueComponentProp', () => {
+describe('vueComponentProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(vueComponentProp()).toStrictEqual({
+    expect(vueComponentProp().optional).toStrictEqual({
       type: [Object, String],
       required: false,
       default: undefined,
@@ -11,9 +11,20 @@ describe('vueComponentProp', () => {
   });
 });
 
-describe('vueComponentRequiredProp', () => {
+describe('vueComponentProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(vueComponentRequiredProp()).toStrictEqual({
+    expect(vueComponentProp().withDefault('foo')).toStrictEqual({
+      type: [Object, String],
+      required: false,
+      default: 'foo',
+      validator: undefined,
+    });
+  });
+});
+
+describe('vueComponentProp().required', () => {
+  it('creates the correct prop options', () => {
+    expect(vueComponentProp().required).toStrictEqual({
       type: [Object, String],
       required: true,
       validator: undefined,

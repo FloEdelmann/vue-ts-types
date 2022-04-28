@@ -1,10 +1,10 @@
-import { instanceOfProp, instanceOfDefaultProp, instanceOfRequiredProp } from '../../src/prop-types/instanceOf';
+import { instanceOfProp } from '../../src/prop-types/instanceOf';
 
 class User {}
 
-describe('instanceOfProp', () => {
+describe('instanceOfProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(instanceOfProp(User)).toStrictEqual({
+    expect(instanceOfProp(User).optional).toStrictEqual({
       type: User,
       required: false,
       default: undefined,
@@ -13,9 +13,9 @@ describe('instanceOfProp', () => {
   });
 });
 
-describe('instanceOfDefaultProp', () => {
+describe('instanceOfProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(instanceOfDefaultProp(User, () => new User())).toStrictEqual({
+    expect(instanceOfProp(User).withDefault(() => new User())).toStrictEqual({
       type: User,
       required: false,
       default: expect.any(Function),
@@ -24,9 +24,9 @@ describe('instanceOfDefaultProp', () => {
   });
 });
 
-describe('instanceOfRequiredProp', () => {
+describe('instanceOfProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(instanceOfRequiredProp(User)).toStrictEqual({
+    expect(instanceOfProp(User).required).toStrictEqual({
       type: User,
       required: true,
       validator: expect.any(Function),

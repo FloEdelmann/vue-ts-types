@@ -1,6 +1,7 @@
-import type { DefaultPropOptions, OneOfDefaultType, PropConstructor, PropType, RequiredPropOptions } from '../types';
+import type { PropConstructor, PropOptionsGenerator, PropType } from '../types';
+import { propOptionsGenerator } from '../util';
 import type { Validator } from '../validators';
-import { isOneOf, vuePropValidator } from '../validators';
+import { isOneOf } from '../validators';
 
 // inspired by https://github.com/dwightjack/vue-types/blob/4.1.1/src/validators/oneof.ts
 const getOneOfType = <T extends readonly unknown[]>(values: T): PropType<T[number]> | undefined => {
@@ -25,22 +26,5 @@ const getOneOfType = <T extends readonly unknown[]>(values: T): PropType<T[numbe
   return allowedTypes;
 };
 
-export const oneOfProp = <T extends readonly unknown[]>(allowedValues: T, validator?: Validator): DefaultPropOptions<T[number] | undefined> => ({
-  type: getOneOfType(allowedValues),
-  required: false,
-  default: undefined,
-  validator: vuePropValidator(validator, isOneOf(allowedValues)),
-});
-
-export const oneOfDefaultProp = <T extends readonly unknown[]>(allowedValues: T, defaultValue: OneOfDefaultType<T[number]>, validator?: Validator): DefaultPropOptions<T[number]> => ({
-  type: getOneOfType(allowedValues),
-  required: false,
-  default: defaultValue,
-  validator: vuePropValidator(validator, isOneOf(allowedValues)),
-});
-
-export const oneOfRequiredProp = <T extends readonly unknown[]>(allowedValues: T, validator?: Validator): RequiredPropOptions<T[number]> => ({
-  type: getOneOfType(allowedValues),
-  required: true,
-  validator: vuePropValidator(validator, isOneOf(allowedValues)),
-});
+export const oneOfProp = <T extends readonly unknown[]>(allowedValues: T, validator?: Validator): PropOptionsGenerator<T[number]> =>
+  propOptionsGenerator(getOneOfType(allowedValues), validator, isOneOf(allowedValues));

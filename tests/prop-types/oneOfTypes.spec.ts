@@ -1,8 +1,8 @@
-import { oneOfTypesProp, oneOfTypesDefaultProp, oneOfTypesRequiredProp } from '../../src/prop-types/oneOfTypes';
+import { oneOfTypesProp } from '../../src/prop-types/oneOfTypes';
 
-describe('oneOfTypesProp', () => {
+describe('oneOfTypesProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfTypesProp<number | string>([Number, String])).toStrictEqual({
+    expect(oneOfTypesProp<number | string>([Number, String]).optional).toStrictEqual({
       type: [Number, String],
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('oneOfTypesProp', () => {
   });
 });
 
-describe('oneOfTypesDefaultProp', () => {
+describe('oneOfTypesProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfTypesDefaultProp<number | string>([Number, String], 'a')).toStrictEqual({
+    expect(oneOfTypesProp<number | string>([Number, String]).withDefault('a')).toStrictEqual({
       type: [Number, String],
       required: false,
       default: 'a',
@@ -22,9 +22,9 @@ describe('oneOfTypesDefaultProp', () => {
   });
 });
 
-describe('oneOfTypesRequiredProp', () => {
+describe('oneOfTypesProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfTypesRequiredProp<number | string>([Number, String])).toStrictEqual({
+    expect(oneOfTypesProp<number | string>([Number, String]).required).toStrictEqual({
       type: [Number, String],
       required: true,
       validator: undefined,

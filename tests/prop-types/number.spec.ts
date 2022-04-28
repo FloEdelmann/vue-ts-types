@@ -1,8 +1,8 @@
-import { numberProp, numberDefaultProp, numberRequiredProp } from '../../src/prop-types/number';
+import { numberProp } from '../../src/prop-types/number';
 
-describe('numberProp', () => {
+describe('numberProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(numberProp()).toStrictEqual({
+    expect(numberProp().optional).toStrictEqual({
       type: Number,
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('numberProp', () => {
   });
 });
 
-describe('numberDefaultProp', () => {
+describe('numberProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(numberDefaultProp(27)).toStrictEqual({
+    expect(numberProp().withDefault(27)).toStrictEqual({
       type: Number,
       required: false,
       default: 27,
@@ -22,9 +22,9 @@ describe('numberDefaultProp', () => {
   });
 });
 
-describe('numberRequiredProp', () => {
+describe('numberProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(numberRequiredProp()).toStrictEqual({
+    expect(numberProp().required).toStrictEqual({
       type: Number,
       required: true,
       validator: undefined,

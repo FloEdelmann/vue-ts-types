@@ -1,10 +1,10 @@
-import { oneOfObjectKeysProp, oneOfObjectKeysDefaultProp, oneOfObjectKeysRequiredProp } from '../../src/prop-types/oneOfObjectKeys';
+import { oneOfObjectKeysProp } from '../../src/prop-types/oneOfObjectKeys';
 
 const options = { a: 'a', b: 'b', c: 'c' };
 
-describe('oneOfObjectKeysProp', () => {
+describe('oneOfObjectKeysProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfObjectKeysProp(options)).toStrictEqual({
+    expect(oneOfObjectKeysProp(options).optional).toStrictEqual({
       type: String,
       required: false,
       default: undefined,
@@ -13,9 +13,9 @@ describe('oneOfObjectKeysProp', () => {
   });
 });
 
-describe('oneOfObjectKeysDefaultProp', () => {
+describe('oneOfObjectKeysProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfObjectKeysDefaultProp(options, 'a')).toStrictEqual({
+    expect(oneOfObjectKeysProp(options).withDefault('a')).toStrictEqual({
       type: String,
       required: false,
       default: 'a',
@@ -24,9 +24,9 @@ describe('oneOfObjectKeysDefaultProp', () => {
   });
 });
 
-describe('oneOfObjectKeysRequiredProp', () => {
+describe('oneOfObjectKeysProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfObjectKeysRequiredProp(options)).toStrictEqual({
+    expect(oneOfObjectKeysProp(options).required).toStrictEqual({
       type: String,
       required: true,
       validator: expect.any(Function),

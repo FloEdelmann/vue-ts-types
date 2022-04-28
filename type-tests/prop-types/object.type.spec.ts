@@ -1,7 +1,7 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
 import type * as Vue2 from 'vue/types/options';
 import type * as CompositionApi from '@vue/composition-api';
-import { objectProp, objectDefaultProp, objectRequiredProp } from '../../src/prop-types/object';
+import { objectProp } from '../../src/prop-types/object';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
 
@@ -9,60 +9,60 @@ interface User {
   name: string;
 }
 
-describe('objectProp', () => {
+describe('objectProp().optional', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<object | undefined>>(objectProp());
-    expectAssignable<Vue2.PropOptions<User | undefined>>(objectProp<User>());
-    expectNotAssignable<Vue2.PropOptions<User>>(objectProp<User>());
+    expectAssignable<Vue2.PropOptions<object | undefined>>(objectProp().optional);
+    expectAssignable<Vue2.PropOptions<User | undefined>>(objectProp<User>().optional);
+    expectNotAssignable<Vue2.PropOptions<User>>(objectProp<User>().optional);
 
     expectType<Vue2ComponentWithProp<object | undefined>>(
-      createVue2Component(objectProp()),
+      createVue2Component(objectProp().optional),
     );
 
     expectType<Vue2ComponentWithProp<User | undefined>>(
-      createVue2Component(objectProp<User>()),
+      createVue2Component(objectProp<User>().optional),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<object | undefined>>(objectProp());
-    expectAssignable<CompositionApi.PropOptions<User | undefined>>(objectProp<User>());
-    expectNotAssignable<CompositionApi.PropOptions<User>>(objectProp<User>());
+    expectAssignable<CompositionApi.PropOptions<object | undefined>>(objectProp().optional);
+    expectAssignable<CompositionApi.PropOptions<User | undefined>>(objectProp<User>().optional);
+    expectNotAssignable<CompositionApi.PropOptions<User>>(objectProp<User>().optional);
   });
 });
 
-describe('objectDefaultProp', () => {
+const userGenerator = () => ({ name: 'bar' });
+
+describe('objectProp().withDefault', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<User>>(objectDefaultProp({ name: 'foo' }));
-    expectNotAssignable<Vue2.PropOptions<User>>(objectDefaultProp({ foo: 'bar' }));
+    expectAssignable<Vue2.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
 
     expectType<Vue2ComponentWithProp<User>>(
-      createVue2Component(objectDefaultProp({ name: 'foo' })),
+      createVue2Component(objectProp<User>().withDefault(userGenerator)),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<User>>(objectDefaultProp({ name: 'foo' }));
-    expectNotAssignable<CompositionApi.PropOptions<User>>(objectDefaultProp({ foo: 'bar' }));
+    expectAssignable<CompositionApi.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
   });
 });
 
-describe('objectRequiredProp', () => {
+describe('objectProp().required', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<object>>(objectRequiredProp());
-    expectAssignable<Vue2.PropOptions<User>>(objectRequiredProp<User>());
+    expectAssignable<Vue2.PropOptions<object>>(objectProp().required);
+    expectAssignable<Vue2.PropOptions<User>>(objectProp<User>().required);
 
     expectType<Vue2ComponentWithProp<object>>(
-      createVue2Component(objectRequiredProp()),
+      createVue2Component(objectProp().required),
     );
 
     expectType<Vue2ComponentWithProp<User>>(
-      createVue2Component(objectRequiredProp<User>()),
+      createVue2Component(objectProp<User>().required),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<object>>(objectRequiredProp());
-    expectAssignable<CompositionApi.PropOptions<User>>(objectRequiredProp<User>());
+    expectAssignable<CompositionApi.PropOptions<object>>(objectProp().required);
+    expectAssignable<CompositionApi.PropOptions<User>>(objectProp<User>().required);
   });
 });

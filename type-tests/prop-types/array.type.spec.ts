@@ -1,68 +1,70 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
 import type * as Vue2 from 'vue/types/options';
 import type * as CompositionApi from '@vue/composition-api';
-import { arrayProp, arrayDefaultProp, arrayRequiredProp } from '../../src/prop-types/array';
+import { arrayProp } from '../../src/prop-types/array';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
 
-describe('arrayProp', () => {
+describe('arrayProp().optional', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<unknown[] | undefined>>(arrayProp());
-    expectAssignable<Vue2.PropOptions<string[] | undefined>>(arrayProp<string>());
-    expectNotAssignable<Vue2.PropOptions<unknown[]>>(arrayProp());
-    expectNotAssignable<Vue2.PropOptions<string[]>>(arrayProp<string>());
+    expectAssignable<Vue2.PropOptions<unknown[] | undefined>>(arrayProp().optional);
+    expectAssignable<Vue2.PropOptions<string[] | undefined>>(arrayProp<string>().optional);
+    expectNotAssignable<Vue2.PropOptions<unknown[]>>(arrayProp().optional);
+    expectNotAssignable<Vue2.PropOptions<string[]>>(arrayProp<string>().optional);
 
     expectType<Vue2ComponentWithProp<unknown[] | undefined>>(
-      createVue2Component(arrayProp()),
+      createVue2Component(arrayProp().optional),
     );
 
     expectType<Vue2ComponentWithProp<string[] | undefined>>(
-      createVue2Component(arrayProp<string>()),
+      createVue2Component(arrayProp<string>().optional),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<unknown[] | undefined>>(arrayProp());
-    expectAssignable<CompositionApi.PropOptions<string[] | undefined>>(arrayProp<string>());
-    expectNotAssignable<CompositionApi.PropOptions<unknown[]>>(arrayProp());
-    expectNotAssignable<CompositionApi.PropOptions<string[]>>(arrayProp<string>());
+    expectAssignable<CompositionApi.PropOptions<unknown[] | undefined>>(arrayProp().optional);
+    expectAssignable<CompositionApi.PropOptions<string[] | undefined>>(arrayProp<string>().optional);
+    expectNotAssignable<CompositionApi.PropOptions<unknown[]>>(arrayProp().optional);
+    expectNotAssignable<CompositionApi.PropOptions<string[]>>(arrayProp<string>().optional);
   });
 });
 
-describe('arrayDefaultProp', () => {
+describe('arrayProp().withDefault', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<string[]>>(arrayDefaultProp(['foo', 'bar']));
-    expectNotAssignable<Vue2.PropOptions<number[]>>(arrayDefaultProp(['foo', 'bar']));
+    expectAssignable<Vue2.PropOptions<unknown[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
+    expectNotAssignable<Vue2.PropOptions<string[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
+    expectAssignable<Vue2.PropOptions<string[]>>(arrayProp<string>().withDefault(() => ['foo', 'bar']));
 
     expectType<Vue2ComponentWithProp<string[]>>(
-      createVue2Component(arrayDefaultProp(['foo', 'bar'])),
+      createVue2Component(arrayProp<string>().withDefault(() => ['foo', 'bar'])),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<string[]>>(arrayDefaultProp(['foo', 'bar']));
-    expectNotAssignable<CompositionApi.PropOptions<number[]>>(arrayDefaultProp(['foo', 'bar']));
+    expectAssignable<CompositionApi.PropOptions<unknown[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
+    expectNotAssignable<CompositionApi.PropOptions<string[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
+    expectAssignable<CompositionApi.PropOptions<string[]>>(arrayProp<string>().withDefault(() => ['foo', 'bar']));
   });
 });
 
-describe('arrayRequiredProp', () => {
+describe('arrayProp().required', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<unknown[]>>(arrayRequiredProp());
-    expectAssignable<Vue2.PropOptions<string[]>>(arrayRequiredProp<string>());
-    expectNotAssignable<Vue2.PropOptions<number[]>>(arrayRequiredProp<string>());
+    expectAssignable<Vue2.PropOptions<unknown[]>>(arrayProp().required);
+    expectAssignable<Vue2.PropOptions<string[]>>(arrayProp<string>().required);
+    expectNotAssignable<Vue2.PropOptions<number[]>>(arrayProp<string>().required);
 
     expectType<Vue2ComponentWithProp<unknown[]>>(
-      createVue2Component(arrayRequiredProp()),
+      createVue2Component(arrayProp().required),
     );
 
     expectType<Vue2ComponentWithProp<string[]>>(
-      createVue2Component(arrayRequiredProp<string>()),
+      createVue2Component(arrayProp<string>().required),
     );
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<unknown[]>>(arrayRequiredProp());
-    expectAssignable<CompositionApi.PropOptions<string[]>>(arrayRequiredProp<string>());
-    expectNotAssignable<CompositionApi.PropOptions<number[]>>(arrayRequiredProp<string>());
+    expectAssignable<CompositionApi.PropOptions<unknown[]>>(arrayProp().required);
+    expectAssignable<CompositionApi.PropOptions<string[]>>(arrayProp<string>().required);
+    expectNotAssignable<CompositionApi.PropOptions<number[]>>(arrayProp<string>().required);
   });
 });

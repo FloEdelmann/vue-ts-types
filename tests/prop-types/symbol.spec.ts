@@ -1,8 +1,8 @@
-import { symbolProp, symbolDefaultProp, symbolRequiredProp } from '../../src/prop-types/symbol';
+import { symbolProp } from '../../src/prop-types/symbol';
 
-describe('symbolProp', () => {
+describe('symbolProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(symbolProp()).toStrictEqual({
+    expect(symbolProp().optional).toStrictEqual({
       type: undefined,
       required: false,
       default: undefined,
@@ -11,9 +11,9 @@ describe('symbolProp', () => {
   });
 });
 
-describe('symbolDefaultProp', () => {
+describe('symbolProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(symbolDefaultProp(Symbol.for('foo'))).toStrictEqual({
+    expect(symbolProp().withDefault(Symbol.for('foo'))).toStrictEqual({
       type: undefined,
       required: false,
       default: Symbol.for('foo'),
@@ -22,9 +22,9 @@ describe('symbolDefaultProp', () => {
   });
 });
 
-describe('symbolRequiredProp', () => {
+describe('symbolProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(symbolRequiredProp()).toStrictEqual({
+    expect(symbolProp().required).toStrictEqual({
       type: undefined,
       required: true,
       validator: expect.any(Function),

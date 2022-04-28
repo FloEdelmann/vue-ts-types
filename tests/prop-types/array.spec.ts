@@ -1,8 +1,8 @@
-import { arrayProp, arrayDefaultProp, arrayRequiredProp } from '../../src/prop-types/array';
+import { arrayProp } from '../../src/prop-types/array';
 
-describe('arrayProp', () => {
+describe('arrayProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(arrayProp()).toStrictEqual({
+    expect(arrayProp().optional).toStrictEqual({
       type: Array,
       required: false,
       default: undefined,
@@ -11,20 +11,22 @@ describe('arrayProp', () => {
   });
 });
 
-describe('arrayDefaultProp', () => {
+const defaultGenerator = () => ['foo'];
+
+describe('arrayProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(arrayDefaultProp(['foo'])).toStrictEqual({
+    expect(arrayProp().withDefault(defaultGenerator)).toStrictEqual({
       type: Array,
       required: false,
-      default: expect.any(Function),
+      default: defaultGenerator,
       validator: undefined,
     });
   });
 });
 
-describe('arrayRequiredProp', () => {
+describe('arrayProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(arrayRequiredProp()).toStrictEqual({
+    expect(arrayProp().required).toStrictEqual({
       type: Array,
       required: true,
       validator: undefined,

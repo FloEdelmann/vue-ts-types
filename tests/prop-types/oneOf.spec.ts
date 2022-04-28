@@ -1,8 +1,8 @@
-import { oneOfProp, oneOfDefaultProp, oneOfRequiredProp } from '../../src/prop-types/oneOf';
+import { oneOfProp } from '../../src/prop-types/oneOf';
 
-describe('oneOfProp', () => {
+describe('oneOfProp().optional', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfProp(['a', 'b', 'c'] as const)).toStrictEqual({
+    expect(oneOfProp(['a', 'b', 'c'] as const).optional).toStrictEqual({
       type: String,
       required: false,
       default: undefined,
@@ -11,18 +11,18 @@ describe('oneOfProp', () => {
   });
 
   it('has the correct type', () => {
-    expect(oneOfProp(['a', 'b', 'c'] as const).type).toStrictEqual(String);
-    expect(oneOfProp([1, 2, 3] as const).type).toStrictEqual(Number);
-    expect(oneOfProp(['foo', 1, 2, 3] as const).type).toStrictEqual([String, Number]);
-    expect(oneOfProp([true, false, 'both'] as const).type).toStrictEqual([Boolean, String]);
-    expect(oneOfProp([undefined, null] as const).type).toStrictEqual(undefined);
-    expect(oneOfProp([undefined, 'defined'] as const).type).toStrictEqual(String);
+    expect(oneOfProp(['a', 'b', 'c'] as const).optional.type).toStrictEqual(String);
+    expect(oneOfProp([1, 2, 3] as const).optional.type).toStrictEqual(Number);
+    expect(oneOfProp(['foo', 1, 2, 3] as const).optional.type).toStrictEqual([String, Number]);
+    expect(oneOfProp([true, false, 'both'] as const).optional.type).toStrictEqual([Boolean, String]);
+    expect(oneOfProp([undefined, null] as const).optional.type).toStrictEqual(undefined);
+    expect(oneOfProp([undefined, 'defined'] as const).optional.type).toStrictEqual(String);
   });
 });
 
-describe('oneOfDefaultProp', () => {
+describe('oneOfProp().withDefault', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfDefaultProp(['a', 'b', 'c'] as const, 'a')).toStrictEqual({
+    expect(oneOfProp(['a', 'b', 'c'] as const).withDefault('a')).toStrictEqual({
       type: String,
       required: false,
       default: 'a',
@@ -31,9 +31,9 @@ describe('oneOfDefaultProp', () => {
   });
 });
 
-describe('oneOfRequiredProp', () => {
+describe('oneOfProp().required', () => {
   it('creates the correct prop options', () => {
-    expect(oneOfRequiredProp(['a', 'b', 'c'] as const)).toStrictEqual({
+    expect(oneOfProp(['a', 'b', 'c'] as const).required).toStrictEqual({
       type: String,
       required: true,
       validator: expect.any(Function),
