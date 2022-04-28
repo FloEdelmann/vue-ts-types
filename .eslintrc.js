@@ -165,6 +165,12 @@ module.exports = {
         'jest/prefer-strict-equal': 'warn',
         'jest/require-to-throw-message': 'warn',
         'jest/require-top-level-describe': 'warn',
+
+        // less strict other rules
+        'unicorn/no-null': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
       },
     },
   ],

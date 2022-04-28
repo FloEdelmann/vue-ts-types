@@ -7,6 +7,7 @@ const config: InitialOptionsTsJest = {
     '^.+\\.tsx?$': 'ts-jest/legacy',
   },
   testMatch: ['**/tests/**/*.spec.ts'],
+  setupFilesAfterEnv: ['jest-extended/all'],
 
 };
 
