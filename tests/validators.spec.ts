@@ -1,4 +1,4 @@
-import { vuePropValidator, isOneOf, isInteger, isSymbol, isInstanceOf } from '../validators'
+import { vuePropValidator, isOneOf, isInteger, isSymbol, isInstanceOf } from '../src/validators'
 
 describe('validators', () => {
   describe('isInteger', () => {
