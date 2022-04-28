@@ -6,6 +6,8 @@ const config: InitialOptionsTsJest = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest/legacy',
   },
+  testMatch: ['**/tests/**/*.spec.ts'],
+
 };
 
 export default config;
