@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/prefer-module */
+
 module.exports = {
   env: {
     es2021: true,
@@ -7,6 +9,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:unicorn/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -85,6 +88,15 @@ module.exports = {
     'spaced-comment': 'error',
     'space-unary-ops': 'error',
     'template-curly-spacing': 'error',
+
+    // eslint-plugin-unicorn
+    'unicorn/filename-case': 'off',
+    'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
+    'unicorn/prevent-abbreviations': ['warn', {
+      replacements: {
+        prop: false,
+      },
+    }],
 
     // @typescript-eslint/eslint-plugin
     '@typescript-eslint/array-type': 'error',
