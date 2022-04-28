@@ -30,7 +30,7 @@ jobs:
           node-version: ${{ matrix.version }}
           cache: 'npm'
       - name: Install dependencies
-        run: npm
+        run: npm ci
       - name: Test
         run: npm run test
 
@@ -53,7 +53,7 @@ jobs:
           node-version: ${{ matrix.version }}
           cache: 'npm'
       - name: Install dependencies
-        run: npm
+        run: npm ci
       - name: Test
         run: npm run test:types
 
@@ -73,7 +73,7 @@ jobs:
           node-version: 16
           cache: 'npm'
       - name: Install dependencies
-        run: npm
+        run: npm ci
       - name: Lint
         run: npm run lint
 
@@ -93,6 +93,6 @@ jobs:
           node-version: 16
           cache: 'npm'
       - name: Install dependencies
-        run: npm
+        run: npm ci
       - name: Build
         run: npm run build
