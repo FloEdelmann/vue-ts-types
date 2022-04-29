@@ -286,6 +286,10 @@ instanceOfProp(Date).withDefault(() => new Date())
   // → prop type: Date
 ```
 
+## Contributing
+
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md).
+
 ## Similar packages
 
 * [vue-types](https://www.npmjs.com/package/vue-types/), which this project took heavy inspiration from
