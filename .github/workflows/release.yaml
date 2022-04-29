@@ -23,6 +23,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
       - name: Setup Node.js
         uses: actions/setup-node@v3.1.1
         with:
@@ -42,11 +45,16 @@ jobs:
       - name: Release new version
         run: |
           npm publish --access public
-          git push --tags
           VERSION_NUMBER=$(git tag --list | tail -n 1 | cut -d v -f 2)
           echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_API_TOKEN }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          tags: true
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1.10.0
         with:
