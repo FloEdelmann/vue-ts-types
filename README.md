@@ -28,6 +28,12 @@ Vue.component('MyComponent', {
 });
 ```
 
+## Installation
+
+```bash
+npm install vue-ts-types
+```
+
 ## Usage
 
 Each of the prop functions returns an object with the following properties:
@@ -279,3 +285,14 @@ instanceOfProp(Date).required
 instanceOfProp(Date).withDefault(() => new Date())
   // → prop type: Date
 ```
+
+## Similar packages
+
+* [vue-types](https://www.npmjs.com/package/vue-types/), which this project took heavy inspiration from
+* [vue-prop](https://www.npmjs.com/package/vue-prop)
+* [vuept](https://www.npmjs.com/package/vuept)
+
+## License
+
+Unless otherwise noted, all source code is licensed under the MIT License.  
+Copyright (c) 2022 Flo Edelmann
