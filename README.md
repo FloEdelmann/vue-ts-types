@@ -2,6 +2,8 @@
 
 > Lightweight TypeScript-first Vue prop type definitions
 
+[![npm](https://img.shields.io/npm/v/vue-ts-types?color=red)](https://www.npmjs.com/package/vue-ts-types) [![GitHub](https://img.shields.io/github/package-json/v/FloEdelmann/vue-ts-types?color=blue&logo=github)](https://github.com/FloEdelmann/vue-ts-types)
+
 ## Example
 
 ```ts
