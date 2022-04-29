@@ -12,15 +12,15 @@ Install all development dependencies with `npm install`.
 Run tests or type tests in watch mode:
 
 ```bash
-npm run test -- --watch
-npm run test:types -- --watch
+npm run test:watch
+npm run test-types:watch
 ```
 
 Before you commit, run all following commands to ensure that all tests pass:
 
 ```bash
 npm run test
-npm run test:types
+npm run test-types
 npm run lint
 npm run build
 ```

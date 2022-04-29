@@ -7,7 +7,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "test:types": "jest -c jest.config.tsd.ts",
+    "test:watch": "jest --watch",
+    "test-types": "jest -c jest.config.tsd.ts",
+    "test-types:watch": "jest -c jest.config.tsd.ts --watch",
     "lint": "eslint .",
     "build": "tsc --project tsconfig.build.json"
   },
