@@ -13,14 +13,14 @@ Run tests or type tests in watch mode:
 
 ```bash
 npm run test:watch
-npm run test-types:watch
+npm run type-test:watch
 ```
 
 Before you commit, run all following commands to ensure that all tests pass:
 
 ```bash
 npm run test
-npm run test-types
+npm run type-test
 npm run lint
 npm run build
 ```

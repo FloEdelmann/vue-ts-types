@@ -34,8 +34,8 @@ jobs:
       - name: Test
         run: npm run test
 
-  test-types:
-    name: Test types
+  type-test:
+    name: Type test
     strategy:
       matrix:
         version: [12, 14, 16]
@@ -54,8 +54,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Test types
-        run: npm run test-types
+      - name: Type test
+        run: npm run type-test
 
   lint:
     name: Lint

@@ -8,8 +8,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "test-types": "jest -c jest.config.tsd.ts",
-    "test-types:watch": "jest -c jest.config.tsd.ts --watch",
+    "type-test": "jest -c jest.config.tsd.ts",
+    "type-test:watch": "jest -c jest.config.tsd.ts --watch",
     "lint": "eslint .",
     "build": "tsc --project tsconfig.build.json"
   },
