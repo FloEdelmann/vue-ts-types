@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseType:
+        description: 'Release type'
+        required: true
+        default: 'minor'
+        type: choice
+        options:
+        - major
+        - minor
+        - patch
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.1.1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Setup git
+        run: |
+          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git config user.name "Flo Edelmann"
+          git config user.email "florian-edelmann@online.de"
+      - name: Bump ${{ github.event.inputs.releaseType }} version
+        run: npm version ${{ github.event.inputs.releaseType }} --force -m "Version %s"
+      - name: Release new version
+        run: |
+          npm publish --access public
+          git push gh-origin HEAD:main --tags
+          VERSION_NUMBER=$(git tag --list | tail -n 1 | cut -d v -f 2)
+          echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_TOKEN }}
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1.10.0
+        with:
+          tag: v${{ env.VERSION_NUMBER }}
+          name: Version ${{ env.VERSION_NUMBER }}
+          generateReleaseNotes: true
+          draft: true
