@@ -35,7 +35,6 @@ jobs:
         run: npm run build
       - name: Setup git
         run: |
-          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git config user.name "Flo Edelmann"
           git config user.email "florian-edelmann@online.de"
       - name: Bump ${{ github.event.inputs.releaseType }} version
@@ -43,7 +42,7 @@ jobs:
       - name: Release new version
         run: |
           npm publish --access public
-          git push gh-origin HEAD:main --tags
+          git push --tags
           VERSION_NUMBER=$(git tag --list | tail -n 1 | cut -d v -f 2)
           echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
         env:
