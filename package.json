@@ -46,7 +46,7 @@
     "jest": "^28.1.0",
     "jest-extended": "^2.0.0",
     "jest-runner-tsd": "^3.0.1",
-    "ts-jest": "^28.0.1",
+    "ts-jest": "^28.0.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4",
     "vue": "^2.6.14"
