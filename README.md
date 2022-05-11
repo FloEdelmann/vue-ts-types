@@ -62,9 +62,10 @@ numberProp(isPositive).optional
   // → prop type: number | undefined
 ```
 
-### `stringProp(validator?: Validator)`
+### `stringProp<T>(validator?: Validator)`
 
-Allows any string. No further runtime validation is performed by default.
+Allows any string. No further runtime validation is performed by default.  
+Type parameter `T` can be used to restrict the type at compile time with a union type.
 
 ```ts
 stringProp().optional
@@ -73,6 +74,15 @@ stringProp().required
   // → prop type: string
 stringProp().withDefault('foo')
   // → prop type: string
+
+type Foo = 'a' | 'b' | 'c';
+
+stringProp<Foo>().optional
+  // → prop type: Foo | undefined
+stringProp<Foo>().required
+  // → prop type: Foo
+stringProp<Foo>().withDefault('a')
+  // → prop type: Foo
 ```
 
 ### `booleanProp(validator?: Validator)`
