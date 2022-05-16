@@ -1,4 +1,4 @@
-interface PropOptions<T> {
+export interface PropOptions<T> {
   type?: PropType<T>;
   required?: boolean;
   default?: T | (() => T | null | undefined) | null | undefined;
