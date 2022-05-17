@@ -115,6 +115,7 @@ module.exports = {
     }],
     '@typescript-eslint/no-duplicate-imports': 'error',
     '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
+    '@typescript-eslint/no-extraneous-class': 'off',
     '@typescript-eslint/no-shadow': ['warn', { ignoreOnInitialization: true }],
     '@typescript-eslint/no-redundant-type-constituents': 'error',
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
