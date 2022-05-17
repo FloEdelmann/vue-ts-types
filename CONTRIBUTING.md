@@ -33,5 +33,6 @@ When adding a new prop type, you need to modify several files:
 2. `src/index.ts` – re-export the new prop type from the main entrypoint.
 3. `tests/prop-types/yourNewPropType.spec.ts` – the unit tests.
 4. `type-tests/prop-types/yourNewPropType.type.spec.ts` – the type tests.
+5. `README.md` – the documentation.
 
 Please use the existing files as a reference and follow the existing style.
