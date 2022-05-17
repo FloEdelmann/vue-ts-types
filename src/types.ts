@@ -8,9 +8,11 @@ export interface PropOptions<T> {
 export type PropType<T> = PropConstructor<T> | PropConstructor<T>[]
 
 export type PropConstructor<T> =
+  // eslint-disable-next-line @typescript-eslint/prefer-function-type
   | { (): T }
+  // eslint-disable-next-line @typescript-eslint/prefer-function-type
   | { new(...parameters: any[]): T & object }
-  // eslint-disable-next-line @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/prefer-function-type
   | { new(...parameters: string[]): Function }
 
 
