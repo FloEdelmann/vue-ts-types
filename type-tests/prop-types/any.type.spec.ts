@@ -7,7 +7,7 @@ import type { Vue2ComponentWithProp } from '../utils';
 
 describe('anyProp().optional', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<any>>(anyProp().optional);
+    expectAssignable<Vue2.PropOptions>(anyProp().optional);
     expectAssignable<Vue2.PropOptions<number>>(anyProp().optional);
     expectAssignable<Vue2.PropOptions<string>>(anyProp().optional);
     expectAssignable<Vue2.PropOptions<string | undefined>>(anyProp<string>().optional);
@@ -23,7 +23,7 @@ describe('anyProp().optional', () => {
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<any>>(anyProp().optional);
+    expectAssignable<CompositionApi.PropOptions>(anyProp().optional);
     expectAssignable<CompositionApi.PropOptions<number>>(anyProp().optional);
     expectAssignable<CompositionApi.PropOptions<string>>(anyProp().optional);
     expectAssignable<CompositionApi.PropOptions<string | undefined>>(anyProp<string>().optional);
@@ -33,7 +33,7 @@ describe('anyProp().optional', () => {
 
 describe('anyProp().withDefault', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<any>>(anyProp().withDefault('foo'));
+    expectAssignable<Vue2.PropOptions>(anyProp().withDefault('foo'));
     expectAssignable<Vue2.PropOptions<string>>(anyProp().withDefault('foo'));
     expectAssignable<Vue2.PropOptions<number>>(anyProp().withDefault('foo'));
     expectAssignable<Vue2.PropOptions<string>>(anyProp<string>().withDefault('foo'));
@@ -49,7 +49,7 @@ describe('anyProp().withDefault', () => {
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<any>>(anyProp().withDefault('foo'));
+    expectAssignable<CompositionApi.PropOptions>(anyProp().withDefault('foo'));
     expectAssignable<CompositionApi.PropOptions<string>>(anyProp().withDefault('foo'));
     expectAssignable<CompositionApi.PropOptions<number>>(anyProp().withDefault('foo'));
     expectAssignable<CompositionApi.PropOptions<string>>(anyProp<string>().withDefault('foo'));
@@ -59,7 +59,7 @@ describe('anyProp().withDefault', () => {
 
 describe('anyProp().required', () => {
   describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<any>>(anyProp().required);
+    expectAssignable<Vue2.PropOptions>(anyProp().required);
     expectAssignable<Vue2.PropOptions<string>>(anyProp().required);
     expectAssignable<Vue2.PropOptions<string>>(anyProp<string>().required);
     expectNotAssignable<Vue2.PropOptions<number>>(anyProp<string>().required);
@@ -74,7 +74,7 @@ describe('anyProp().required', () => {
   });
 
   describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<any>>(anyProp().required);
+    expectAssignable<CompositionApi.PropOptions>(anyProp().required);
     expectAssignable<CompositionApi.PropOptions<string>>(anyProp().required);
     expectAssignable<CompositionApi.PropOptions<string>>(anyProp<string>().required);
     expectNotAssignable<CompositionApi.PropOptions<number>>(anyProp<string>().required);
