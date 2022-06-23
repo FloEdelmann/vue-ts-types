@@ -282,7 +282,7 @@ oneOfTypesProp<number | string>([Number, String]).withDefault(42)
   // → prop type: string | number
 ```
 
-### `instanceOfProp()`
+### `instanceOfProp<T>(parent: T, validator?: Validator)`
 
 Allows instances of the given constructor (validated at runtime and compile time).  
 Type parameter `T` can be used to adjust the inferred type at compile time.
