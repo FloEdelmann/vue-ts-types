@@ -43,7 +43,7 @@
     "eslint": "^8.18.0",
     "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-unicorn": "^42.0.0",
-    "jest": "^28.1.1",
+    "jest": "^28.1.2",
     "jest-extended": "^2.0.0",
     "jest-runner-tsd": "^3.1.0",
     "ts-jest": "^28.0.5",
