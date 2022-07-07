@@ -1,4 +1,4 @@
-import type { ComponentOptions, VueConstructor } from 'vue';
+import type { ComponentOptions, VueConstructor } from 'vue2-6';
 import type { PropOptionsGenerator } from '../types';
 import { propOptionsGenerator } from '../util';
 import type { Validator } from '../validators';

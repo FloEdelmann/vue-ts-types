@@ -39,7 +39,6 @@
     "@types/jest": "^28.1.5",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
-    "@vue/composition-api": "^1.7.0",
     "eslint": "^8.19.0",
     "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-unicorn": "^43.0.1",
@@ -49,7 +48,9 @@
     "ts-jest": "^28.0.5",
     "ts-node": "^10.8.2",
     "typescript": "^4.7.4",
-    "vue": "^2.6.14"
+    "vue": "^3.2.37",
+    "vue2-6": "npm:vue@~2.6.14",
+    "vue2-7": "npm:vue@~2.7.5"
   },
   "peerDependencies": {
     "vue": "^2.6 || ^3.2"

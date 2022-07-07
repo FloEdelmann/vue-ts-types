@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue2-6';
 import { isInstanceOf, isInteger, isOneOf, isSymbol, vuePropValidator } from '../src/validators';
 
 describe('vuePropValidator', () => {

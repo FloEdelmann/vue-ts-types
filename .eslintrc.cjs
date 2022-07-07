@@ -30,7 +30,9 @@ module.exports = {
     'arrow-spacing': 'error',
     'block-spacing': 'error',
     'brace-style': ['error', 'stroustrup'],
-    'camelcase': 'error',
+    'camelcase': ['error', {
+      allow: ['Vue2_6', 'Vue2_7'],
+    }],
     'comma-dangle': ['error', 'always-multiline'],
     'comma-spacing': 'error',
     'comma-style': 'error',
