@@ -1,4 +1,3 @@
-import Vue from 'vue2-6';
 import { isInstanceOf, isInteger, isOneOf, isSymbol, vuePropValidator } from '../src/validators';
 
 describe('vuePropValidator', () => {
@@ -7,7 +6,7 @@ describe('vuePropValidator', () => {
   const validator3 = jest.fn().mockReturnValue('some error message');
   const validator4 = jest.fn();
 
-  const warnSpy = jest.spyOn(Vue.util, 'warn').mockImplementation();
+  const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
 
   it('returns undefined if no validator is passed', () => {
     expect(vuePropValidator()).toBeUndefined();

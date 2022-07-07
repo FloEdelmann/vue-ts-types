@@ -1,9 +1,9 @@
-import type { ComponentOptions, VueConstructor } from 'vue2-6';
 import type { PropOptionsGenerator } from '../types';
 import { propOptionsGenerator } from '../util';
 import type { Validator } from '../validators';
 
-export type VueComponent = ComponentOptions<Vue> | VueConstructor<Vue> | string
+/** Has to be so broad to allow Vue 2 and Vue 3 component options or instances. */
+export type VueComponent = object | string
 
 /**
  * Allows any Vue component instance, name or options object. No built-in runtime validation is performed by default.
