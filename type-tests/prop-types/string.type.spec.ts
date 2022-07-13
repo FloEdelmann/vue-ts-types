@@ -1,6 +1,7 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
+import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
 import { stringProp } from '../../src/prop-types/string';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
@@ -29,6 +30,13 @@ describe('stringProp().optional', () => {
     expectNotAssignable<Vue2_7.PropOptions<string>>(stringProp().optional);
     expectNotAssignable<Vue2_7.PropOptions<Foo>>(stringProp<Foo>().optional);
   });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<string | undefined>>(stringProp().optional);
+    expectAssignable<Vue3.Prop<Foo | undefined>>(stringProp<Foo>().optional);
+    expectNotAssignable<Vue3.Prop<string>>(stringProp().optional);
+    expectNotAssignable<Vue3.Prop<Foo>>(stringProp<Foo>().optional);
+  });
 });
 
 describe('stringProp().withDefault', () => {
@@ -53,6 +61,13 @@ describe('stringProp().withDefault', () => {
     expectNotAssignable<Vue2_7.PropOptions<number>>(stringProp().withDefault('foo'));
     expectNotAssignable<Vue2_7.PropOptions<number>>(stringProp<Foo>().withDefault('a'));
   });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<string>>(stringProp().withDefault('foo'));
+    expectAssignable<Vue3.Prop<Foo>>(stringProp<Foo>().withDefault('a'));
+    expectNotAssignable<Vue3.Prop<number>>(stringProp().withDefault('foo'));
+    expectNotAssignable<Vue3.Prop<number>>(stringProp<Foo>().withDefault('a'));
+  });
 });
 
 describe('stringProp().required', () => {
@@ -76,5 +91,12 @@ describe('stringProp().required', () => {
     expectAssignable<Vue2_7.PropOptions<Foo>>(stringProp<Foo>().required);
     expectNotAssignable<Vue2_7.PropOptions<number>>(stringProp().required);
     expectNotAssignable<Vue2_7.PropOptions<number>>(stringProp<Foo>().required);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<string>>(stringProp().required);
+    expectAssignable<Vue3.Prop<Foo>>(stringProp<Foo>().required);
+    expectNotAssignable<Vue3.Prop<number>>(stringProp().required);
+    expectNotAssignable<Vue3.Prop<number>>(stringProp<Foo>().required);
   });
 });

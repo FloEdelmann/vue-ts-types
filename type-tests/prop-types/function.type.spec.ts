@@ -1,6 +1,7 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
+import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
 import { functionProp } from '../../src/prop-types/function';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
@@ -31,6 +32,13 @@ describe('functionProp().optional', () => {
     expectNotAssignable<Vue2_7.PropOptions<Function>>(functionProp().optional);
     expectNotAssignable<Vue2_7.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().optional);
   });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<Function | undefined>>(functionProp().optional);
+    expectAssignable<Vue3.Prop<MyCustomCallback | undefined>>(functionProp<MyCustomCallback>().optional);
+    expectNotAssignable<Vue3.Prop<Function>>(functionProp().optional);
+    expectNotAssignable<Vue3.Prop<MyCustomCallback>>(functionProp<MyCustomCallback>().optional);
+  });
 });
 
 describe('functionProp().required', () => {
@@ -52,5 +60,11 @@ describe('functionProp().required', () => {
     expectAssignable<Vue2_7.PropOptions<Function>>(functionProp().required);
     expectAssignable<Vue2_7.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().required);
     expectNotAssignable<Vue2_7.PropOptions<string>>(functionProp().required);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<Function>>(functionProp().required);
+    expectAssignable<Vue3.Prop<MyCustomCallback>>(functionProp<MyCustomCallback>().required);
+    expectNotAssignable<Vue3.Prop<string>>(functionProp().required);
   });
 });

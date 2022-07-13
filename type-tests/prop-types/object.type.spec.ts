@@ -1,6 +1,7 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
+import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
 import { objectProp } from '../../src/prop-types/object';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
@@ -29,6 +30,12 @@ describe('objectProp().optional', () => {
     expectAssignable<Vue2_7.PropOptions<User | undefined>>(objectProp<User>().optional);
     expectNotAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().optional);
   });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<object | undefined>>(objectProp().optional);
+    expectAssignable<Vue3.Prop<User | undefined>>(objectProp<User>().optional);
+    expectNotAssignable<Vue3.Prop<User>>(objectProp<User>().optional);
+  });
 });
 
 const userGenerator = () => ({ name: 'bar' });
@@ -44,6 +51,10 @@ describe('objectProp().withDefault', () => {
 
   describe('Vue 2.7', () => {
     expectAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<User>>(objectProp<User>().withDefault(userGenerator));
   });
 });
 
@@ -64,5 +75,10 @@ describe('objectProp().required', () => {
   describe('Vue 2.7', () => {
     expectAssignable<Vue2_7.PropOptions<object>>(objectProp().required);
     expectAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().required);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<object>>(objectProp().required);
+    expectAssignable<Vue3.Prop<User>>(objectProp<User>().required);
   });
 });

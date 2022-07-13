@@ -1,6 +1,7 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
+import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
 import { arrayProp } from '../../src/prop-types/array';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
@@ -27,6 +28,13 @@ describe('arrayProp().optional', () => {
     expectNotAssignable<Vue2_7.PropOptions<unknown[]>>(arrayProp().optional);
     expectNotAssignable<Vue2_7.PropOptions<string[]>>(arrayProp<string>().optional);
   });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<unknown[] | undefined>>(arrayProp().optional);
+    expectAssignable<Vue3.Prop<string[] | undefined>>(arrayProp<string>().optional);
+    expectNotAssignable<Vue3.Prop<unknown[]>>(arrayProp().optional);
+    expectNotAssignable<Vue3.Prop<string[]>>(arrayProp<string>().optional);
+  });
 });
 
 describe('arrayProp().withDefault', () => {
@@ -44,6 +52,12 @@ describe('arrayProp().withDefault', () => {
     expectAssignable<Vue2_7.PropOptions<unknown[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
     expectNotAssignable<Vue2_7.PropOptions<string[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
     expectAssignable<Vue2_7.PropOptions<string[]>>(arrayProp<string>().withDefault(() => ['foo', 'bar']));
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<unknown[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
+    expectNotAssignable<Vue3.Prop<string[]>>(arrayProp().withDefault(() => ['foo', 'bar']));
+    expectAssignable<Vue3.Prop<string[]>>(arrayProp<string>().withDefault(() => ['foo', 'bar']));
   });
 });
 
@@ -66,5 +80,11 @@ describe('arrayProp().required', () => {
     expectAssignable<Vue2_7.PropOptions<unknown[]>>(arrayProp().required);
     expectAssignable<Vue2_7.PropOptions<string[]>>(arrayProp<string>().required);
     expectNotAssignable<Vue2_7.PropOptions<number[]>>(arrayProp<string>().required);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<unknown[]>>(arrayProp().required);
+    expectAssignable<Vue3.Prop<string[]>>(arrayProp<string>().required);
+    expectNotAssignable<Vue3.Prop<number[]>>(arrayProp<string>().required);
   });
 });
