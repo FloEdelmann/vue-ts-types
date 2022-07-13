@@ -34,6 +34,8 @@ Vue.component('MyComponent', {
 npm install vue-ts-types
 ```
 
+`vue-ts-types` is tested to be compatible with [Vue.js](https://vuejs.org/) `v2.6`, `v2.7` and `v3.2`.
+
 ## Usage
 
 Each of the prop functions returns an object with the following properties:

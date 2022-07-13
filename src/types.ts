@@ -12,8 +12,6 @@ export type PropConstructor<T> =
   | { (): T }
   // eslint-disable-next-line @typescript-eslint/prefer-function-type
   | { new(...parameters: any[]): T & object }
-  // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/prefer-function-type
-  | { new(...parameters: string[]): Function }
 
 
 export type RequiredPropOptions<T> = PropOptions<T> & { required: true }
