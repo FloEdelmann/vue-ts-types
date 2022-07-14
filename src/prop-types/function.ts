@@ -19,7 +19,7 @@ interface FunctionPropOptionsGenerator<T> {
  */
 export const functionProp = <T extends Function>(validator?: Validator): FunctionPropOptionsGenerator<T> => ({
   optional: {
-    type: Function,
+    type: Function as unknown as () => T,
     required: false,
     default: undefined,
     validator: vuePropValidator(validator),
@@ -32,7 +32,7 @@ export const functionProp = <T extends Function>(validator?: Validator): Functio
     validator: vuePropValidator(validator),
   },
   required: {
-    type: Function,
+    type: Function as unknown as () => T,
     required: true,
     validator: vuePropValidator(validator),
   },

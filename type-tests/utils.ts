@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import type { ExtendedVue } from 'vue/types/vue';
+import Vue from 'vue2-6';
+import type { ExtendedVue } from 'vue2-6/types/vue';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const createVue2Component = <T>(prop: T) => Vue.component('test', {

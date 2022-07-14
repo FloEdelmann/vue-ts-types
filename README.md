@@ -36,6 +36,8 @@ Vue.component('MyComponent', {
 npm install vue-ts-types
 ```
 
+`vue-ts-types` is tested to be compatible with [Vue.js](https://vuejs.org/) `v2.6`, `v2.7` and `v3.2`.
+
 ## Usage
 
 Each of the prop functions returns an object with the following properties:
@@ -285,7 +287,7 @@ oneOfTypesProp<number | string>([Number, String]).withDefault(42)
   // → prop type: string | number
 ```
 
-### `instanceOfProp()`
+### `instanceOfProp<T>(parent: T, validator?: Validator)`
 
 Allows instances of the given constructor (validated at runtime and compile time).  
 Type parameter `T` can be used to adjust the inferred type at compile time.

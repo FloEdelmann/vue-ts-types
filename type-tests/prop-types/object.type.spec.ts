@@ -1,6 +1,7 @@
 import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
-import type * as Vue2 from 'vue/types/options';
-import type * as CompositionApi from '@vue/composition-api';
+import type * as Vue2_6 from 'vue2-6/types/options';
+import type * as Vue2_7 from 'vue2-7/types/options';
+import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
 import { objectProp } from '../../src/prop-types/object';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
@@ -10,10 +11,10 @@ interface User {
 }
 
 describe('objectProp().optional', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<object | undefined>>(objectProp().optional);
-    expectAssignable<Vue2.PropOptions<User | undefined>>(objectProp<User>().optional);
-    expectNotAssignable<Vue2.PropOptions<User>>(objectProp<User>().optional);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<object | undefined>>(objectProp().optional);
+    expectAssignable<Vue2_6.PropOptions<User | undefined>>(objectProp<User>().optional);
+    expectNotAssignable<Vue2_6.PropOptions<User>>(objectProp<User>().optional);
 
     expectType<Vue2ComponentWithProp<object | undefined>>(
       createVue2Component(objectProp().optional),
@@ -24,10 +25,16 @@ describe('objectProp().optional', () => {
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<object | undefined>>(objectProp().optional);
-    expectAssignable<CompositionApi.PropOptions<User | undefined>>(objectProp<User>().optional);
-    expectNotAssignable<CompositionApi.PropOptions<User>>(objectProp<User>().optional);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<object | undefined>>(objectProp().optional);
+    expectAssignable<Vue2_7.PropOptions<User | undefined>>(objectProp<User>().optional);
+    expectNotAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().optional);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<object | undefined>>(objectProp().optional);
+    expectAssignable<Vue3.Prop<User | undefined>>(objectProp<User>().optional);
+    expectNotAssignable<Vue3.Prop<User>>(objectProp<User>().optional);
   });
 });
 
@@ -56,23 +63,27 @@ describe('objectProp().nullable', () => {
 const userGenerator = () => ({ name: 'bar' });
 
 describe('objectProp().withDefault', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
 
     expectType<Vue2ComponentWithProp<User>>(
       createVue2Component(objectProp<User>().withDefault(userGenerator)),
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<User>>(objectProp<User>().withDefault(userGenerator));
   });
 });
 
 describe('objectProp().required', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<object>>(objectProp().required);
-    expectAssignable<Vue2.PropOptions<User>>(objectProp<User>().required);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<object>>(objectProp().required);
+    expectAssignable<Vue2_6.PropOptions<User>>(objectProp<User>().required);
 
     expectType<Vue2ComponentWithProp<object>>(
       createVue2Component(objectProp().required),
@@ -83,8 +94,13 @@ describe('objectProp().required', () => {
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<object>>(objectProp().required);
-    expectAssignable<CompositionApi.PropOptions<User>>(objectProp<User>().required);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<object>>(objectProp().required);
+    expectAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().required);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<object>>(objectProp().required);
+    expectAssignable<Vue3.Prop<User>>(objectProp<User>().required);
   });
 });
