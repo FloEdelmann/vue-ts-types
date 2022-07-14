@@ -31,6 +31,28 @@ describe('objectProp().optional', () => {
   });
 });
 
+describe('objectProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions<object | null>>(objectProp().nullable);
+    expectAssignable<Vue2.PropOptions<User | null>>(objectProp<User>().nullable);
+    expectNotAssignable<Vue2.PropOptions<User>>(objectProp<User>().nullable);
+
+    expectType<Vue2ComponentWithProp<object | null>>(
+      createVue2Component(objectProp().nullable),
+    );
+
+    expectType<Vue2ComponentWithProp<User | null>>(
+      createVue2Component(objectProp<User>().nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions<object | null>>(objectProp().nullable);
+    expectAssignable<CompositionApi.PropOptions<User | null>>(objectProp<User>().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<User>>(objectProp<User>().nullable);
+  });
+});
+
 const userGenerator = () => ({ name: 'bar' });
 
 describe('objectProp().withDefault', () => {

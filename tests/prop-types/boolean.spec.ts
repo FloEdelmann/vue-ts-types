@@ -11,6 +11,17 @@ describe('booleanProp().optional', () => {
   });
 });
 
+describe('booleanProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(booleanProp().nullable).toStrictEqual({
+      type: Boolean,
+      required: false,
+      default: null,
+      validator: undefined,
+    });
+  });
+});
+
 describe('booleanProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(booleanProp().withDefault(false)).toStrictEqual({

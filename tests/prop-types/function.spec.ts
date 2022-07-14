@@ -11,6 +11,17 @@ describe('functionProp().optional', () => {
   });
 });
 
+describe('functionProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(functionProp().nullable).toStrictEqual({
+      type: Function,
+      required: false,
+      default: null,
+      validator: undefined,
+    });
+  });
+});
+
 describe('functionProp().required', () => {
   it('creates the correct prop options', () => {
     expect(functionProp().required).toStrictEqual({

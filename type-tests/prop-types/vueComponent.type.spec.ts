@@ -22,6 +22,22 @@ describe('vueComponentProp().optional', () => {
   });
 });
 
+describe('vueComponentProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions<VueComponent | null>>(vueComponentProp().nullable);
+    expectNotAssignable<Vue2.PropOptions<VueComponent>>(vueComponentProp().nullable);
+
+    expectType<Vue2ComponentWithProp<VueComponent | null>>(
+      createVue2Component(vueComponentProp().nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions<VueComponent | null>>(vueComponentProp().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<VueComponent>>(vueComponentProp().nullable);
+  });
+});
+
 describe('vueComponentProp().withDefault', () => {
   describe('Vue 2', () => {
     expectAssignable<Vue2.PropOptions<VueComponent>>(vueComponentProp().withDefault('foo'));

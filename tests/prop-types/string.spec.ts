@@ -11,6 +11,17 @@ describe('stringProp().optional', () => {
   });
 });
 
+describe('stringProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(stringProp().nullable).toStrictEqual({
+      type: String,
+      required: false,
+      default: null,
+      validator: undefined,
+    });
+  });
+});
+
 describe('stringProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(stringProp().withDefault('foo')).toStrictEqual({

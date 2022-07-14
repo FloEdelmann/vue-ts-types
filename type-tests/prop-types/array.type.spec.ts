@@ -29,6 +29,30 @@ describe('arrayProp().optional', () => {
   });
 });
 
+describe('arrayProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions<unknown[] | null>>(arrayProp().nullable);
+    expectAssignable<Vue2.PropOptions<string[] | null>>(arrayProp<string>().nullable);
+    expectNotAssignable<Vue2.PropOptions<unknown[]>>(arrayProp().nullable);
+    expectNotAssignable<Vue2.PropOptions<string[]>>(arrayProp<string>().nullable);
+
+    expectType<Vue2ComponentWithProp<unknown[] | null>>(
+      createVue2Component(arrayProp().nullable),
+    );
+
+    expectType<Vue2ComponentWithProp<string[] | null>>(
+      createVue2Component(arrayProp<string>().nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions<unknown[] | null>>(arrayProp().nullable);
+    expectAssignable<CompositionApi.PropOptions<string[] | null>>(arrayProp<string>().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<unknown[]>>(arrayProp().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<string[]>>(arrayProp<string>().nullable);
+  });
+});
+
 describe('arrayProp().withDefault', () => {
   describe('Vue 2', () => {
     expectAssignable<Vue2.PropOptions<unknown[]>>(arrayProp().withDefault(() => ['foo', 'bar']));

@@ -31,6 +31,32 @@ describe('anyProp().optional', () => {
   });
 });
 
+describe('anyProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions>(anyProp().nullable);
+    expectAssignable<Vue2.PropOptions<number>>(anyProp().nullable);
+    expectAssignable<Vue2.PropOptions<string>>(anyProp().nullable);
+    expectAssignable<Vue2.PropOptions<string | null>>(anyProp<string>().nullable);
+    expectNotAssignable<Vue2.PropOptions<string>>(anyProp<string>().nullable);
+
+    expectType<Vue2ComponentWithProp<any>>(
+      createVue2Component(anyProp().nullable),
+    );
+
+    expectType<Vue2ComponentWithProp<string | null>>(
+      createVue2Component(anyProp<string>().nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions>(anyProp().nullable);
+    expectAssignable<CompositionApi.PropOptions<number>>(anyProp().nullable);
+    expectAssignable<CompositionApi.PropOptions<string>>(anyProp().nullable);
+    expectAssignable<CompositionApi.PropOptions<string | null>>(anyProp<string>().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<string>>(anyProp<string>().nullable);
+  });
+});
+
 describe('anyProp().withDefault', () => {
   describe('Vue 2', () => {
     expectAssignable<Vue2.PropOptions>(anyProp().withDefault('foo'));

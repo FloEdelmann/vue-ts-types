@@ -8,7 +8,6 @@ const config: InitialOptionsTsJest = {
   },
   testMatch: ['**/tests/**/*.spec.ts'],
   setupFilesAfterEnv: ['jest-extended/all'],
-
 };
 
 export default config;

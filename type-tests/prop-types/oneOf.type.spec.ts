@@ -24,6 +24,22 @@ describe('oneOfProp().optional', () => {
   });
 });
 
+describe('oneOfProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
+    expectAssignable<Vue2.PropOptions<Options | null>>(oneOfProp(options).nullable);
+
+    expectType<Vue2ComponentWithProp<Options | null>>(
+      createVue2Component(oneOfProp(options).nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
+    expectAssignable<CompositionApi.PropOptions<Options | null>>(oneOfProp(options).nullable);
+  });
+});
+
 describe('oneOfProp().withDefault', () => {
   describe('Vue 2', () => {
     expectAssignable<Vue2.PropOptions<Options>>(oneOfProp(options).withDefault('a'));

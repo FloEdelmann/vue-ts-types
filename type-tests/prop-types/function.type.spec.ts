@@ -33,6 +33,30 @@ describe('functionProp().optional', () => {
   });
 });
 
+describe('functionProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions<Function | null>>(functionProp().nullable);
+    expectAssignable<Vue2.PropOptions<MyCustomCallback | null>>(functionProp<MyCustomCallback>().nullable);
+    expectNotAssignable<Vue2.PropOptions<Function>>(functionProp().nullable);
+    expectNotAssignable<Vue2.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().nullable);
+
+    expectType<Vue2ComponentWithProp<Function | null>>(
+      createVue2Component(functionProp().nullable),
+    );
+
+    expectType<Vue2ComponentWithProp<MyCustomCallback | null>>(
+      createVue2Component(functionProp<MyCustomCallback>().nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions<Function | null>>(functionProp().nullable);
+    expectAssignable<CompositionApi.PropOptions<MyCustomCallback | null>>(functionProp<MyCustomCallback>().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<Function>>(functionProp().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().nullable);
+  });
+});
+
 describe('functionProp().required', () => {
   describe('Vue 2', () => {
     expectAssignable<Vue2.PropOptions<Function>>(functionProp().required);

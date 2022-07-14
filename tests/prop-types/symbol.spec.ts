@@ -11,6 +11,17 @@ describe('symbolProp().optional', () => {
   });
 });
 
+describe('symbolProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(symbolProp().nullable).toStrictEqual({
+      type: undefined,
+      required: false,
+      default: null,
+      validator: expect.any(Function),
+    });
+  });
+});
+
 describe('symbolProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(symbolProp().withDefault(Symbol.for('foo'))).toStrictEqual({

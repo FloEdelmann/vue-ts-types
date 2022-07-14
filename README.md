@@ -14,16 +14,18 @@ Vue.component('MyComponent', {
   props: {
     disabled: booleanProp().withDefault(false),
     title: stringProp().optional,
+    description: stringProp().nullable,
     items: arrayProp<string>().required,
     callback: functionProp<() => void>().optional,
     color: oneOfProp(['red', 'green', 'blue'] as const).withDefault('red'),
   },
   mounted() {
-    this.disabled // type: boolean
-    this.title    // type: string | undefined
-    this.items    // type: string[]
-    this.callback // type: (() => void) | undefined
-    this.color    // type: 'red' | 'green' | 'blue'
+    this.disabled    // type: boolean
+    this.title       // type: string | undefined
+    this.description // type: string | null
+    this.items       // type: string[]
+    this.callback    // type: (() => void) | undefined
+    this.color       // type: 'red' | 'green' | 'blue'
   },
 });
 ```
@@ -39,6 +41,7 @@ npm install vue-ts-types
 Each of the prop functions returns an object with the following properties:
 
 * `.optional`: Use this to mark the prop as not required with a default value of `undefined`. Also includes `undefined` in the resulting prop type.
+* `.nullable`: Use this to mark the prop as not required with a default value of `null`. Also includes `null` in the resulting prop type.
 * `.required`: Use this to mark the prop as required without a default value.
 * `.withDefault(value)`: Use this to set a default value for the prop. Note that the value has to fit the prop type. For non-primitive types, the value has to be a function that returns the default value.
 

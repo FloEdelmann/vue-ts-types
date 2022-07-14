@@ -13,6 +13,17 @@ describe('oneOfObjectKeysProp().optional', () => {
   });
 });
 
+describe('oneOfObjectKeysProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(oneOfObjectKeysProp(options).nullable).toStrictEqual({
+      type: String,
+      required: false,
+      default: null,
+      validator: expect.any(Function),
+    });
+  });
+});
+
 describe('oneOfObjectKeysProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(oneOfObjectKeysProp(options).withDefault('a')).toStrictEqual({

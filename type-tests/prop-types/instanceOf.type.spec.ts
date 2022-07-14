@@ -28,6 +28,22 @@ describe('instanceOfProp().optional', () => {
   });
 });
 
+describe('instanceOfProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions<User | null>>(instanceOfProp(User).nullable);
+    expectNotAssignable<Vue2.PropOptions<Account | null>>(instanceOfProp(User).nullable);
+
+    expectType<Vue2ComponentWithProp<User | null>>(
+      createVue2Component(instanceOfProp(User).nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions<User | null>>(instanceOfProp(User).nullable);
+    expectNotAssignable<CompositionApi.PropOptions<Account>>(instanceOfProp(User).nullable);
+  });
+});
+
 describe('instanceOfProp().withDefault', () => {
   describe('Vue 2', () => {
     expectAssignable<Vue2.PropOptions<User>>(instanceOfProp(User).withDefault(() => new User()));

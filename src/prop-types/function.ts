@@ -4,6 +4,7 @@ import { vuePropValidator } from '../validators';
 
 interface FunctionPropOptionsGenerator<T> {
   optional: DefaultPropOptions<T | undefined> & { default?: () => T };
+  nullable: DefaultPropOptions<T | null> & { default?: (() => T) | null };
   required: RequiredPropOptions<T> & { default?: () => T };
 }
 
@@ -21,6 +22,13 @@ export const functionProp = <T extends Function>(validator?: Validator): Functio
     type: Function,
     required: false,
     default: undefined,
+    validator: vuePropValidator(validator),
+  },
+  nullable: {
+    type: Function,
+    required: false,
+    // eslint-disable-next-line unicorn/no-null
+    default: null,
     validator: vuePropValidator(validator),
   },
   required: {

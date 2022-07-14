@@ -21,6 +21,22 @@ describe('symbolProp().optional', () => {
   });
 });
 
+describe('symbolProp().nullable', () => {
+  describe('Vue 2', () => {
+    expectAssignable<Vue2.PropOptions<symbol | null>>(symbolProp().nullable);
+    expectNotAssignable<Vue2.PropOptions<symbol>>(symbolProp().nullable);
+
+    expectType<Vue2ComponentWithProp<symbol | null>>(
+      createVue2Component(symbolProp().nullable),
+    );
+  });
+
+  describe('Composition API', () => {
+    expectAssignable<CompositionApi.PropOptions<symbol | null>>(symbolProp().nullable);
+    expectNotAssignable<CompositionApi.PropOptions<symbol>>(symbolProp().nullable);
+  });
+});
+
 describe('symbolProp().withDefault', () => {
   describe('Vue 2', () => {
     expectAssignable<Vue2.PropOptions<symbol>>(symbolProp().withDefault(Symbol.for('foo')));
