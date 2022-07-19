@@ -13,6 +13,17 @@ describe('instanceOfProp().optional', () => {
   });
 });
 
+describe('instanceOfProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(instanceOfProp(User).nullable).toStrictEqual({
+      type: User,
+      required: false,
+      default: null,
+      validator: expect.any(Function),
+    });
+  });
+});
+
 describe('instanceOfProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(instanceOfProp(User).withDefault(() => new User())).toStrictEqual({

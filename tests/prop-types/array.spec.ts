@@ -11,6 +11,17 @@ describe('arrayProp().optional', () => {
   });
 });
 
+describe('arrayProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(arrayProp().nullable).toStrictEqual({
+      type: Array,
+      required: false,
+      default: null,
+      validator: undefined,
+    });
+  });
+});
+
 const defaultGenerator = () => ['foo'];
 
 describe('arrayProp().withDefault', () => {

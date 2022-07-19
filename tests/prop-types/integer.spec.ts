@@ -11,6 +11,17 @@ describe('integerProp().optional', () => {
   });
 });
 
+describe('integerProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(integerProp().nullable).toStrictEqual({
+      type: Number,
+      required: false,
+      default: null,
+      validator: expect.any(Function),
+    });
+  });
+});
+
 describe('integerProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(integerProp().withDefault(27)).toStrictEqual({

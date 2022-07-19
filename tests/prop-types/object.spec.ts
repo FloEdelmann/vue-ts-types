@@ -11,6 +11,17 @@ describe('objectProp().optional', () => {
   });
 });
 
+describe('objectProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(objectProp().nullable).toStrictEqual({
+      type: Object,
+      required: false,
+      default: null,
+      validator: undefined,
+    });
+  });
+});
+
 const defaultGenerator = () => ({ foo: 'bar' });
 
 describe('objectProp().withDefault', () => {

@@ -11,6 +11,17 @@ describe('anyProp().optional', () => {
   });
 });
 
+describe('anyProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(anyProp().nullable).toStrictEqual({
+      type: undefined,
+      required: false,
+      default: null,
+      validator: undefined,
+    });
+  });
+});
+
 describe('anyProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(anyProp().withDefault('foo')).toStrictEqual({
