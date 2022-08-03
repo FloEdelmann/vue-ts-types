@@ -27,7 +27,6 @@ export const functionProp = <T extends Function>(validator?: Validator): Functio
   nullable: {
     type: Function,
     required: false,
-    // eslint-disable-next-line unicorn/no-null
     default: null,
     validator: vuePropValidator(validator),
   },

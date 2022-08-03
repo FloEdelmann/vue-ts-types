@@ -100,6 +100,7 @@ module.exports = {
         prop: false,
       },
     }],
+    'unicorn/no-null': 'off',
 
     // @typescript-eslint/eslint-plugin
     '@typescript-eslint/consistent-type-assertions': ['error', {
@@ -155,7 +156,6 @@ module.exports = {
         'jest/require-top-level-describe': 'warn',
 
         // less strict other rules
-        'unicorn/no-null': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unsafe-argument': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',

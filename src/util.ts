@@ -12,7 +12,6 @@ export const propOptionsGenerator = <T>(type?: PropType<T>, userValidator?: Vali
   nullable: {
     type,
     required: false,
-    // eslint-disable-next-line unicorn/no-null
     default: null,
     validator: vuePropValidator(userValidator, ...typeValidators),
   },
