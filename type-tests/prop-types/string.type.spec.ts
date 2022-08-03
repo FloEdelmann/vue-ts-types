@@ -40,11 +40,11 @@ describe('stringProp().optional', () => {
 });
 
 describe('stringProp().nullable', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<string | null>>(stringProp().nullable);
-    expectAssignable<Vue2.PropOptions<Foo | null>>(stringProp<Foo>().nullable);
-    expectNotAssignable<Vue2.PropOptions<string>>(stringProp().nullable);
-    expectNotAssignable<Vue2.PropOptions<Foo>>(stringProp<Foo>().nullable);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<string | null>>(stringProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<Foo | null>>(stringProp<Foo>().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<string>>(stringProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<Foo>>(stringProp<Foo>().nullable);
 
     expectType<Vue2ComponentWithProp<string | null>>(
       createVue2Component(stringProp().nullable),
@@ -55,11 +55,18 @@ describe('stringProp().nullable', () => {
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<string | null>>(stringProp().nullable);
-    expectAssignable<CompositionApi.PropOptions<Foo | null>>(stringProp<Foo>().nullable);
-    expectNotAssignable<CompositionApi.PropOptions<string>>(stringProp().nullable);
-    expectNotAssignable<CompositionApi.PropOptions<Foo>>(stringProp<Foo>().nullable);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<string | null>>(stringProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<Foo | null>>(stringProp<Foo>().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<string>>(stringProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<Foo>>(stringProp<Foo>().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<string | null>>(stringProp().nullable);
+    expectAssignable<Vue3.Prop<Foo | null>>(stringProp<Foo>().nullable);
+    expectNotAssignable<Vue3.Prop<string>>(stringProp().nullable);
+    expectNotAssignable<Vue3.Prop<Foo>>(stringProp<Foo>().nullable);
   });
 });
 

@@ -28,18 +28,23 @@ describe('integerProp().optional', () => {
 });
 
 describe('integerProp().nullable', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<number | null>>(integerProp().nullable);
-    expectNotAssignable<Vue2.PropOptions<number>>(integerProp().nullable);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<number | null>>(integerProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<number>>(integerProp().nullable);
 
     expectType<Vue2ComponentWithProp<number | null>>(
       createVue2Component(integerProp().nullable),
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<number | null>>(integerProp().nullable);
-    expectNotAssignable<CompositionApi.PropOptions<number>>(integerProp().nullable);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<number | null>>(integerProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<number>>(integerProp().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<number | null>>(integerProp().nullable);
+    expectNotAssignable<Vue3.Prop<number>>(integerProp().nullable);
   });
 });
 

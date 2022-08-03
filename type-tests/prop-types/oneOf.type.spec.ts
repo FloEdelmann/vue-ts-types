@@ -31,18 +31,23 @@ describe('oneOfProp().optional', () => {
 });
 
 describe('oneOfProp().nullable', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
-    expectAssignable<Vue2.PropOptions<Options | null>>(oneOfProp(options).nullable);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
+    expectAssignable<Vue2_6.PropOptions<Options | null>>(oneOfProp(options).nullable);
 
     expectType<Vue2ComponentWithProp<Options | null>>(
       createVue2Component(oneOfProp(options).nullable),
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
-    expectAssignable<CompositionApi.PropOptions<Options | null>>(oneOfProp(options).nullable);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
+    expectAssignable<Vue2_7.PropOptions<Options | null>>(oneOfProp(options).nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
+    expectAssignable<Vue3.Prop<Options | null>>(oneOfProp(options).nullable);
   });
 });
 

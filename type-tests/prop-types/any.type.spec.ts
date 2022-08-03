@@ -41,12 +41,12 @@ describe('anyProp().optional', () => {
 });
 
 describe('anyProp().nullable', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions>(anyProp().nullable);
-    expectAssignable<Vue2.PropOptions<number>>(anyProp().nullable);
-    expectAssignable<Vue2.PropOptions<string>>(anyProp().nullable);
-    expectAssignable<Vue2.PropOptions<string | null>>(anyProp<string>().nullable);
-    expectNotAssignable<Vue2.PropOptions<string>>(anyProp<string>().nullable);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions>(anyProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<number>>(anyProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<string>>(anyProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<string | null>>(anyProp<string>().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<string>>(anyProp<string>().nullable);
 
     expectType<Vue2ComponentWithProp<any>>(
       createVue2Component(anyProp().nullable),
@@ -57,12 +57,20 @@ describe('anyProp().nullable', () => {
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions>(anyProp().nullable);
-    expectAssignable<CompositionApi.PropOptions<number>>(anyProp().nullable);
-    expectAssignable<CompositionApi.PropOptions<string>>(anyProp().nullable);
-    expectAssignable<CompositionApi.PropOptions<string | null>>(anyProp<string>().nullable);
-    expectNotAssignable<CompositionApi.PropOptions<string>>(anyProp<string>().nullable);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions>(anyProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<number>>(anyProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<string>>(anyProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<string | null>>(anyProp<string>().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<string>>(anyProp<string>().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<any>>(anyProp().nullable);
+    expectAssignable<Vue3.Prop<number>>(anyProp().nullable);
+    expectAssignable<Vue3.Prop<string>>(anyProp().nullable);
+    expectAssignable<Vue3.Prop<string | null>>(anyProp<string>().nullable);
+    expectNotAssignable<Vue3.Prop<string>>(anyProp<string>().nullable);
   });
 });
 

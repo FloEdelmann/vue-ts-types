@@ -25,7 +25,7 @@ export const functionProp = <T extends Function>(validator?: Validator): Functio
     validator: vuePropValidator(validator),
   },
   nullable: {
-    type: Function,
+    type: Function as unknown as () => T,
     required: false,
     default: null,
     validator: vuePropValidator(validator),

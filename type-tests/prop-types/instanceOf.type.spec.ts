@@ -35,18 +35,23 @@ describe('instanceOfProp().optional', () => {
 });
 
 describe('instanceOfProp().nullable', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<User | null>>(instanceOfProp(User).nullable);
-    expectNotAssignable<Vue2.PropOptions<Account | null>>(instanceOfProp(User).nullable);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<User | undefined>>(instanceOfProp(User).optional);
+    expectNotAssignable<Vue2_6.PropOptions<Account | undefined>>(instanceOfProp(User).optional);
 
-    expectType<Vue2ComponentWithProp<User | null>>(
-      createVue2Component(instanceOfProp(User).nullable),
+    expectType<Vue2ComponentWithProp<User | undefined>>(
+      createVue2Component(instanceOfProp(User).optional),
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<User | null>>(instanceOfProp(User).nullable);
-    expectNotAssignable<CompositionApi.PropOptions<Account>>(instanceOfProp(User).nullable);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<User | undefined>>(instanceOfProp(User).optional);
+    expectNotAssignable<Vue2_7.PropOptions<Account>>(instanceOfProp(User).optional);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<User | undefined>>(instanceOfProp(User).optional);
+    expectNotAssignable<Vue3.Prop<Account>>(instanceOfProp(User).optional);
   });
 });
 

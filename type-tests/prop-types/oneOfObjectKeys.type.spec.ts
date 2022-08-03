@@ -28,16 +28,20 @@ describe('oneOfObjectKeysProp().optional', () => {
 });
 
 describe('oneOfObjectKeysProp().nullable', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<Options | null>>(oneOfObjectKeysProp(options).nullable);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<Options | null>>(oneOfObjectKeysProp(options).nullable);
 
     expectType<Vue2ComponentWithProp<Options | null>>(
       createVue2Component(oneOfObjectKeysProp(options).nullable),
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<Options | null>>(oneOfObjectKeysProp(options).nullable);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<Options | null>>(oneOfObjectKeysProp(options).nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<Options | null>>(oneOfObjectKeysProp(options).nullable);
   });
 });
 

@@ -42,11 +42,11 @@ describe('functionProp().optional', () => {
 });
 
 describe('functionProp().nullable', () => {
-  describe('Vue 2', () => {
-    expectAssignable<Vue2.PropOptions<Function | null>>(functionProp().nullable);
-    expectAssignable<Vue2.PropOptions<MyCustomCallback | null>>(functionProp<MyCustomCallback>().nullable);
-    expectNotAssignable<Vue2.PropOptions<Function>>(functionProp().nullable);
-    expectNotAssignable<Vue2.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().nullable);
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<Function | null>>(functionProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<MyCustomCallback | null>>(functionProp<MyCustomCallback>().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<Function>>(functionProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().nullable);
 
     expectType<Vue2ComponentWithProp<Function | null>>(
       createVue2Component(functionProp().nullable),
@@ -57,11 +57,18 @@ describe('functionProp().nullable', () => {
     );
   });
 
-  describe('Composition API', () => {
-    expectAssignable<CompositionApi.PropOptions<Function | null>>(functionProp().nullable);
-    expectAssignable<CompositionApi.PropOptions<MyCustomCallback | null>>(functionProp<MyCustomCallback>().nullable);
-    expectNotAssignable<CompositionApi.PropOptions<Function>>(functionProp().nullable);
-    expectNotAssignable<CompositionApi.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().nullable);
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<Function | null>>(functionProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<MyCustomCallback | null>>(functionProp<MyCustomCallback>().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<Function>>(functionProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<MyCustomCallback>>(functionProp<MyCustomCallback>().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<Function | null>>(functionProp().nullable);
+    expectAssignable<Vue3.Prop<MyCustomCallback | null>>(functionProp<MyCustomCallback>().nullable);
+    expectNotAssignable<Vue3.Prop<Function>>(functionProp().nullable);
+    expectNotAssignable<Vue3.Prop<MyCustomCallback>>(functionProp<MyCustomCallback>().nullable);
   });
 });
 
