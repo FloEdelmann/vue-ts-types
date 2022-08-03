@@ -75,6 +75,8 @@ Type parameter `T` can be used to restrict the type at compile time with a union
 ```ts
 stringProp().optional
   // → prop type: string | undefined
+stringProp().nullable
+  // → prop type: string | null
 stringProp().required
   // → prop type: string
 stringProp().withDefault('foo')
@@ -84,6 +86,8 @@ type Foo = 'a' | 'b' | 'c';
 
 stringProp<Foo>().optional
   // → prop type: Foo | undefined
+stringProp<Foo>().nullable
+  // → prop type: Foo | null
 stringProp<Foo>().required
   // → prop type: Foo
 stringProp<Foo>().withDefault('a')
@@ -97,6 +101,8 @@ Allows any boolean (validated at runtime and compile time).
 ```ts
 booleanProp().optional
   // → prop type: boolean | undefined
+booleanProp().nullable
+  // → prop type: boolean | null
 booleanProp().required
   // → prop type: boolean
 booleanProp().withDefault(false)
@@ -110,6 +116,8 @@ Allows any number (validated at runtime and compile time).
 ```ts
 numberProp().optional
   // → prop type: number | undefined
+numberProp().nullable
+  // → prop type: number | null
 numberProp().required
   // → prop type: number
 numberProp().withDefault(3.1415)
@@ -123,6 +131,8 @@ Allows any integer (validated at runtime).
 ```ts
 integerProp().optional
   // → prop type: number | undefined
+integerProp().nullable
+  // → prop type: number | null
 integerProp().required
   // → prop type: number
 integerProp().withDefault(42)
@@ -136,6 +146,8 @@ Allows any symbol (validated at runtime and compile time).
 ```ts
 symbolProp().optional
   // → prop type: symbol | undefined
+symbolProp().nullable
+  // → prop type: symbol | null
 symbolProp().required
   // → prop type: symbol
 symbolProp().withDefault(Symbol('foo'))
@@ -149,6 +161,8 @@ Allows any Vue component instance, name or options object. No built-in runtime v
 ```ts
 vueComponentProp().optional
   // → prop type: ComponentOptions<Vue> | VueConstructor<Vue> | string | undefined
+vueComponentProp().nullable
+  // → prop type: ComponentOptions<Vue> | VueConstructor<Vue> | string | null
 vueComponentProp().required
   // → prop type: ComponentOptions<Vue> | VueConstructor<Vue> | string
 vueComponentProp().withDefault('close-icon')
@@ -163,6 +177,8 @@ Type parameter `T` can be used to restrict the type at compile time.
 ```ts
 anyProp().optional
   // → prop type: any
+anyProp().nullable
+  // → prop type: any
 anyProp().required
   // → prop type: any
 anyProp().withDefault('foo')
@@ -170,6 +186,8 @@ anyProp().withDefault('foo')
 
 anyProp<string>().optional
   // → prop type: string | undefined
+anyProp<string>().nullable
+  // → prop type: string | null
 anyProp<string>().required
   // → prop type: string
 anyProp<string>().withDefault('foo')
@@ -184,6 +202,8 @@ Type parameter `T` can be used to restrict the type of the array items at compil
 ```ts
 arrayProp().optional
   // → prop type: unknown[] | undefined
+arrayProp().nullable
+  // → prop type: unknown[] | null
 arrayProp().required
   // → prop type: unknown[]
 arrayProp().withDefault(() => [])
@@ -191,6 +211,8 @@ arrayProp().withDefault(() => [])
 
 arrayProp<string>().optional
   // → prop type: string[] | undefined
+arrayProp<string>().nullable
+  // → prop type: string[] | null
 arrayProp<string>().required
   // → prop type: string[]
 arrayProp<string>().withDefault(() => ['foo', 'bar'])
@@ -205,6 +227,8 @@ Type parameter `T` can be used to restrict the type at compile time.
 ```ts
 objectProp().optional
   // → prop type: object | undefined
+objectProp().nullable
+  // → prop type: object | null
 objectProp().required
   // → prop type: object
 objectProp().withDefault(() => ({}))
@@ -216,6 +240,8 @@ interface User {
 
 objectProp<User>().optional
   // → prop type: User | undefined
+objectProp<User>().nullable
+  // → prop type: User | null
 objectProp<User>().required
   // → prop type: User
 objectProp<User>().withDefault(() => ({ name: 'John' }))
@@ -232,6 +258,8 @@ Type parameter `T` can be used to restrict the type to a specific function signa
 ```ts
 functionProp().optional
   // → prop type: Function | undefined
+functionProp().nullable
+  // → prop type: Function | null
 functionProp().required
   // → prop type: Function
 
@@ -239,6 +267,8 @@ type MyFunc = (a: number, b: string) => boolean;
 
 functionProp<MyFunc>().optional
   // → prop type: MyFunc | undefined
+functionProp<MyFunc>().nullable
+  // → prop type: MyFunc | null
 functionProp<MyFunc>().required
   // → prop type: MyFunc
 ```
@@ -253,6 +283,8 @@ Type parameter `T` can be used to adjust the inferred type at compile time, this
 ```ts
 oneOfProp(['foo', 'bar'] as const).optional
   // → prop type: 'foo' | 'bar' | undefined
+oneOfProp(['foo', 'bar'] as const).nullable
+  // → prop type: 'foo' | 'bar' | null
 oneOfProp(['foo', 'bar'] as const).required
   // → prop type: 'foo' | 'bar'
 oneOfProp(['foo', 'bar'] as const).withDefault('foo')
@@ -267,6 +299,8 @@ Type parameter `T` can be used to adjust the inferred type at compile time, this
 ```ts
 oneOfObjectKeysProp({ foo: 1, bar: 2 }).optional
   // → prop type: 'foo' | 'bar' | undefined
+oneOfObjectKeysProp({ foo: 1, bar: 2 }).nullable
+  // → prop type: 'foo' | 'bar' | null
 oneOfObjectKeysProp({ foo: 1, bar: 2 }).required
   // → prop type: 'foo' | 'bar'
 oneOfObjectKeysProp({ foo: 1, bar: 2 }).withDefault('foo')
@@ -281,6 +315,8 @@ Type parameter `T` has to be used to adjust the type at compile time.
 ```ts
 oneOfTypesProp<number | string>([Number, String]).optional
   // → prop type: string | number | undefined
+oneOfTypesProp<number | string>([Number, String]).nullable
+  // → prop type: string | number | null
 oneOfTypesProp<number | string>([Number, String]).required
   // → prop type: string | number
 oneOfTypesProp<number | string>([Number, String]).withDefault(42)
@@ -295,6 +331,8 @@ Type parameter `T` can be used to adjust the inferred type at compile time.
 ```ts
 instanceOfProp(Date).optional
   // → prop type: Date | undefined
+instanceOfProp(Date).nullable
+  // → prop type: Date | null
 instanceOfProp(Date).required
   // → prop type: Date
 instanceOfProp(Date).withDefault(() => new Date())
