@@ -1,6 +1,6 @@
 {
   "name": "vue-ts-types",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Lightweight TypeScript-first Vue prop type definitions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
