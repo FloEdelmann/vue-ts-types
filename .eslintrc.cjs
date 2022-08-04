@@ -94,13 +94,13 @@ module.exports = {
 
     // eslint-plugin-unicorn
     'unicorn/filename-case': 'off',
+    'unicorn/no-null': 'off',
     'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
     'unicorn/prevent-abbreviations': ['warn', {
       replacements: {
         prop: false,
       },
     }],
-    'unicorn/no-null': 'off',
 
     // @typescript-eslint/eslint-plugin
     '@typescript-eslint/consistent-type-assertions': ['error', {
