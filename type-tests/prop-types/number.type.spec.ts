@@ -27,6 +27,27 @@ describe('numberProp().optional', () => {
   });
 });
 
+describe('numberProp().nullable', () => {
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<number | null>>(numberProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<number>>(numberProp().nullable);
+
+    expectType<Vue2ComponentWithProp<number | null>>(
+      createVue2Component(numberProp().nullable),
+    );
+  });
+
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<number | null>>(numberProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<number>>(numberProp().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<number | null>>(numberProp().nullable);
+    expectNotAssignable<Vue3.Prop<number>>(numberProp().nullable);
+  });
+});
+
 describe('numberProp().withDefault', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<number>>(numberProp().withDefault(27));

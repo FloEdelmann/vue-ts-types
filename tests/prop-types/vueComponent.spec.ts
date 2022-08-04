@@ -11,6 +11,17 @@ describe('vueComponentProp().optional', () => {
   });
 });
 
+describe('vueComponentProp().nullable', () => {
+  it('creates the correct prop options', () => {
+    expect(vueComponentProp().nullable).toStrictEqual({
+      type: [Object, String],
+      required: false,
+      default: null,
+      validator: undefined,
+    });
+  });
+});
+
 describe('vueComponentProp().withDefault', () => {
   it('creates the correct prop options', () => {
     expect(vueComponentProp().withDefault('foo')).toStrictEqual({

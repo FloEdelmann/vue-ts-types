@@ -27,6 +27,27 @@ describe('booleanProp().optional', () => {
   });
 });
 
+describe('booleanProp().nullable', () => {
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<boolean | null>>(booleanProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<boolean>>(booleanProp().nullable);
+
+    expectType<Vue2ComponentWithProp<boolean | null>>(
+      createVue2Component(booleanProp().nullable),
+    );
+  });
+
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<boolean | null>>(booleanProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<boolean>>(booleanProp().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<boolean | null>>(booleanProp().nullable);
+    expectNotAssignable<Vue3.Prop<boolean>>(booleanProp().nullable);
+  });
+});
+
 describe('booleanProp().withDefault(false)', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<boolean>>(booleanProp().withDefault(false));

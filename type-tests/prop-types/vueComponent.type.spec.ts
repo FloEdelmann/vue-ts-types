@@ -28,6 +28,27 @@ describe('vueComponentProp().optional', () => {
   });
 });
 
+describe('vueComponentProp().nullable', () => {
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<VueComponent | null>>(vueComponentProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<VueComponent>>(vueComponentProp().nullable);
+
+    expectType<Vue2ComponentWithProp<VueComponent | null>>(
+      createVue2Component(vueComponentProp().nullable),
+    );
+  });
+
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<VueComponent | null>>(vueComponentProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<VueComponent>>(vueComponentProp().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<VueComponent | null>>(vueComponentProp().nullable);
+    expectNotAssignable<Vue3.Prop<VueComponent>>(vueComponentProp().nullable);
+  });
+});
+
 describe('vueComponentProp().withDefault', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<VueComponent>>(vueComponentProp().withDefault('foo'));

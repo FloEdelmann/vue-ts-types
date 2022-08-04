@@ -27,6 +27,27 @@ describe('symbolProp().optional', () => {
   });
 });
 
+describe('symbolProp().nullable', () => {
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<symbol | null>>(symbolProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<symbol>>(symbolProp().nullable);
+
+    expectType<Vue2ComponentWithProp<symbol | null>>(
+      createVue2Component(symbolProp().nullable),
+    );
+  });
+
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<symbol | null>>(symbolProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<symbol>>(symbolProp().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<symbol | null>>(symbolProp().nullable);
+    expectNotAssignable<Vue3.Prop<symbol>>(symbolProp().nullable);
+  });
+});
+
 describe('symbolProp().withDefault', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<symbol>>(symbolProp().withDefault(Symbol.for('foo')));

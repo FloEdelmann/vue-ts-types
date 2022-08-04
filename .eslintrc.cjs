@@ -94,6 +94,7 @@ module.exports = {
 
     // eslint-plugin-unicorn
     'unicorn/filename-case': 'off',
+    'unicorn/no-null': 'off',
     'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
     'unicorn/prevent-abbreviations': ['warn', {
       replacements: {
@@ -155,7 +156,6 @@ module.exports = {
         'jest/require-top-level-describe': 'warn',
 
         // less strict other rules
-        'unicorn/no-null': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unsafe-argument': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',

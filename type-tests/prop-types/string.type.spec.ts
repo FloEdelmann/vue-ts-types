@@ -39,6 +39,37 @@ describe('stringProp().optional', () => {
   });
 });
 
+describe('stringProp().nullable', () => {
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<string | null>>(stringProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<Foo | null>>(stringProp<Foo>().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<string>>(stringProp().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<Foo>>(stringProp<Foo>().nullable);
+
+    expectType<Vue2ComponentWithProp<string | null>>(
+      createVue2Component(stringProp().nullable),
+    );
+
+    expectType<Vue2ComponentWithProp<Foo | null>>(
+      createVue2Component(stringProp<Foo>().nullable),
+    );
+  });
+
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<string | null>>(stringProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<Foo | null>>(stringProp<Foo>().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<string>>(stringProp().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<Foo>>(stringProp<Foo>().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<string | null>>(stringProp().nullable);
+    expectAssignable<Vue3.Prop<Foo | null>>(stringProp<Foo>().nullable);
+    expectNotAssignable<Vue3.Prop<string>>(stringProp().nullable);
+    expectNotAssignable<Vue3.Prop<Foo>>(stringProp<Foo>().nullable);
+  });
+});
+
 describe('stringProp().withDefault', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<string>>(stringProp().withDefault('foo'));

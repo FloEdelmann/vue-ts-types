@@ -9,6 +9,12 @@ export const propOptionsGenerator = <T>(type?: PropType<T>, userValidator?: Vali
     default: undefined,
     validator: vuePropValidator(userValidator, ...typeValidators),
   },
+  nullable: {
+    type,
+    required: false,
+    default: null,
+    validator: vuePropValidator(userValidator, ...typeValidators),
+  },
   withDefault: (defaultValue: OneOfDefaultType<T>): DefaultPropOptions<T> => ({
     type,
     required: false,

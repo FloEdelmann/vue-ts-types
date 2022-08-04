@@ -38,6 +38,34 @@ describe('objectProp().optional', () => {
   });
 });
 
+describe('objectProp().nullable', () => {
+  describe('Vue 2.6', () => {
+    expectAssignable<Vue2_6.PropOptions<object | null>>(objectProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<User | null>>(objectProp<User>().nullable);
+    expectNotAssignable<Vue2_6.PropOptions<User>>(objectProp<User>().nullable);
+
+    expectType<Vue2ComponentWithProp<object | null>>(
+      createVue2Component(objectProp().nullable),
+    );
+
+    expectType<Vue2ComponentWithProp<User | null>>(
+      createVue2Component(objectProp<User>().nullable),
+    );
+  });
+
+  describe('Vue 2.7', () => {
+    expectAssignable<Vue2_7.PropOptions<object | null>>(objectProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<User | null>>(objectProp<User>().nullable);
+    expectNotAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().nullable);
+  });
+
+  describe('Vue 3', () => {
+    expectAssignable<Vue3.Prop<object | null>>(objectProp().nullable);
+    expectAssignable<Vue3.Prop<User | null>>(objectProp<User>().nullable);
+    expectNotAssignable<Vue3.Prop<User>>(objectProp<User>().nullable);
+  });
+});
+
 const userGenerator = () => ({ name: 'bar' });
 
 describe('objectProp().withDefault', () => {
