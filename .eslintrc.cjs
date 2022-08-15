@@ -150,6 +150,7 @@ module.exports = {
         'jest/prefer-equality-matcher': 'warn',
         'jest/prefer-expect-resolves': 'warn',
         'jest/prefer-hooks-on-top': 'warn',
+        'jest/prefer-mock-promise-shorthand': 'error',
         'jest/prefer-spy-on': 'warn',
         'jest/prefer-strict-equal': 'warn',
         'jest/require-to-throw-message': 'warn',
