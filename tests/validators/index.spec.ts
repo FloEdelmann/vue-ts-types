@@ -1,4 +1,4 @@
-import { isInstanceOf, isInteger, isOneOf, isSymbol, vuePropValidator } from '../../src/validators';
+import { vuePropValidator } from '../../src/validators';
 
 describe('vuePropValidator', () => {
   const validator1 = jest.fn();
@@ -66,97 +66,5 @@ describe('vuePropValidator', () => {
       expect(validator1).toHaveBeenCalledBefore(validator2);
       expect(validator2).toHaveBeenCalledBefore(validator4);
     });
-  });
-});
-
-describe('isOneOf', () => {
-  const validator = isOneOf(['foo', 27, undefined]);
-
-  it('returns undefined if value is included', () => {
-    expect(validator('foo')).toBeUndefined();
-    expect(validator(27)).toBeUndefined();
-    expect(validator(undefined)).toBeUndefined();
-  });
-
-  it('returns a string if value is not included', () => {
-    expect(typeof validator('')).toBe('string');
-    expect(typeof validator(27.1)).toBe('string');
-    expect(typeof validator(null)).toBe('string');
-  });
-});
-
-describe('isInteger', () => {
-  it('returns undefined for integers', () => {
-    expect(isInteger(3)).toBeUndefined();
-    expect(isInteger(0)).toBeUndefined();
-    expect(isInteger(-127)).toBeUndefined();
-  });
-
-  it('returns a string for non-integer numbers', () => {
-    expect(typeof isInteger(3.4)).toBe('string');
-    expect(typeof isInteger(Number.NaN)).toBe('string');
-    expect(typeof isInteger(Number.POSITIVE_INFINITY)).toBe('string');
-  });
-
-  it('returns a string for non-numbers', () => {
-    expect(typeof isInteger(undefined)).toBe('string');
-    expect(typeof isInteger('foo')).toBe('string');
-    expect(typeof isInteger({ value: 2 })).toBe('string');
-  });
-});
-
-describe('isSymbol', () => {
-  it('returns undefined for symbols', () => {
-    expect(isSymbol(Symbol('foo'))).toBeUndefined();
-    expect(isSymbol(Symbol.for('foo'))).toBeUndefined();
-  });
-
-  it('returns a string for non-symbols', () => {
-    expect(typeof isSymbol(undefined)).toBe('string');
-    expect(typeof isSymbol('foo')).toBe('string');
-    expect(typeof isSymbol(27)).toBe('string');
-    expect(typeof isSymbol({ value: 2 })).toBe('string');
-  });
-});
-
-describe('isInstanceOf', () => {
-  class User {}
-
-  it('returns undefined if value is instance', () => {
-    const user1 = new User();
-
-    expect(isInstanceOf(User)(user1)).toBeUndefined();
-    expect(isInstanceOf(Array)([])).toBeUndefined();
-
-    expect(isInstanceOf(Object)(user1)).toBeUndefined();
-    expect(isInstanceOf(Object)([])).toBeUndefined();
-    expect(isInstanceOf(Object)({})).toBeUndefined();
-  });
-
-  it('returns a string if value is not instance', () => {
-    const user1 = new User();
-
-    expect(typeof isInstanceOf(Array)(user1)).toBe('string');
-    expect(typeof isInstanceOf(User)({})).toBe('string');
-    expect(typeof isInstanceOf(User)(undefined)).toBe('string');
-    expect(typeof isInstanceOf(User)('foo')).toBe('string');
-    expect(typeof isInstanceOf(User)(27)).toBe('string');
-    expect(typeof isInstanceOf(User)({ value: 2 })).toBe('string');
-  });
-
-  it('throws if parent is not a constructor', () => {
-    const user1 = new User();
-
-    expect(
-      () => isInstanceOf(undefined as any)(user1),
-    ).toThrow('Right-hand side of \'instanceof\' is not an object');
-
-    expect(
-      () => isInstanceOf([] as any)(user1),
-    ).toThrow('Right-hand side of \'instanceof\' is not callable');
-
-    expect(
-      () => isInstanceOf({} as any)(user1),
-    ).toThrow('Right-hand side of \'instanceof\' is not callable');
   });
 });
