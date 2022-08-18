@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import type { Constructor } from './types';
+import type { Constructor } from '../types';
 
 export type Validator = (value: unknown) => string | undefined
 export type VuePropValidator = (value: unknown) => boolean

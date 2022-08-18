@@ -1,4 +1,4 @@
-import { isInstanceOf, isInteger, isOneOf, isSymbol, vuePropValidator } from '../src/validators';
+import { isInstanceOf, isInteger, isOneOf, isSymbol, vuePropValidator } from '../../src/validators';
 
 describe('vuePropValidator', () => {
   const validator1 = jest.fn();
