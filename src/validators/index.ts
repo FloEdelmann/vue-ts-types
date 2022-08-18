@@ -3,6 +3,11 @@ import Vue from 'vue';
 export type Validator = (value: unknown) => string | undefined
 export type VuePropValidator = (value: unknown) => boolean
 
+/**
+ * Creates a Vue prop validator that runs all type validators and the user validator (if specified).
+ * @param userValidator Validator function specified by the user.
+ * @param typeValidators Validator functions hard-coded by the prop type function.
+ */
 export function vuePropValidator(userValidator?: Validator, ...typeValidators: Validator[]): VuePropValidator | undefined {
   const validators = userValidator ? [...typeValidators, userValidator] : typeValidators;
   if (validators.length === 0) {
