@@ -7,27 +7,39 @@
 ## Example
 
 ```ts
-import Vue from 'vue';
-import { booleanProp, stringProp, arrayProp, functionProp, oneOfProp, numberProp, isPositive } from 'vue-ts-types';
+import { defineComponent } from 'vue';
+import {
+  arrayProp,
+  booleanProp,
+  functionProp,
+  isPositive,
+  numberProp,
+  oneOfProp,
+  stringProp,
+} from 'vue-ts-types';
 
-Vue.component('MyComponent', {
+defineComponent({
   props: {
     disabled: booleanProp().withDefault(false),
+    // resulting prop type: boolean
+
     title: stringProp().optional,
+    // resulting prop type: string | undefined
+
     description: stringProp().nullable,
+    // resulting prop type: string | null
+
     items: arrayProp<string>().required,
+    // resulting prop type: string[]
+
     callback: functionProp<() => void>().optional,
+    // resulting prop type: (() => void) | undefined
+
     color: oneOfProp(['red', 'green', 'blue'] as const).withDefault('red'),
-    timeout: numberProp(isPositive).required
-  },
-  mounted() {
-    this.disabled    // type: boolean
-    this.title       // type: string | undefined
-    this.description // type: string | null
-    this.items       // type: string[]
-    this.callback    // type: (() => void) | undefined
-    this.color       // type: 'red' | 'green' | 'blue'
-    this.timeout     // type: number
+    // resulting prop type: 'red' | 'green' | 'blue'
+
+    timeout: numberProp(isPositive).required,
+    // resulting prop type: number
   },
 });
 ```
