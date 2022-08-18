@@ -8,7 +8,7 @@
 
 ```ts
 import Vue from 'vue';
-import { booleanProp, stringProp, arrayProp, functionProp, oneOfProp } from 'vue-ts-types';
+import { booleanProp, stringProp, arrayProp, functionProp, oneOfProp, numberProp, isPositive } from 'vue-ts-types';
 
 Vue.component('MyComponent', {
   props: {
@@ -18,6 +18,7 @@ Vue.component('MyComponent', {
     items: arrayProp<string>().required,
     callback: functionProp<() => void>().optional,
     color: oneOfProp(['red', 'green', 'blue'] as const).withDefault('red'),
+    timeout: numberProp(isPositive).required
   },
   mounted() {
     this.disabled    // type: boolean
@@ -26,6 +27,7 @@ Vue.component('MyComponent', {
     this.items       // type: string[]
     this.callback    // type: (() => void) | undefined
     this.color       // type: 'red' | 'green' | 'blue'
+    this.timeout     // type: number
   },
 });
 ```
@@ -57,15 +59,22 @@ import { numberProp } from 'vue-ts-types';
 type Validator = (value: unknown) => string | undefined;
 
 const isPositive: Validator = value => {
-  if (typeof value === 'number' && value > 0) {
-    return undefined;
+  if (typeof value !== 'number' || value <= 0 || Number.isNaN(value)) {
+    return 'value should be a positive number';
   }
-  return 'Value must be a positive number.';
+  return undefined;
 }
 
 numberProp(isPositive).optional
   // → prop type: number | undefined
 ```
+
+For convenience, some common validator functions are included in the library and can be imported just like prop types:
+
+* `isNegative`: only allows negative numbers (`< 0`)
+* `isPositive`: only allows positive numbers (`> 0`)
+* `isNonNegative`: only allows non-negative numbers (`>= 0`)
+* `isNonPositive`: only allows non-positive numbers (`<= 0`)
 
 ### `stringProp<T>(validator?: Validator)`
 

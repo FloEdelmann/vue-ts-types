@@ -14,3 +14,8 @@ export { oneOfProp } from './prop-types/oneOf';
 export { oneOfObjectKeysProp } from './prop-types/oneOfObjectKeys';
 export { oneOfTypesProp } from './prop-types/oneOfTypes';
 export { instanceOfProp } from './prop-types/instanceOf';
+
+export { isNegative } from './validators/isNegative';
+export { isPositive } from './validators/isPositive';
+export { isNonNegative } from './validators/isNonNegative';
+export { isNonPositive } from './validators/isNonPositive';
