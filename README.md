@@ -282,7 +282,8 @@ objectProp<User>().withDefault(() => ({ name: 'John' }))
 Allows any function. No further runtime validation is performed by default.  
 Type parameter `T` can be used to restrict the type to a specific function signature at compile time.
 
-**Note:** There is no `.withDefault()` function for this prop type.
+> ℹ️ **Note:**  
+> There is no `.withDefault()` function for this prop type.
 
 ```ts
 functionProp().optional
@@ -307,7 +308,8 @@ functionProp<MyFunc>().required
 Allows any of the specified allowed values (validated at runtime and compile time).  
 Type parameter `T` can be used to adjust the inferred type at compile time, this is usually not necessary.
 
-**Note:** Proper type checking is only possible if the allowed values are readonly, usually through `as const`.
+> ℹ️ **Note:**  
+> Proper type checking is only possible if the allowed values are readonly, usually through `as const`.
 
 ```ts
 oneOfProp(['foo', 'bar'] as const).optional
