@@ -185,14 +185,18 @@ Allows any Vue component instance, name or options object. No built-in runtime v
 
 ```ts
 vueComponentProp().optional
-  // → prop type: ComponentOptions<Vue> | VueConstructor<Vue> | string | undefined
+  // → prop type: VueComponent | undefined
 vueComponentProp().nullable
-  // → prop type: ComponentOptions<Vue> | VueConstructor<Vue> | string | null
+  // → prop type: VueComponent | null
 vueComponentProp().required
-  // → prop type: ComponentOptions<Vue> | VueConstructor<Vue> | string
+  // → prop type: VueComponent
 vueComponentProp().withDefault('close-icon')
-  // → prop type: ComponentOptions<Vue> | VueConstructor<Vue> | string
+  // → prop type: VueComponent
 ```
+
+> ℹ️ **Note:**  
+> The type `VueComponent` is defined to be `object | string`. It has to be so broad to allow Vue 2 and Vue 3 component options or instances.
+> If you are able to narrow the type without pulling in heavy dependencies, please open an issue or pull request!
 
 ### `anyProp<T>(validator?: Validator)`
 
