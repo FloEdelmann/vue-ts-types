@@ -61,6 +61,10 @@ Each of the prop functions returns an object with the following properties:
 * `.required`: Use this to mark the prop as required without a default value.
 * `.withDefault(value)`: Use this to set a default value for the prop. Note that the value has to fit the prop type. For non-primitive types, the value has to be a function that returns the default value.
 
+> ℹ️ **Note:**  
+> Due to the way Vue props work, a prop's default value will only be used when passing `undefined`, not for `null`.  
+> See [issue #3135 in vuejs/vue](https://github.com/vuejs/vue/issues/3135).
+
 ### Custom validator functions
 
 Custom validator functions can be passed to any of the prop types. They are called with the value of the prop (type `unknown`) and should return a validation error message, or undefined if the value is valid. Validator functions do not influence type inference.
