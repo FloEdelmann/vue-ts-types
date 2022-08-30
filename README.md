@@ -95,7 +95,7 @@ For convenience, some common validator functions are included in the library and
 ### `stringProp<T>(validator?: Validator)`
 
 Allows any string. No further runtime validation is performed by default.  
-Type parameter `T` can be used to restrict the type at compile time with a union type.
+Type parameter `T` can be used to restrict the type at compile time with a union type. (Consider using [`oneOfProp`](#oneofproptallowedvalues-readonly-any-validator-validator) in this case.)
 
 ```ts
 stringProp().optional
