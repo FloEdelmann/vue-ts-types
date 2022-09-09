@@ -6,7 +6,7 @@ Please follow these guidelines:
 
 ## Development setup
 
-Make sure that Node.js (at least version 12) is installed.  
+Make sure that Node.js (at least version 14) is installed.  
 Install all development dependencies with `npm install`.
 
 Run tests or type tests in watch mode:
