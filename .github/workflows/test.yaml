@@ -19,7 +19,7 @@ jobs:
     name: Test
     strategy:
       matrix:
-        version: [12, 14, 16]
+        version: [14, 16, 18]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
     name: Type test
     strategy:
       matrix:
-        version: [12, 14, 16]
+        version: [14, 16, 18]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
