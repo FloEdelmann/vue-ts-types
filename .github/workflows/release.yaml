@@ -59,7 +59,7 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
       - name: Create GitHub Release
-        uses: ncipollo/release-action@v1.11.0
+        uses: ncipollo/release-action@v1.11.1
         with:
           tag: v${{ env.VERSION_NUMBER }}
           name: Version ${{ env.VERSION_NUMBER }}
