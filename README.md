@@ -83,11 +83,11 @@ options: objectProp<Options>().optional // automatically typed as `Options | und
 <details>
 <summary><strong>Specifying both <code>default</code> and <code>required</code> can be contradictory</strong></summary>
 
-By specifying a prop's default value, the prop is automatically optional, even when `required` is set to `true` is set. See also the [`vue/no-required-prop-with-default` ESLint rule](https://eslint.vuejs.org/rules/no-required-prop-with-default.html).
+By specifying a prop's default value, the prop is automatically optional, even when `required` is set to `true`. See also the [`vue/no-required-prop-with-default` ESLint rule](https://eslint.vuejs.org/rules/no-required-prop-with-default.html).
 
 ```ts
 disabled: {
-  type: Boolean
+  type: Boolean,
   required: true,
   default: false, // contradictory to `required: true`
 }
