@@ -44,6 +44,86 @@ defineComponent({
 });
 ```
 
+## Motivation
+
+<details>
+<summary><strong>Prop declarations are verbose</strong></summary>
+
+Declaring props is quite verbose, especially if you are using TypeScript and want to annotate more complex types (with `PropType`).
+
+```ts
+options: {
+  type: Object as PropType<Options>,
+  required: true,
+}
+
+// with vue-ts-types:
+options: objectProp<Options>().required
+```
+
+</details>
+
+<details>
+<summary><strong>Annotating optional complex props is error-prone</strong></summary>
+
+It's easy to forget using a union type with `undefined` or `null` when the prop is not required.
+
+```ts
+options: {
+  type: Object as PropType<Options>, // wrong, it should be `Options | undefined`
+  required: false,
+}
+
+// with vue-ts-types:
+options: objectProp<Options>().optional // automatically typed as `Options | undefined`
+```
+
+</details>
+
+<details>
+<summary><strong>Specifying both <code>default</code> and <code>required</code> can be contradictory</strong></summary>
+
+By specifying a prop's default value, the prop is automatically optional, even when `required` is set to `true` is set. See also the [`vue/no-required-prop-with-default` ESLint rule](https://eslint.vuejs.org/rules/no-required-prop-with-default.html).
+
+```ts
+disabled: {
+  type: Boolean
+  required: true,
+  default: false, // contradictory to `required: true`
+}
+
+// with vue-ts-types:
+disabled: booleanProp().required // either required without default
+disabled: booleanProp().withDefault(false) // or optional with default
+```
+
+</details>
+
+<details>
+<summary><strong>Custom validation errors are not helpful</strong></summary>
+
+Since prop validators return only a boolean validation result, the reason why a value failed to validate is not printed in the console error.
+
+```ts
+age: {
+  type: Number,
+  required: true,
+  validator: (age: unknown) => {
+    return typeof age === 'number' && Number.isInteger(age) && age >= 18
+  },
+}
+
+// with vue-ts-types:
+age: integerProp((age: unknown) => {
+  if (typeof age !== 'number' || age < 18) {
+    return 'age should be a number of at least 18'
+  }
+  return undefined
+}).required
+```
+
+</details>
+
 ## Installation
 
 ```bash
