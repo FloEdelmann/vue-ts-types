@@ -21,12 +21,17 @@
   ],
   "keywords": [
     "vue",
-    "vuejs",
-    "typescript",
     "vue2",
     "vue3",
+    "vuejs",
     "vuejs2",
-    "vuejs3"
+    "vuejs3",
+    "typescript",
+    "prop-types",
+    "props",
+    "proptype-validators",
+    "proptypes",
+    "hacktoberfest"
   ],
   "author": "Flo Edelmann",
   "license": "MIT",
