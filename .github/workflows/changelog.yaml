@@ -17,11 +17,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Changelog generator
-      uses: dittrichlucas/changelog-generator@main
+    - name: Generate changelog
+      uses: rhysd/changelog-from-release/action@v3
       with:
-        token: ${{ github.token }}
-        repo: ${{ github.repository }}
+        file: CHANGELOG.md
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Print changelog to console
       run: cat CHANGELOG.md
