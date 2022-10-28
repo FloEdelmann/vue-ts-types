@@ -217,6 +217,7 @@ booleanProp().withDefault(false)
 ### `numberProp(validator?: Validator)`
 
 Allows any number (validated at runtime and compile time).
+Type parameter `T` can be used to restrict the type at compile time with a union type. (Consider using [`oneOfProp`](#oneofproptallowedvalues-readonly-any-validator-validator) in this case.)
 
 ```ts
 numberProp().optional
@@ -227,6 +228,17 @@ numberProp().required
   // → prop type: number
 numberProp().withDefault(3.1415)
   // → prop type: number
+
+type Foo = 1 | 2 | 3;
+
+numberProp<Foo>().optional
+  // → prop type: Foo | undefined
+numberProp<Foo>().nullable
+  // → prop type: Foo | null
+numberProp<Foo>().required
+  // → prop type: Foo
+numberProp<Foo>().withDefault(1)
+  // → prop type: Foo
 ```
 
 ### `integerProp(validator?: Validator)`
