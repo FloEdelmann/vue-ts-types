@@ -1,0 +1,22 @@
+name: Changelog
+
+on:
+  # release:
+  #   types:
+  #     - created
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate release changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print changelog to console
+        run: cat CHANGELOG.md
