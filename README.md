@@ -214,7 +214,7 @@ booleanProp().withDefault(false)
   // → prop type: boolean
 ```
 
-### `numberProp(validator?: Validator)`
+### `numberProp<T>(validator?: Validator)`
 
 Allows any number (validated at runtime and compile time).
 Type parameter `T` can be used to restrict the type at compile time with a union type. (Consider using [`oneOfProp`](#oneofproptallowedvalues-readonly-any-validator-validator) in this case.)
