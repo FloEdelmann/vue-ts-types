@@ -45,7 +45,7 @@
     "@tsd/typescript": "^4.9.3",
     "@types/jest": "^29.2.3",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.44.0",
+    "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
     "eslint-plugin-jest": "^27.1.6",
     "eslint-plugin-unicorn": "^45.0.1",
