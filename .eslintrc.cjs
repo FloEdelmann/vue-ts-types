@@ -19,9 +19,6 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
   rules: {
     // Core ESLint rules
     'accessor-pairs': 'error',
@@ -138,8 +135,10 @@ module.exports = {
   overrides: [
     {
       files: ['tests/**'],
-      plugins: ['jest'],
-      extends: ['plugin:jest/recommended'],
+      extends: [
+        'plugin:jest/recommended',
+        'plugin:jest-formatting/recommended',
+      ],
       rules: {
         // additional Jest rules
         'jest/consistent-test-it': 'error',
