@@ -43,7 +43,7 @@
   "homepage": "https://github.com/FloEdelmann/vue-ts-types",
   "devDependencies": {
     "@tsd/typescript": "^4.9.3",
-    "@types/jest": "^29.2.3",
+    "@types/jest": "^29.2.4",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
