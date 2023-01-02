@@ -144,6 +144,7 @@ module.exports = {
         'jest/consistent-test-it': 'error',
         'jest/no-duplicate-hooks': 'error',
         'jest/no-test-return-statement': 'error',
+        'jest/no-untyped-mock-factory': 'error',
         'jest/prefer-called-with': 'warn',
         'jest/prefer-comparison-matcher': 'warn',
         'jest/prefer-equality-matcher': 'warn',
