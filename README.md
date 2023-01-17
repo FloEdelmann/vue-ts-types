@@ -130,7 +130,7 @@ age: integerProp((age: unknown) => {
 npm install vue-ts-types
 ```
 
-`vue-ts-types` is tested to be compatible with [Vue.js](https://vuejs.org/) `v2.6`, `v2.7` and `v3.2`.
+`vue-ts-types` has no dependencies and is tested to be compatible with [Vue.js](https://vuejs.org/) `v2.6`, `v2.7` and `v3.2`.
 
 ## Usage
 
