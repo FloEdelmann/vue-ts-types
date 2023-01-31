@@ -44,7 +44,7 @@ module.exports = {
     'grouped-accessor-pairs': ['error', 'getBeforeSet'],
     'guard-for-in': 'error',
     'indent': 'off', // replaced by @typescript-eslint/indent
-    'key-spacing': 'error',
+    'key-spacing': 'off', // replaced by @typescript-eslint/key-spacing
     'keyword-spacing': 'error',
     'linebreak-style': ['error', 'unix'],
     'new-parens': 'error',
@@ -108,6 +108,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
     '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/key-spacing': 'error',
     '@typescript-eslint/member-delimiter-style': 'error',
     '@typescript-eslint/no-confusing-void-expression': ['error', {
       ignoreVoidOperator: true,
