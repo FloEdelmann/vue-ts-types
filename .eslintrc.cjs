@@ -115,6 +115,7 @@ module.exports = {
       ignoreArrowShorthand: true,
     }],
     '@typescript-eslint/no-duplicate-imports': 'error',
+    '@typescript-eslint/no-duplicate-type-constituents': 'error',
     '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
     '@typescript-eslint/no-extraneous-class': 'off',
     '@typescript-eslint/no-shadow': ['warn', { ignoreOnInitialization: true }],
