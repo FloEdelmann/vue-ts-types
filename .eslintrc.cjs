@@ -7,9 +7,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:@typescript-eslint/strict',
+    'plugin:@typescript-eslint/strict-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:unicorn/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -17,7 +16,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: true,
   },
   rules: {
     // Core ESLint rules
@@ -67,12 +66,9 @@ module.exports = {
     'no-template-curly-in-string': 'error',
     'no-trailing-spaces': 'error',
     'no-unsafe-optional-chaining': ['error', { 'disallowArithmeticOperators': true }],
-    'no-var': 'error',
     'object-curly-spacing': 'off', // replaced by @typescript-eslint/object-curly-spacing
     'object-shorthand': ['error', 'always', { avoidQuotes: true }],
     'prefer-arrow-callback': 'error',
-    'prefer-const': 'error',
-    'prefer-rest-params': 'error',
     'prefer-template': 'error',
     'quotes': ['error', 'single'],
     'radix': 'error',
@@ -91,6 +87,7 @@ module.exports = {
 
     // eslint-plugin-unicorn
     'unicorn/filename-case': 'off',
+    'unicorn/no-empty-file': 'off', // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2175
     'unicorn/no-null': 'off',
     'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
     'unicorn/prevent-abbreviations': ['warn', {
@@ -100,10 +97,6 @@ module.exports = {
     }],
 
     // @typescript-eslint/eslint-plugin
-    '@typescript-eslint/consistent-type-assertions': ['error', {
-      assertionStyle: 'as',
-      objectLiteralTypeAssertions: 'allow-as-parameter',
-    }],
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
@@ -114,17 +107,14 @@ module.exports = {
       ignoreVoidOperator: true,
       ignoreArrowShorthand: true,
     }],
-    '@typescript-eslint/no-duplicate-imports': 'error',
-    '@typescript-eslint/no-duplicate-type-constituents': 'error',
     '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
     '@typescript-eslint/no-extraneous-class': 'off',
     '@typescript-eslint/no-shadow': ['warn', { ignoreOnInitialization: true }],
-    '@typescript-eslint/no-redundant-type-constituents': 'error',
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/prefer-enum-initializers': 'error',
     '@typescript-eslint/prefer-readonly': 'error',
     '@typescript-eslint/promise-function-async': 'error',
-    '@typescript-eslint/sort-type-union-intersection-members': 'warn',
+    '@typescript-eslint/sort-type-constituents': 'warn',
     '@typescript-eslint/space-infix-ops': 'error',
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/type-annotation-spacing': 'error',
@@ -135,6 +125,7 @@ module.exports = {
     'dist',
   ],
   overrides: [
+    { files: ['*.cjs'] },
     {
       files: ['tests/**'],
       extends: [
