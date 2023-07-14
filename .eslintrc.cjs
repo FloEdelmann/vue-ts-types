@@ -90,6 +90,7 @@ module.exports = {
 
     // eslint-plugin-unicorn
     'unicorn/filename-case': 'off',
+    'unicorn/no-empty-file': 'off', // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2175
     'unicorn/no-null': 'off',
     'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
     'unicorn/prevent-abbreviations': ['warn', {
