@@ -133,6 +133,7 @@ module.exports = {
     'dist',
   ],
   overrides: [
+    { files: ['*.cjs'] },
     {
       files: ['tests/**'],
       extends: [
