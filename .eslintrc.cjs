@@ -7,9 +7,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:@typescript-eslint/strict',
+    'plugin:@typescript-eslint/strict-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:unicorn/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -17,7 +16,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: true,
   },
   rules: {
     // Core ESLint rules
@@ -114,7 +113,6 @@ module.exports = {
       ignoreVoidOperator: true,
       ignoreArrowShorthand: true,
     }],
-    '@typescript-eslint/no-duplicate-imports': 'error',
     '@typescript-eslint/no-duplicate-type-constituents': 'error',
     '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
     '@typescript-eslint/no-extraneous-class': 'off',
@@ -124,7 +122,7 @@ module.exports = {
     '@typescript-eslint/prefer-enum-initializers': 'error',
     '@typescript-eslint/prefer-readonly': 'error',
     '@typescript-eslint/promise-function-async': 'error',
-    '@typescript-eslint/sort-type-union-intersection-members': 'warn',
+    '@typescript-eslint/sort-type-constituents': 'warn',
     '@typescript-eslint/space-infix-ops': 'error',
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/type-annotation-spacing': 'error',
