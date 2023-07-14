@@ -66,12 +66,9 @@ module.exports = {
     'no-template-curly-in-string': 'error',
     'no-trailing-spaces': 'error',
     'no-unsafe-optional-chaining': ['error', { 'disallowArithmeticOperators': true }],
-    'no-var': 'error',
     'object-curly-spacing': 'off', // replaced by @typescript-eslint/object-curly-spacing
     'object-shorthand': ['error', 'always', { avoidQuotes: true }],
     'prefer-arrow-callback': 'error',
-    'prefer-const': 'error',
-    'prefer-rest-params': 'error',
     'prefer-template': 'error',
     'quotes': ['error', 'single'],
     'radix': 'error',
@@ -100,10 +97,6 @@ module.exports = {
     }],
 
     // @typescript-eslint/eslint-plugin
-    '@typescript-eslint/consistent-type-assertions': ['error', {
-      assertionStyle: 'as',
-      objectLiteralTypeAssertions: 'allow-as-parameter',
-    }],
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
@@ -114,11 +107,9 @@ module.exports = {
       ignoreVoidOperator: true,
       ignoreArrowShorthand: true,
     }],
-    '@typescript-eslint/no-duplicate-type-constituents': 'error',
     '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
     '@typescript-eslint/no-extraneous-class': 'off',
     '@typescript-eslint/no-shadow': ['warn', { ignoreOnInitialization: true }],
-    '@typescript-eslint/no-redundant-type-constituents': 'error',
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/prefer-enum-initializers': 'error',
     '@typescript-eslint/prefer-readonly': 'error',
