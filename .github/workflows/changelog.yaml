@@ -1,22 +1,22 @@
-name: Changelog
+name: 'Changelog'
 
 on:
   release:
     types:
-      - created
-      - published
-  workflow_dispatch:
+      - 'created'
+      - 'published'
+  workflow_dispatch: null
 
 jobs:
   changelog:
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.0.0
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4.0.0'
         with:
-          ref: main
-      - name: Generate changelog
-        uses: rhysd/changelog-from-release/action@v3
+          ref: 'main'
+      - name: 'Generate changelog'
+        uses: 'rhysd/changelog-from-release/action@v3'
         with:
-          file: CHANGELOG.md
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          file: 'CHANGELOG.md'
+          github_token: '${{ secrets.GITHUB_TOKEN }}'

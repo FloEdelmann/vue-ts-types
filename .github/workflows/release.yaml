@@ -1,4 +1,4 @@
-name: Release
+name: 'Release'
 
 on:
   workflow_dispatch:
@@ -7,61 +7,61 @@ on:
         description: 'Release type'
         required: true
         default: 'minor'
-        type: choice
+        type: 'choice'
         options:
-          - major
-          - minor
-          - patch
+          - 'major'
+          - 'minor'
+          - 'patch'
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
 permissions:
-  contents: write
+  contents: 'write'
 
 jobs:
   release:
-    name: Release
-    runs-on: ubuntu-latest
+    name: 'Release'
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.0.0
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4.0.0'
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.8.1
+      - name: 'Setup Node.js'
+        uses: 'actions/setup-node@v3.8.1'
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
+          registry-url: 'https://registry.npmjs.org/'
           cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Setup git
+      - name: 'Install dependencies'
+        run: 'npm ci'
+      - name: 'Build'
+        run: 'npm run build'
+      - name: 'Setup git'
         run: |
           git config user.name "Flo Edelmann"
           git config user.email "florian-edelmann@online.de"
-      - name: Bump ${{ github.event.inputs.releaseType }} version
-        run: npm version ${{ github.event.inputs.releaseType }} --force -m "Version %s"
-      - name: Release new version
+      - name: 'Bump ${{ github.event.inputs.releaseType }} version'
+        run: 'npm version ${{ github.event.inputs.releaseType }} --force -m "Version %s"'
+      - name: 'Release new version'
         run: |
           npm publish --access public
           VERSION_NUMBER=$(git tag --list | tail -n 1 | cut -d v -f 2)
           echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_TOKEN }}
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+          NODE_AUTH_TOKEN: '${{ secrets.NPM_API_TOKEN }}'
+      - name: 'Push changes'
+        uses: 'ad-m/github-push-action@master'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          branch: '${{ github.ref }}'
           tags: true
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1.13.0
+      - name: 'Create GitHub Release'
+        uses: 'ncipollo/release-action@v1.13.0'
         with:
-          tag: v${{ env.VERSION_NUMBER }}
-          name: Version ${{ env.VERSION_NUMBER }}
+          tag: 'v${{ env.VERSION_NUMBER }}'
+          name: 'Version ${{ env.VERSION_NUMBER }}'
           generateReleaseNotes: true
           draft: true

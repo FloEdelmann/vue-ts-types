@@ -1,90 +1,94 @@
-name: Test
+name: 'Test'
 
 on:
   push:
     branches:
-      - main
+      - 'main'
   pull_request:
     types:
-      - opened
-      - synchronize
-      - reopened
+      - 'opened'
+      - 'synchronize'
+      - 'reopened'
 
 concurrency:
-  group: test-${{ github.ref }}
+  group: 'test-${{ github.ref }}'
   cancel-in-progress: true
 
 jobs:
   test:
-    name: Test
+    name: 'Test'
     strategy:
       fail-fast: false
       matrix:
         version: [14, 16, 18]
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.0.0
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.8.1
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4.0.0'
+      - name: 'Setup Node.js'
+        uses: 'actions/setup-node@v3.8.1'
         with:
-          node-version: ${{ matrix.version }}
+          node-version: '${{ matrix.version }}'
           cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Test
-        run: npm run test
+      - name: 'Install dependencies'
+        run: 'npm ci'
+      - name: 'Test'
+        run: 'npm run test'
 
   type-test:
-    name: Type test
+    name: 'Type test'
     strategy:
       fail-fast: false
       matrix:
         version: [14, 16, 18]
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.0.0
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.8.1
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4.0.0'
+      - name: 'Setup Node.js'
+        uses: 'actions/setup-node@v3.8.1'
         with:
-          node-version: ${{ matrix.version }}
+          node-version: '${{ matrix.version }}'
           cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Type test
-        run: npm run type-test
+      - name: 'Install dependencies'
+        run: 'npm ci'
+      - name: 'Type test'
+        run: 'npm run type-test'
 
   lint:
-    name: Lint
-    runs-on: ubuntu-latest
+    name: 'Lint'
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.0.0
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.8.1
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4.0.0'
+      - name: 'Setup Node.js'
+        uses: 'actions/setup-node@v3.8.1'
         with:
           node-version: 16
           cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint with ESLint
-        run: npm run lint:eslint
-      - name: Lint with Markdownlint
-        run: npm run lint:markdownlint
+      - name: 'Install dependencies'
+        run: 'npm ci'
+      - name: 'Lint with ESLint'
+        run: 'npm run lint:eslint'
+      - name: 'Lint with Markdownlint'
+        run: 'npm run lint:markdownlint'
+      - name: 'Lint with Prettier'
+        run: 'npm run lint:prettier'
+      - name: 'Lint with yamllint'
+        uses: 'ibiqlik/action-yamllint@v3'
 
   build:
-    name: Build
-    runs-on: ubuntu-latest
+    name: 'Build'
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.0.0
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.8.1
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4.0.0'
+      - name: 'Setup Node.js'
+        uses: 'actions/setup-node@v3.8.1'
         with:
           node-version: 16
           cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
+      - name: 'Install dependencies'
+        run: 'npm ci'
+      - name: 'Build'
+        run: 'npm run build'
