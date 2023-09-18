@@ -5,7 +5,7 @@ on:
     types:
       - 'created'
       - 'published'
-  workflow_dispatch:
+  workflow_dispatch: null
 
 jobs:
   changelog:
