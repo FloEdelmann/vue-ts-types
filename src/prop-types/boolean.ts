@@ -7,5 +7,6 @@ import type { Validator } from '../validators';
  *
  * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
  */
-export const booleanProp = (validator?: Validator): PropOptionsGenerator<boolean> =>
-  propOptionsGenerator(Boolean, validator);
+export const booleanProp = (
+  validator?: Validator,
+): PropOptionsGenerator<boolean> => propOptionsGenerator(Boolean, validator);

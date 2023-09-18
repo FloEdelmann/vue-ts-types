@@ -8,7 +8,9 @@ import type { Vue2ComponentWithProp } from '../utils';
 
 describe('integerProp().optional', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<number | undefined>>(integerProp().optional);
+    expectAssignable<Vue2_6.PropOptions<number | undefined>>(
+      integerProp().optional,
+    );
     expectNotAssignable<Vue2_6.PropOptions<number>>(integerProp().optional);
 
     expectType<Vue2ComponentWithProp<number | undefined>>(
@@ -17,7 +19,9 @@ describe('integerProp().optional', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<number | undefined>>(integerProp().optional);
+    expectAssignable<Vue2_7.PropOptions<number | undefined>>(
+      integerProp().optional,
+    );
     expectNotAssignable<Vue2_7.PropOptions<number>>(integerProp().optional);
   });
 
@@ -51,7 +55,9 @@ describe('integerProp().nullable', () => {
 describe('integerProp().withDefault', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<number>>(integerProp().withDefault(27));
-    expectNotAssignable<Vue2_6.PropOptions<string>>(integerProp().withDefault(27));
+    expectNotAssignable<Vue2_6.PropOptions<string>>(
+      integerProp().withDefault(27),
+    );
 
     expectType<Vue2ComponentWithProp<number>>(
       createVue2Component(integerProp().withDefault(27)),
@@ -60,7 +66,9 @@ describe('integerProp().withDefault', () => {
 
   describe('Vue 2.7', () => {
     expectAssignable<Vue2_7.PropOptions<number>>(integerProp().withDefault(27));
-    expectNotAssignable<Vue2_7.PropOptions<string>>(integerProp().withDefault(27));
+    expectNotAssignable<Vue2_7.PropOptions<string>>(
+      integerProp().withDefault(27),
+    );
   });
 
   describe('Vue 3', () => {

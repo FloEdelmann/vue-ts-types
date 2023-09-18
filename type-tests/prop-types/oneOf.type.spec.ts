@@ -11,8 +11,12 @@ type Options = 'a' | 'b' | 'c';
 
 describe('oneOfProp().optional', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<string | undefined>>(oneOfProp(['a', 'b', 'c']).optional);
-    expectAssignable<Vue2_6.PropOptions<Options | undefined>>(oneOfProp(options).optional);
+    expectAssignable<Vue2_6.PropOptions<string | undefined>>(
+      oneOfProp(['a', 'b', 'c']).optional,
+    );
+    expectAssignable<Vue2_6.PropOptions<Options | undefined>>(
+      oneOfProp(options).optional,
+    );
 
     expectType<Vue2ComponentWithProp<Options | undefined>>(
       createVue2Component(oneOfProp(options).optional),
@@ -20,20 +24,32 @@ describe('oneOfProp().optional', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<string | undefined>>(oneOfProp(['a', 'b', 'c']).optional);
-    expectAssignable<Vue2_7.PropOptions<Options | undefined>>(oneOfProp(options).optional);
+    expectAssignable<Vue2_7.PropOptions<string | undefined>>(
+      oneOfProp(['a', 'b', 'c']).optional,
+    );
+    expectAssignable<Vue2_7.PropOptions<Options | undefined>>(
+      oneOfProp(options).optional,
+    );
   });
 
   describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<string | undefined>>(oneOfProp(['a', 'b', 'c']).optional);
-    expectAssignable<Vue3.Prop<Options | undefined>>(oneOfProp(options).optional);
+    expectAssignable<Vue3.Prop<string | undefined>>(
+      oneOfProp(['a', 'b', 'c']).optional,
+    );
+    expectAssignable<Vue3.Prop<Options | undefined>>(
+      oneOfProp(options).optional,
+    );
   });
 });
 
 describe('oneOfProp().nullable', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
-    expectAssignable<Vue2_6.PropOptions<Options | null>>(oneOfProp(options).nullable);
+    expectAssignable<Vue2_6.PropOptions<string | null>>(
+      oneOfProp(['a', 'b', 'c']).nullable,
+    );
+    expectAssignable<Vue2_6.PropOptions<Options | null>>(
+      oneOfProp(options).nullable,
+    );
 
     expectType<Vue2ComponentWithProp<Options | null>>(
       createVue2Component(oneOfProp(options).nullable),
@@ -41,19 +57,27 @@ describe('oneOfProp().nullable', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
-    expectAssignable<Vue2_7.PropOptions<Options | null>>(oneOfProp(options).nullable);
+    expectAssignable<Vue2_7.PropOptions<string | null>>(
+      oneOfProp(['a', 'b', 'c']).nullable,
+    );
+    expectAssignable<Vue2_7.PropOptions<Options | null>>(
+      oneOfProp(options).nullable,
+    );
   });
 
   describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<string | null>>(oneOfProp(['a', 'b', 'c']).nullable);
+    expectAssignable<Vue3.Prop<string | null>>(
+      oneOfProp(['a', 'b', 'c']).nullable,
+    );
     expectAssignable<Vue3.Prop<Options | null>>(oneOfProp(options).nullable);
   });
 });
 
 describe('oneOfProp().withDefault', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Options>>(oneOfProp(options).withDefault('a'));
+    expectAssignable<Vue2_6.PropOptions<Options>>(
+      oneOfProp(options).withDefault('a'),
+    );
 
     expectType<Vue2ComponentWithProp<Options>>(
       createVue2Component(oneOfProp(options).withDefault('a')),
@@ -61,7 +85,9 @@ describe('oneOfProp().withDefault', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Options>>(oneOfProp(options).withDefault('a'));
+    expectAssignable<Vue2_7.PropOptions<Options>>(
+      oneOfProp(options).withDefault('a'),
+    );
   });
 
   describe('Vue 3', () => {

@@ -1,8 +1,17 @@
-import type { DefaultPropOptions, OneOfDefaultType, PropOptionsGenerator, PropType } from './types';
+import type {
+  DefaultPropOptions,
+  OneOfDefaultType,
+  PropOptionsGenerator,
+  PropType,
+} from './types';
 import { vuePropValidator } from './validators';
 import type { Validator } from './validators';
 
-export const propOptionsGenerator = <T>(type?: PropType<T>, userValidator?: Validator, ...typeValidators: Validator[]): PropOptionsGenerator<T> => ({
+export const propOptionsGenerator = <T>(
+  type?: PropType<T>,
+  userValidator?: Validator,
+  ...typeValidators: Validator[]
+): PropOptionsGenerator<T> => ({
   optional: {
     type,
     required: false,

@@ -9,5 +9,6 @@ import type { Validator } from '../validators';
  *
  * @param validator - Optional function for runtime validation; should return `undefined` if valid, or an error string if invalid.
  */
-export const anyProp = <T = any>(validator?: Validator): PropOptionsGenerator<T> =>
-  propOptionsGenerator(undefined, validator);
+export const anyProp = <T = any>(
+  validator?: Validator,
+): PropOptionsGenerator<T> => propOptionsGenerator(undefined, validator);

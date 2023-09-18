@@ -12,8 +12,12 @@ interface User {
 
 describe('objectProp().optional', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<object | undefined>>(objectProp().optional);
-    expectAssignable<Vue2_6.PropOptions<User | undefined>>(objectProp<User>().optional);
+    expectAssignable<Vue2_6.PropOptions<object | undefined>>(
+      objectProp().optional,
+    );
+    expectAssignable<Vue2_6.PropOptions<User | undefined>>(
+      objectProp<User>().optional,
+    );
     expectNotAssignable<Vue2_6.PropOptions<User>>(objectProp<User>().optional);
 
     expectType<Vue2ComponentWithProp<object | undefined>>(
@@ -26,8 +30,12 @@ describe('objectProp().optional', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<object | undefined>>(objectProp().optional);
-    expectAssignable<Vue2_7.PropOptions<User | undefined>>(objectProp<User>().optional);
+    expectAssignable<Vue2_7.PropOptions<object | undefined>>(
+      objectProp().optional,
+    );
+    expectAssignable<Vue2_7.PropOptions<User | undefined>>(
+      objectProp<User>().optional,
+    );
     expectNotAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().optional);
   });
 
@@ -41,7 +49,9 @@ describe('objectProp().optional', () => {
 describe('objectProp().nullable', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<object | null>>(objectProp().nullable);
-    expectAssignable<Vue2_6.PropOptions<User | null>>(objectProp<User>().nullable);
+    expectAssignable<Vue2_6.PropOptions<User | null>>(
+      objectProp<User>().nullable,
+    );
     expectNotAssignable<Vue2_6.PropOptions<User>>(objectProp<User>().nullable);
 
     expectType<Vue2ComponentWithProp<object | null>>(
@@ -55,7 +65,9 @@ describe('objectProp().nullable', () => {
 
   describe('Vue 2.7', () => {
     expectAssignable<Vue2_7.PropOptions<object | null>>(objectProp().nullable);
-    expectAssignable<Vue2_7.PropOptions<User | null>>(objectProp<User>().nullable);
+    expectAssignable<Vue2_7.PropOptions<User | null>>(
+      objectProp<User>().nullable,
+    );
     expectNotAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().nullable);
   });
 
@@ -70,7 +82,9 @@ const userGenerator = () => ({ name: 'bar' });
 
 describe('objectProp().withDefault', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
+    expectAssignable<Vue2_6.PropOptions<User>>(
+      objectProp<User>().withDefault(userGenerator),
+    );
 
     expectType<Vue2ComponentWithProp<User>>(
       createVue2Component(objectProp<User>().withDefault(userGenerator)),
@@ -78,11 +92,15 @@ describe('objectProp().withDefault', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<User>>(objectProp<User>().withDefault(userGenerator));
+    expectAssignable<Vue2_7.PropOptions<User>>(
+      objectProp<User>().withDefault(userGenerator),
+    );
   });
 
   describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<User>>(objectProp<User>().withDefault(userGenerator));
+    expectAssignable<Vue3.Prop<User>>(
+      objectProp<User>().withDefault(userGenerator),
+    );
   });
 });
 

@@ -2,25 +2,25 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    versioning-strategy: "increase"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    versioning-strategy: 'increase'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     labels:
-      - "dependencies"
+      - 'dependencies'
     groups:
       typescript-eslint:
         patterns:
-          - "@typescript-eslint/*"
+          - '@typescript-eslint/*'
       typescript:
         patterns:
-          - "typescript"
-          - "@tsd/typescript"
+          - 'typescript'
+          - '@tsd/typescript'
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     labels:
-      - "dependencies"
+      - 'dependencies'

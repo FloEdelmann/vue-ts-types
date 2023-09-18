@@ -9,8 +9,12 @@ import type { Vue2ComponentWithProp } from '../utils';
 
 describe('vueComponentProp().optional', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<VueComponent | undefined>>(vueComponentProp().optional);
-    expectNotAssignable<Vue2_6.PropOptions<VueComponent>>(vueComponentProp().optional);
+    expectAssignable<Vue2_6.PropOptions<VueComponent | undefined>>(
+      vueComponentProp().optional,
+    );
+    expectNotAssignable<Vue2_6.PropOptions<VueComponent>>(
+      vueComponentProp().optional,
+    );
 
     expectType<Vue2ComponentWithProp<VueComponent | undefined>>(
       createVue2Component(vueComponentProp().optional),
@@ -18,20 +22,30 @@ describe('vueComponentProp().optional', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<VueComponent | undefined>>(vueComponentProp().optional);
-    expectNotAssignable<Vue2_7.PropOptions<VueComponent>>(vueComponentProp().optional);
+    expectAssignable<Vue2_7.PropOptions<VueComponent | undefined>>(
+      vueComponentProp().optional,
+    );
+    expectNotAssignable<Vue2_7.PropOptions<VueComponent>>(
+      vueComponentProp().optional,
+    );
   });
 
   describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<VueComponent | undefined>>(vueComponentProp().optional);
+    expectAssignable<Vue3.Prop<VueComponent | undefined>>(
+      vueComponentProp().optional,
+    );
     expectNotAssignable<Vue3.Prop<VueComponent>>(vueComponentProp().optional);
   });
 });
 
 describe('vueComponentProp().nullable', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<VueComponent | null>>(vueComponentProp().nullable);
-    expectNotAssignable<Vue2_6.PropOptions<VueComponent>>(vueComponentProp().nullable);
+    expectAssignable<Vue2_6.PropOptions<VueComponent | null>>(
+      vueComponentProp().nullable,
+    );
+    expectNotAssignable<Vue2_6.PropOptions<VueComponent>>(
+      vueComponentProp().nullable,
+    );
 
     expectType<Vue2ComponentWithProp<VueComponent | null>>(
       createVue2Component(vueComponentProp().nullable),
@@ -39,20 +53,30 @@ describe('vueComponentProp().nullable', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<VueComponent | null>>(vueComponentProp().nullable);
-    expectNotAssignable<Vue2_7.PropOptions<VueComponent>>(vueComponentProp().nullable);
+    expectAssignable<Vue2_7.PropOptions<VueComponent | null>>(
+      vueComponentProp().nullable,
+    );
+    expectNotAssignable<Vue2_7.PropOptions<VueComponent>>(
+      vueComponentProp().nullable,
+    );
   });
 
   describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<VueComponent | null>>(vueComponentProp().nullable);
+    expectAssignable<Vue3.Prop<VueComponent | null>>(
+      vueComponentProp().nullable,
+    );
     expectNotAssignable<Vue3.Prop<VueComponent>>(vueComponentProp().nullable);
   });
 });
 
 describe('vueComponentProp().withDefault', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<VueComponent>>(vueComponentProp().withDefault('foo'));
-    expectNotAssignable<Vue2_6.PropOptions<string>>(vueComponentProp().withDefault('foo'));
+    expectAssignable<Vue2_6.PropOptions<VueComponent>>(
+      vueComponentProp().withDefault('foo'),
+    );
+    expectNotAssignable<Vue2_6.PropOptions<string>>(
+      vueComponentProp().withDefault('foo'),
+    );
 
     expectType<Vue2ComponentWithProp<VueComponent>>(
       createVue2Component(vueComponentProp().withDefault('foo')),
@@ -60,20 +84,32 @@ describe('vueComponentProp().withDefault', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<VueComponent>>(vueComponentProp().withDefault('foo'));
-    expectNotAssignable<Vue2_7.PropOptions<string>>(vueComponentProp().withDefault('foo'));
+    expectAssignable<Vue2_7.PropOptions<VueComponent>>(
+      vueComponentProp().withDefault('foo'),
+    );
+    expectNotAssignable<Vue2_7.PropOptions<string>>(
+      vueComponentProp().withDefault('foo'),
+    );
   });
 
   describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<VueComponent>>(vueComponentProp().withDefault('foo'));
-    expectNotAssignable<Vue3.Prop<string>>(vueComponentProp().withDefault('foo'));
+    expectAssignable<Vue3.Prop<VueComponent>>(
+      vueComponentProp().withDefault('foo'),
+    );
+    expectNotAssignable<Vue3.Prop<string>>(
+      vueComponentProp().withDefault('foo'),
+    );
   });
 });
 
 describe('vueComponentProp().required', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<VueComponent>>(vueComponentProp().required);
-    expectNotAssignable<Vue2_6.PropOptions<string>>(vueComponentProp().required);
+    expectAssignable<Vue2_6.PropOptions<VueComponent>>(
+      vueComponentProp().required,
+    );
+    expectNotAssignable<Vue2_6.PropOptions<string>>(
+      vueComponentProp().required,
+    );
 
     expectType<Vue2ComponentWithProp<VueComponent>>(
       createVue2Component(vueComponentProp().required),
@@ -81,8 +117,12 @@ describe('vueComponentProp().required', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<VueComponent>>(vueComponentProp().required);
-    expectNotAssignable<Vue2_7.PropOptions<string>>(vueComponentProp().required);
+    expectAssignable<Vue2_7.PropOptions<VueComponent>>(
+      vueComponentProp().required,
+    );
+    expectNotAssignable<Vue2_7.PropOptions<string>>(
+      vueComponentProp().required,
+    );
   });
 
   describe('Vue 3', () => {

@@ -9,9 +9,9 @@ on:
         default: 'minor'
         type: choice
         options:
-        - major
-        - minor
-        - patch
+          - major
+          - minor
+          - patch
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

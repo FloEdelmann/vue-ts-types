@@ -11,12 +11,23 @@ describe('oneOfProp().optional', () => {
   });
 
   it('has the correct type', () => {
-    expect(oneOfProp(['a', 'b', 'c'] as const).optional.type).toStrictEqual(String);
+    expect(oneOfProp(['a', 'b', 'c'] as const).optional.type).toStrictEqual(
+      String,
+    );
     expect(oneOfProp([1, 2, 3] as const).optional.type).toStrictEqual(Number);
-    expect(oneOfProp(['foo', 1, 2, 3] as const).optional.type).toStrictEqual([String, Number]);
-    expect(oneOfProp([true, false, 'both'] as const).optional.type).toStrictEqual([Boolean, String]);
-    expect(oneOfProp([undefined, null] as const).optional.type).toStrictEqual(undefined);
-    expect(oneOfProp([undefined, 'defined'] as const).optional.type).toStrictEqual(String);
+    expect(oneOfProp(['foo', 1, 2, 3] as const).optional.type).toStrictEqual([
+      String,
+      Number,
+    ]);
+    expect(
+      oneOfProp([true, false, 'both'] as const).optional.type,
+    ).toStrictEqual([Boolean, String]);
+    expect(oneOfProp([undefined, null] as const).optional.type).toStrictEqual(
+      undefined,
+    );
+    expect(
+      oneOfProp([undefined, 'defined'] as const).optional.type,
+    ).toStrictEqual(String);
   });
 });
 
@@ -31,12 +42,23 @@ describe('oneOfProp().nullable', () => {
   });
 
   it('has the correct type', () => {
-    expect(oneOfProp(['a', 'b', 'c'] as const).nullable.type).toStrictEqual(String);
+    expect(oneOfProp(['a', 'b', 'c'] as const).nullable.type).toStrictEqual(
+      String,
+    );
     expect(oneOfProp([1, 2, 3] as const).nullable.type).toStrictEqual(Number);
-    expect(oneOfProp(['foo', 1, 2, 3] as const).nullable.type).toStrictEqual([String, Number]);
-    expect(oneOfProp([true, false, 'both'] as const).nullable.type).toStrictEqual([Boolean, String]);
-    expect(oneOfProp([undefined, null] as const).nullable.type).toStrictEqual(undefined);
-    expect(oneOfProp([undefined, 'defined'] as const).nullable.type).toStrictEqual(String);
+    expect(oneOfProp(['foo', 1, 2, 3] as const).nullable.type).toStrictEqual([
+      String,
+      Number,
+    ]);
+    expect(
+      oneOfProp([true, false, 'both'] as const).nullable.type,
+    ).toStrictEqual([Boolean, String]);
+    expect(oneOfProp([undefined, null] as const).nullable.type).toStrictEqual(
+      undefined,
+    );
+    expect(
+      oneOfProp([undefined, 'defined'] as const).nullable.type,
+    ).toStrictEqual(String);
   });
 });
 
