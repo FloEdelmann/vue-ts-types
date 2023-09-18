@@ -134,7 +134,7 @@ module.exports = {
       rules: {
         // additional Jest rules
         'jest/consistent-test-it': 'error',
-        'jest/no-confusing-set-time': 'error',
+        'jest/no-confusing-set-timeout': 'error',
         'jest/no-duplicate-hooks': 'error',
         'jest/no-test-return-statement': 'error',
         'jest/no-untyped-mock-factory': 'error',
