@@ -1,0 +1,16 @@
+extends: default
+
+ignore:
+  - node_modules/
+
+rules:
+  document-start: disable
+  empty-values: enable
+  float-values:
+    require-numeral-before-decimal: true
+  line-length: disable
+  octal-values:
+    forbid-implicit-octal: true
+  quoted-strings: enable
+  truthy:
+    check-keys: false
