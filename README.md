@@ -136,10 +136,10 @@ npm install vue-ts-types
 
 Each of the prop functions returns an object with the following properties:
 
-* `.optional`: Use this to mark the prop as not required with a default value of `undefined`. Also includes `undefined` in the resulting prop type.
-* `.nullable`: Use this to mark the prop as not required with a default value of `null`. Also includes `null` in the resulting prop type.
-* `.required`: Use this to mark the prop as required without a default value.
-* `.withDefault(value)`: Use this to set a default value for the prop. Note that the value has to fit the prop type. For non-primitive types, the value has to be a function that returns the default value.
+- `.optional`: Use this to mark the prop as not required with a default value of `undefined`. Also includes `undefined` in the resulting prop type.
+- `.nullable`: Use this to mark the prop as not required with a default value of `null`. Also includes `null` in the resulting prop type.
+- `.required`: Use this to mark the prop as required without a default value.
+- `.withDefault(value)`: Use this to set a default value for the prop. Note that the value has to fit the prop type. For non-primitive types, the value has to be a function that returns the default value.
 
 > ℹ️ **Note:**  
 > Due to the way Vue props work, a prop's default value will only be used when passing `undefined`, not for `null`.  
@@ -154,23 +154,23 @@ import { numberProp } from 'vue-ts-types';
 
 type Validator = (value: unknown) => string | undefined;
 
-const isPositive: Validator = value => {
+const isPositive: Validator = (value) => {
   if (typeof value !== 'number' || value <= 0 || Number.isNaN(value)) {
     return 'value should be a positive number';
   }
   return undefined;
-}
+};
 
-numberProp(isPositive).optional
-  // → prop type: number | undefined
+numberProp(isPositive).optional;
+// → prop type: number | undefined
 ```
 
 For convenience, some common validator functions are included in the library and can be imported just like prop types:
 
-* `isNegative`: only allows negative numbers (`< 0`)
-* `isPositive`: only allows positive numbers (`> 0`)
-* `isNonNegative`: only allows non-negative numbers (`>= 0`)
-* `isNonPositive`: only allows non-positive numbers (`<= 0`)
+- `isNegative`: only allows negative numbers (`< 0`)
+- `isPositive`: only allows positive numbers (`> 0`)
+- `isNonNegative`: only allows non-negative numbers (`>= 0`)
+- `isNonPositive`: only allows non-positive numbers (`<= 0`)
 
 ### `stringProp<T>(validator?: Validator)`
 
@@ -178,25 +178,25 @@ Allows any string. No further runtime validation is performed by default.
 Type parameter `T` can be used to restrict the type at compile time with a union type. (Consider using [`oneOfProp`](#oneofproptallowedvalues-readonly-any-validator-validator) in this case.)
 
 ```ts
-stringProp().optional
-  // → prop type: string | undefined
-stringProp().nullable
-  // → prop type: string | null
-stringProp().required
-  // → prop type: string
-stringProp().withDefault('foo')
-  // → prop type: string
+stringProp().optional;
+// → prop type: string | undefined
+stringProp().nullable;
+// → prop type: string | null
+stringProp().required;
+// → prop type: string
+stringProp().withDefault('foo');
+// → prop type: string
 
 type Foo = 'a' | 'b' | 'c';
 
-stringProp<Foo>().optional
-  // → prop type: Foo | undefined
-stringProp<Foo>().nullable
-  // → prop type: Foo | null
-stringProp<Foo>().required
-  // → prop type: Foo
-stringProp<Foo>().withDefault('a')
-  // → prop type: Foo
+stringProp<Foo>().optional;
+// → prop type: Foo | undefined
+stringProp<Foo>().nullable;
+// → prop type: Foo | null
+stringProp<Foo>().required;
+// → prop type: Foo
+stringProp<Foo>().withDefault('a');
+// → prop type: Foo
 ```
 
 ### `booleanProp(validator?: Validator)`
@@ -204,14 +204,14 @@ stringProp<Foo>().withDefault('a')
 Allows any boolean (validated at runtime and compile time).
 
 ```ts
-booleanProp().optional
-  // → prop type: boolean | undefined
-booleanProp().nullable
-  // → prop type: boolean | null
-booleanProp().required
-  // → prop type: boolean
-booleanProp().withDefault(false)
-  // → prop type: boolean
+booleanProp().optional;
+// → prop type: boolean | undefined
+booleanProp().nullable;
+// → prop type: boolean | null
+booleanProp().required;
+// → prop type: boolean
+booleanProp().withDefault(false);
+// → prop type: boolean
 ```
 
 ### `numberProp<T>(validator?: Validator)`
@@ -220,25 +220,25 @@ Allows any number (validated at runtime and compile time).
 Type parameter `T` can be used to restrict the type at compile time with a union type. (Consider using [`oneOfProp`](#oneofproptallowedvalues-readonly-any-validator-validator) in this case.)
 
 ```ts
-numberProp().optional
-  // → prop type: number | undefined
-numberProp().nullable
-  // → prop type: number | null
-numberProp().required
-  // → prop type: number
-numberProp().withDefault(3.1415)
-  // → prop type: number
+numberProp().optional;
+// → prop type: number | undefined
+numberProp().nullable;
+// → prop type: number | null
+numberProp().required;
+// → prop type: number
+numberProp().withDefault(3.1415);
+// → prop type: number
 
 type Foo = 1 | 2 | 3;
 
-numberProp<Foo>().optional
-  // → prop type: Foo | undefined
-numberProp<Foo>().nullable
-  // → prop type: Foo | null
-numberProp<Foo>().required
-  // → prop type: Foo
-numberProp<Foo>().withDefault(1)
-  // → prop type: Foo
+numberProp<Foo>().optional;
+// → prop type: Foo | undefined
+numberProp<Foo>().nullable;
+// → prop type: Foo | null
+numberProp<Foo>().required;
+// → prop type: Foo
+numberProp<Foo>().withDefault(1);
+// → prop type: Foo
 ```
 
 ### `integerProp(validator?: Validator)`
@@ -246,14 +246,14 @@ numberProp<Foo>().withDefault(1)
 Allows any integer (validated at runtime).
 
 ```ts
-integerProp().optional
-  // → prop type: number | undefined
-integerProp().nullable
-  // → prop type: number | null
-integerProp().required
-  // → prop type: number
-integerProp().withDefault(42)
-  // → prop type: number
+integerProp().optional;
+// → prop type: number | undefined
+integerProp().nullable;
+// → prop type: number | null
+integerProp().required;
+// → prop type: number
+integerProp().withDefault(42);
+// → prop type: number
 ```
 
 ### `symbolProp(validator?: Validator)`
@@ -261,14 +261,14 @@ integerProp().withDefault(42)
 Allows any symbol (validated at runtime and compile time).
 
 ```ts
-symbolProp().optional
-  // → prop type: symbol | undefined
-symbolProp().nullable
-  // → prop type: symbol | null
-symbolProp().required
-  // → prop type: symbol
-symbolProp().withDefault(Symbol('foo'))
-  // → prop type: symbol
+symbolProp().optional;
+// → prop type: symbol | undefined
+symbolProp().nullable;
+// → prop type: symbol | null
+symbolProp().required;
+// → prop type: symbol
+symbolProp().withDefault(Symbol('foo'));
+// → prop type: symbol
 ```
 
 ### `vueComponentProp(validator?: Validator)`
@@ -276,14 +276,14 @@ symbolProp().withDefault(Symbol('foo'))
 Allows any Vue component instance, name or options object. No built-in runtime validation is performed by default.
 
 ```ts
-vueComponentProp().optional
-  // → prop type: VueComponent | undefined
-vueComponentProp().nullable
-  // → prop type: VueComponent | null
-vueComponentProp().required
-  // → prop type: VueComponent
-vueComponentProp().withDefault('close-icon')
-  // → prop type: VueComponent
+vueComponentProp().optional;
+// → prop type: VueComponent | undefined
+vueComponentProp().nullable;
+// → prop type: VueComponent | null
+vueComponentProp().required;
+// → prop type: VueComponent
+vueComponentProp().withDefault('close-icon');
+// → prop type: VueComponent
 ```
 
 > ℹ️ **Note:**  
@@ -296,23 +296,23 @@ Allows any type. No built-in runtime validation is performed by default.
 Type parameter `T` can be used to restrict the type at compile time.
 
 ```ts
-anyProp().optional
-  // → prop type: any
-anyProp().nullable
-  // → prop type: any
-anyProp().required
-  // → prop type: any
-anyProp().withDefault('foo')
-  // → prop type: any
+anyProp().optional;
+// → prop type: any
+anyProp().nullable;
+// → prop type: any
+anyProp().required;
+// → prop type: any
+anyProp().withDefault('foo');
+// → prop type: any
 
-anyProp<string>().optional
-  // → prop type: string | undefined
-anyProp<string>().nullable
-  // → prop type: string | null
-anyProp<string>().required
-  // → prop type: string
-anyProp<string>().withDefault('foo')
-  // → prop type: string
+anyProp<string>().optional;
+// → prop type: string | undefined
+anyProp<string>().nullable;
+// → prop type: string | null
+anyProp<string>().required;
+// → prop type: string
+anyProp<string>().withDefault('foo');
+// → prop type: string
 ```
 
 ### `arrayProp<T>(validator?: Validator)`
@@ -321,23 +321,23 @@ Allows any array. No further runtime validation is performed by default.
 Type parameter `T` can be used to restrict the type of the array items at compile time.
 
 ```ts
-arrayProp().optional
-  // → prop type: unknown[] | undefined
-arrayProp().nullable
-  // → prop type: unknown[] | null
-arrayProp().required
-  // → prop type: unknown[]
-arrayProp().withDefault(() => [])
-  // → prop type: unknown[]
+arrayProp().optional;
+// → prop type: unknown[] | undefined
+arrayProp().nullable;
+// → prop type: unknown[] | null
+arrayProp().required;
+// → prop type: unknown[]
+arrayProp().withDefault(() => []);
+// → prop type: unknown[]
 
-arrayProp<string>().optional
-  // → prop type: string[] | undefined
-arrayProp<string>().nullable
-  // → prop type: string[] | null
-arrayProp<string>().required
-  // → prop type: string[]
-arrayProp<string>().withDefault(() => ['foo', 'bar'])
-  // → prop type: string[]
+arrayProp<string>().optional;
+// → prop type: string[] | undefined
+arrayProp<string>().nullable;
+// → prop type: string[] | null
+arrayProp<string>().required;
+// → prop type: string[]
+arrayProp<string>().withDefault(() => ['foo', 'bar']);
+// → prop type: string[]
 ```
 
 ### `objectProp<T>(validator?: Validator)`
@@ -346,27 +346,27 @@ Allows any object. No further runtime validation is performed by default.
 Type parameter `T` can be used to restrict the type at compile time.
 
 ```ts
-objectProp().optional
-  // → prop type: object | undefined
-objectProp().nullable
-  // → prop type: object | null
-objectProp().required
-  // → prop type: object
-objectProp().withDefault(() => ({}))
-  // → prop type: object
+objectProp().optional;
+// → prop type: object | undefined
+objectProp().nullable;
+// → prop type: object | null
+objectProp().required;
+// → prop type: object
+objectProp().withDefault(() => ({}));
+// → prop type: object
 
 interface User {
   name: string;
 }
 
-objectProp<User>().optional
-  // → prop type: User | undefined
-objectProp<User>().nullable
-  // → prop type: User | null
-objectProp<User>().required
-  // → prop type: User
-objectProp<User>().withDefault(() => ({ name: 'John' }))
-  // → prop type: User
+objectProp<User>().optional;
+// → prop type: User | undefined
+objectProp<User>().nullable;
+// → prop type: User | null
+objectProp<User>().required;
+// → prop type: User
+objectProp<User>().withDefault(() => ({ name: 'John' }));
+// → prop type: User
 ```
 
 ### `functionProp<T>(validator?: Validator)`
@@ -378,21 +378,21 @@ Type parameter `T` can be used to restrict the type to a specific function signa
 > There is no `.withDefault()` function for this prop type.
 
 ```ts
-functionProp().optional
-  // → prop type: Function | undefined
-functionProp().nullable
-  // → prop type: Function | null
-functionProp().required
-  // → prop type: Function
+functionProp().optional;
+// → prop type: Function | undefined
+functionProp().nullable;
+// → prop type: Function | null
+functionProp().required;
+// → prop type: Function
 
 type MyFunc = (a: number, b: string) => boolean;
 
-functionProp<MyFunc>().optional
-  // → prop type: MyFunc | undefined
-functionProp<MyFunc>().nullable
-  // → prop type: MyFunc | null
-functionProp<MyFunc>().required
-  // → prop type: MyFunc
+functionProp<MyFunc>().optional;
+// → prop type: MyFunc | undefined
+functionProp<MyFunc>().nullable;
+// → prop type: MyFunc | null
+functionProp<MyFunc>().required;
+// → prop type: MyFunc
 ```
 
 ### `oneOfProp<T>(allowedValues: readonly any[], validator?: Validator)`
@@ -404,14 +404,14 @@ Type parameter `T` can be used to adjust the inferred type at compile time, this
 > Proper type checking is only possible if the allowed values are readonly, usually through `as const`.
 
 ```ts
-oneOfProp(['foo', 'bar'] as const).optional
-  // → prop type: 'foo' | 'bar' | undefined
-oneOfProp(['foo', 'bar'] as const).nullable
-  // → prop type: 'foo' | 'bar' | null
-oneOfProp(['foo', 'bar'] as const).required
-  // → prop type: 'foo' | 'bar'
-oneOfProp(['foo', 'bar'] as const).withDefault('foo')
-  // → prop type: 'foo' | 'bar'
+oneOfProp(['foo', 'bar'] as const).optional;
+// → prop type: 'foo' | 'bar' | undefined
+oneOfProp(['foo', 'bar'] as const).nullable;
+// → prop type: 'foo' | 'bar' | null
+oneOfProp(['foo', 'bar'] as const).required;
+// → prop type: 'foo' | 'bar'
+oneOfProp(['foo', 'bar'] as const).withDefault('foo');
+// → prop type: 'foo' | 'bar'
 ```
 
 ### `oneOfObjectKeysProp<T>(object: object, validator?: Validator)`
@@ -420,14 +420,14 @@ Allows any of the keys of the specified object (validated at runtime and compile
 Type parameter `T` can be used to adjust the inferred type at compile time, this is usually not necessary.
 
 ```ts
-oneOfObjectKeysProp({ foo: 1, bar: 2 }).optional
-  // → prop type: 'foo' | 'bar' | undefined
-oneOfObjectKeysProp({ foo: 1, bar: 2 }).nullable
-  // → prop type: 'foo' | 'bar' | null
-oneOfObjectKeysProp({ foo: 1, bar: 2 }).required
-  // → prop type: 'foo' | 'bar'
-oneOfObjectKeysProp({ foo: 1, bar: 2 }).withDefault('foo')
-  // → prop type: 'foo' | 'bar'
+oneOfObjectKeysProp({ foo: 1, bar: 2 }).optional;
+// → prop type: 'foo' | 'bar' | undefined
+oneOfObjectKeysProp({ foo: 1, bar: 2 }).nullable;
+// → prop type: 'foo' | 'bar' | null
+oneOfObjectKeysProp({ foo: 1, bar: 2 }).required;
+// → prop type: 'foo' | 'bar'
+oneOfObjectKeysProp({ foo: 1, bar: 2 }).withDefault('foo');
+// → prop type: 'foo' | 'bar'
 ```
 
 ### `oneOfTypesProp<T>(type: PropType<T>, validator?: Validator)`
@@ -436,14 +436,14 @@ Allows any of the passed constructor types (validated at runtime).
 Type parameter `T` has to be used to adjust the type at compile time.
 
 ```ts
-oneOfTypesProp<number | string>([Number, String]).optional
-  // → prop type: string | number | undefined
-oneOfTypesProp<number | string>([Number, String]).nullable
-  // → prop type: string | number | null
-oneOfTypesProp<number | string>([Number, String]).required
-  // → prop type: string | number
-oneOfTypesProp<number | string>([Number, String]).withDefault(42)
-  // → prop type: string | number
+oneOfTypesProp<number | string>([Number, String]).optional;
+// → prop type: string | number | undefined
+oneOfTypesProp<number | string>([Number, String]).nullable;
+// → prop type: string | number | null
+oneOfTypesProp<number | string>([Number, String]).required;
+// → prop type: string | number
+oneOfTypesProp<number | string>([Number, String]).withDefault(42);
+// → prop type: string | number
 ```
 
 ### `instanceOfProp<T>(parent: T, validator?: Validator)`
@@ -452,14 +452,14 @@ Allows instances of the given constructor (validated at runtime and compile time
 Type parameter `T` can be used to adjust the inferred type at compile time.
 
 ```ts
-instanceOfProp(Date).optional
-  // → prop type: Date | undefined
-instanceOfProp(Date).nullable
-  // → prop type: Date | null
-instanceOfProp(Date).required
-  // → prop type: Date
-instanceOfProp(Date).withDefault(() => new Date())
-  // → prop type: Date
+instanceOfProp(Date).optional;
+// → prop type: Date | undefined
+instanceOfProp(Date).nullable;
+// → prop type: Date | null
+instanceOfProp(Date).required;
+// → prop type: Date
+instanceOfProp(Date).withDefault(() => new Date());
+// → prop type: Date
 ```
 
 ## Contributing
@@ -468,9 +468,9 @@ Please see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Similar packages
 
-* [vue-types](https://www.npmjs.com/package/vue-types/), which this project took heavy inspiration from
-* [vue-prop](https://www.npmjs.com/package/vue-prop)
-* [vuept](https://www.npmjs.com/package/vuept)
+- [vue-types](https://www.npmjs.com/package/vue-types/), which this project took heavy inspiration from
+- [vue-prop](https://www.npmjs.com/package/vue-prop)
+- [vuept](https://www.npmjs.com/package/vuept)
 
 ## License
 

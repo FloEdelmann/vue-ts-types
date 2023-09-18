@@ -5,17 +5,16 @@ export interface PropOptions<T> {
   validator?(value: T): boolean;
 }
 
-export type PropType<T> = PropConstructor<T> | PropConstructor<T>[]
+export type PropType<T> = PropConstructor<T> | PropConstructor<T>[];
 
 export type PropConstructor<T> =
   // eslint-disable-next-line @typescript-eslint/prefer-function-type
   | { (): T }
   // eslint-disable-next-line @typescript-eslint/prefer-function-type
-  | { new(...parameters: any[]): T & object }
+  | { new (...parameters: any[]): T & object };
 
-
-export type RequiredPropOptions<T> = PropOptions<T> & { required: true }
-export type DefaultPropOptions<T> = PropOptions<T> & { default: unknown }
+export type RequiredPropOptions<T> = PropOptions<T> & { required: true };
+export type DefaultPropOptions<T> = PropOptions<T> & { default: unknown };
 
 export interface PropOptionsGenerator<T> {
   optional: DefaultPropOptions<T | undefined>;
@@ -25,6 +24,14 @@ export interface PropOptionsGenerator<T> {
 }
 
 /** Allow simple values for primitive types, require generator function for complex types */
-export type OneOfDefaultType<T> = T extends boolean | number | string | symbol | null | undefined ? T : (() => T)
+export type OneOfDefaultType<T> = T extends
+  | boolean
+  | number
+  | string
+  | symbol
+  | null
+  | undefined
+  ? T
+  : () => T;
 
-export type Constructor = new (...parameters: any[]) => any
+export type Constructor = new (...parameters: any[]) => any;

@@ -10,7 +10,9 @@ type Foo = 1 | 2 | 3;
 
 describe('numberProp().optional', () => {
   describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<number | undefined>>(numberProp().optional);
+    expectAssignable<Vue2_6.PropOptions<number | undefined>>(
+      numberProp().optional,
+    );
     expectNotAssignable<Vue2_6.PropOptions<number>>(numberProp().optional);
 
     expectType<Vue2ComponentWithProp<number | undefined>>(
@@ -23,8 +25,12 @@ describe('numberProp().optional', () => {
   });
 
   describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<number | undefined>>(numberProp().optional);
-    expectAssignable<Vue2_7.PropOptions<Foo | undefined>>(numberProp<Foo>().optional);
+    expectAssignable<Vue2_7.PropOptions<number | undefined>>(
+      numberProp().optional,
+    );
+    expectAssignable<Vue2_7.PropOptions<Foo | undefined>>(
+      numberProp<Foo>().optional,
+    );
     expectNotAssignable<Vue2_7.PropOptions<number>>(numberProp().optional);
   });
 
@@ -38,7 +44,9 @@ describe('numberProp().optional', () => {
 describe('numberProp().nullable', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<number | null>>(numberProp().nullable);
-    expectAssignable<Vue2_6.PropOptions<Foo | null>>(numberProp<Foo>().nullable);
+    expectAssignable<Vue2_6.PropOptions<Foo | null>>(
+      numberProp<Foo>().nullable,
+    );
     expectNotAssignable<Vue2_6.PropOptions<number>>(numberProp().nullable);
     expectNotAssignable<Vue2_6.PropOptions<Foo>>(numberProp<Foo>().nullable);
 
@@ -53,7 +61,9 @@ describe('numberProp().nullable', () => {
 
   describe('Vue 2.7', () => {
     expectAssignable<Vue2_7.PropOptions<number | null>>(numberProp().nullable);
-    expectAssignable<Vue2_7.PropOptions<Foo | null>>(numberProp<Foo>().nullable);
+    expectAssignable<Vue2_7.PropOptions<Foo | null>>(
+      numberProp<Foo>().nullable,
+    );
     expectNotAssignable<Vue2_7.PropOptions<number>>(numberProp().nullable);
   });
 
@@ -69,7 +79,9 @@ describe('numberProp().withDefault', () => {
   describe('Vue 2.6', () => {
     expectAssignable<Vue2_6.PropOptions<number>>(numberProp().withDefault(27));
     expectAssignable<Vue2_6.PropOptions<Foo>>(numberProp<Foo>().withDefault(1));
-    expectNotAssignable<Vue2_6.PropOptions<string>>(numberProp().withDefault(27));
+    expectNotAssignable<Vue2_6.PropOptions<string>>(
+      numberProp().withDefault(27),
+    );
 
     expectType<Vue2ComponentWithProp<number>>(
       createVue2Component(numberProp().withDefault(27)),
@@ -83,8 +95,12 @@ describe('numberProp().withDefault', () => {
   describe('Vue 2.7', () => {
     expectAssignable<Vue2_7.PropOptions<number>>(numberProp().withDefault(27));
     expectAssignable<Vue2_7.PropOptions<Foo>>(numberProp<Foo>().withDefault(1));
-    expectNotAssignable<Vue2_7.PropOptions<string>>(numberProp().withDefault(27));
-    expectNotAssignable<Vue2_7.PropOptions<string>>(numberProp<Foo>().withDefault(1));
+    expectNotAssignable<Vue2_7.PropOptions<string>>(
+      numberProp().withDefault(27),
+    );
+    expectNotAssignable<Vue2_7.PropOptions<string>>(
+      numberProp<Foo>().withDefault(1),
+    );
   });
 
   describe('Vue 3', () => {

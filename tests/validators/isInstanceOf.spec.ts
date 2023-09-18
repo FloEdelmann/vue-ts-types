@@ -28,16 +28,16 @@ describe('isInstanceOf', () => {
   it('throws if parent is not a constructor', () => {
     const user1 = new User();
 
-    expect(
-      () => isInstanceOf(undefined as any)(user1),
-    ).toThrow('Right-hand side of \'instanceof\' is not an object');
+    expect(() => isInstanceOf(undefined as any)(user1)).toThrow(
+      "Right-hand side of 'instanceof' is not an object",
+    );
 
-    expect(
-      () => isInstanceOf([] as any)(user1),
-    ).toThrow('Right-hand side of \'instanceof\' is not callable');
+    expect(() => isInstanceOf([] as any)(user1)).toThrow(
+      "Right-hand side of 'instanceof' is not callable",
+    );
 
-    expect(
-      () => isInstanceOf({} as any)(user1),
-    ).toThrow('Right-hand side of \'instanceof\' is not callable');
+    expect(() => isInstanceOf({} as any)(user1)).toThrow(
+      "Right-hand side of 'instanceof' is not callable",
+    );
   });
 });

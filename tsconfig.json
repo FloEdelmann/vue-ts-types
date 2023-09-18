@@ -10,8 +10,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": [
-    ".eslintrc.cjs",
-    "**/*.ts"
-  ]
+  "include": [".eslintrc.cjs", "**/*.ts"]
 }

@@ -11,5 +11,12 @@ import { isInstanceOf } from '../validators';
  * @param parent - The constructor to allow.
  * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
  */
-export const instanceOfProp = <T extends Constructor>(parent: T, validator?: Validator): PropOptionsGenerator<InstanceType<T>> =>
-  propOptionsGenerator<InstanceType<T>>(parent, validator, isInstanceOf(parent));
+export const instanceOfProp = <T extends Constructor>(
+  parent: T,
+  validator?: Validator,
+): PropOptionsGenerator<InstanceType<T>> =>
+  propOptionsGenerator<InstanceType<T>>(
+    parent,
+    validator,
+    isInstanceOf(parent),
+  );

@@ -17,7 +17,9 @@ interface FunctionPropOptionsGenerator<T> {
  *
  * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
  */
-export const functionProp = <T extends Function>(validator?: Validator): FunctionPropOptionsGenerator<T> => ({
+export const functionProp = <T extends Function>(
+  validator?: Validator,
+): FunctionPropOptionsGenerator<T> => ({
   optional: {
     type: Function as unknown as () => T,
     required: false,
