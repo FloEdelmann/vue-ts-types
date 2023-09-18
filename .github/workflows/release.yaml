@@ -18,6 +18,7 @@ env:
 
 permissions:
   contents: 'write'
+  id-token: 'write'
 
 jobs:
   release:
@@ -47,7 +48,7 @@ jobs:
         run: 'npm version ${{ github.event.inputs.releaseType }} --force -m "Version %s"'
       - name: 'Release new version'
         run: |
-          npm publish --access public
+          npm publish --provenance --access public
           VERSION_NUMBER=$(git tag --list | tail -n 1 | cut -d v -f 2)
           echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
         env:
