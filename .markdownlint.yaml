@@ -1,4 +1,2 @@
 line-length: false
 no-inline-html: false
-ul-style:
-  style: sublist
