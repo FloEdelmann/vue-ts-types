@@ -1,7 +1,7 @@
-import { expectType } from 'tsd-lite';
+import { expect } from 'tstyche';
 import { isInstanceOf } from '../../src/validators/isInstanceOf';
 
 declare class User {}
 
-expectType<string | undefined>(isInstanceOf(Array)(undefined));
-expectType<string | undefined>(isInstanceOf(User)(undefined));
+expect(isInstanceOf(Array)(undefined)).type.toEqual<string | undefined>();
+expect(isInstanceOf(User)(undefined)).type.toEqual<string | undefined>();

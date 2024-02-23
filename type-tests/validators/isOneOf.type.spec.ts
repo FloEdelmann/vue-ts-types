@@ -1,4 +1,4 @@
-import { expectType } from 'tsd-lite';
+import { expect } from 'tstyche';
 import { isOneOf } from '../../src/validators/isOneOf';
 
-expectType<string | undefined>(isOneOf([])(undefined));
+expect(isOneOf([])(undefined)).type.toEqual<string | undefined>();

@@ -1,4 +1,4 @@
-import { expectType } from 'tsd-lite';
+import { expect } from 'tstyche';
 import { isInteger } from '../../src/validators/isInteger';
 
-expectType<string | undefined>(isInteger(undefined));
+expect(isInteger(undefined)).type.toEqual<string | undefined>();

@@ -1,4 +1,4 @@
-import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
+import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
 import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
@@ -7,101 +7,129 @@ import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
 
 describe('booleanProp().optional', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<boolean | undefined>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<boolean | undefined>>().type.toBeAssignable(
       booleanProp().optional,
     );
-    expectNotAssignable<Vue2_6.PropOptions<boolean>>(booleanProp().optional);
+    expect<Vue2_6.PropOptions<boolean>>().type.not.toBeAssignable(
+      booleanProp().optional,
+    );
 
-    expectType<Vue2ComponentWithProp<boolean | undefined>>(
-      createVue2Component(booleanProp().optional),
+    expect(createVue2Component(booleanProp().optional)).type.toEqual<
+      Vue2ComponentWithProp<boolean | undefined>
+    >();
+  });
+
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<boolean | undefined>>().type.toBeAssignable(
+      booleanProp().optional,
+    );
+    expect<Vue2_7.PropOptions<boolean>>().type.not.toBeAssignable(
+      booleanProp().optional,
     );
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<boolean | undefined>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<boolean | undefined>>().type.toBeAssignable(
       booleanProp().optional,
     );
-    expectNotAssignable<Vue2_7.PropOptions<boolean>>(booleanProp().optional);
-  });
-
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<boolean | undefined>>(booleanProp().optional);
-    expectNotAssignable<Vue3.Prop<boolean>>(booleanProp().optional);
+    expect<Vue3.Prop<boolean>>().type.not.toBeAssignable(
+      booleanProp().optional,
+    );
   });
 });
 
 describe('booleanProp().nullable', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<boolean | null>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<boolean | null>>().type.toBeAssignable(
       booleanProp().nullable,
     );
-    expectNotAssignable<Vue2_6.PropOptions<boolean>>(booleanProp().nullable);
+    expect<Vue2_6.PropOptions<boolean>>().type.not.toBeAssignable(
+      booleanProp().nullable,
+    );
 
-    expectType<Vue2ComponentWithProp<boolean | null>>(
-      createVue2Component(booleanProp().nullable),
+    expect(createVue2Component(booleanProp().nullable)).type.toEqual<
+      Vue2ComponentWithProp<boolean | null>
+    >();
+  });
+
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<boolean | null>>().type.toBeAssignable(
+      booleanProp().nullable,
+    );
+    expect<Vue2_7.PropOptions<boolean>>().type.not.toBeAssignable(
+      booleanProp().nullable,
     );
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<boolean | null>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<boolean | null>>().type.toBeAssignable(
       booleanProp().nullable,
     );
-    expectNotAssignable<Vue2_7.PropOptions<boolean>>(booleanProp().nullable);
-  });
-
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<boolean | null>>(booleanProp().nullable);
-    expectNotAssignable<Vue3.Prop<boolean>>(booleanProp().nullable);
+    expect<Vue3.Prop<boolean>>().type.not.toBeAssignable(
+      booleanProp().nullable,
+    );
   });
 });
 
 describe('booleanProp().withDefault(false)', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<boolean>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<boolean>>().type.toBeAssignable(
       booleanProp().withDefault(false),
     );
-    expectNotAssignable<Vue2_6.PropOptions<string>>(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignable(
       booleanProp().withDefault(false),
     );
 
-    expectType<Vue2ComponentWithProp<boolean>>(
-      createVue2Component(booleanProp().withDefault(false)),
+    expect(createVue2Component(booleanProp().withDefault(false))).type.toEqual<
+      Vue2ComponentWithProp<boolean>
+    >();
+  });
+
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<boolean>>().type.toBeAssignable(
+      booleanProp().withDefault(false),
+    );
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignable(
+      booleanProp().withDefault(false),
     );
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<boolean>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<boolean>>().type.toBeAssignable(
       booleanProp().withDefault(false),
     );
-    expectNotAssignable<Vue2_7.PropOptions<string>>(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignable(
       booleanProp().withDefault(false),
     );
-  });
-
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<boolean>>(booleanProp().withDefault(false));
-    expectNotAssignable<Vue3.Prop<string>>(booleanProp().withDefault(false));
   });
 });
 
 describe('booleanProp().required', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<boolean>>(booleanProp().required);
-    expectNotAssignable<Vue2_6.PropOptions<string>>(booleanProp().required);
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<boolean>>().type.toBeAssignable(
+      booleanProp().required,
+    );
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignable(
+      booleanProp().required,
+    );
 
-    expectType<Vue2ComponentWithProp<boolean>>(
-      createVue2Component(booleanProp().required),
+    expect(createVue2Component(booleanProp().required)).type.toEqual<
+      Vue2ComponentWithProp<boolean>
+    >();
+  });
+
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<boolean>>().type.toBeAssignable(
+      booleanProp().required,
+    );
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignable(
+      booleanProp().required,
     );
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<boolean>>(booleanProp().required);
-    expectNotAssignable<Vue2_7.PropOptions<string>>(booleanProp().required);
-  });
-
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<boolean>>(booleanProp().required);
-    expectNotAssignable<Vue3.Prop<string>>(booleanProp().required);
+  test('Vue 3', () => {
+    expect<Vue3.Prop<boolean>>().type.toBeAssignable(booleanProp().required);
+    expect<Vue3.Prop<string>>().type.not.toBeAssignable(booleanProp().required);
   });
 });

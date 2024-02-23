@@ -1,24 +1,24 @@
-import { expectAssignable, expectNotAssignable } from 'tsd-lite';
+import { expect } from 'tstyche';
 import type { Constructor, OneOfDefaultType } from '../src/types';
 
 declare class User {}
 declare const user1: User;
 
-expectAssignable<Constructor>(User);
-expectAssignable<Constructor>(Array);
-expectAssignable<Constructor>(Object);
-expectNotAssignable<Constructor>(undefined);
-expectNotAssignable<Constructor>({});
+expect<Constructor>().type.toBeAssignable(User);
+expect<Constructor>().type.toBeAssignable(Array);
+expect<Constructor>().type.toBeAssignable(Object);
+expect<Constructor>().type.not.toBeAssignable(undefined);
+expect<Constructor>().type.not.toBeAssignable({});
 
-expectAssignable<OneOfDefaultType<boolean>>(true);
-expectNotAssignable<OneOfDefaultType<boolean>>(undefined);
-expectNotAssignable<OneOfDefaultType<boolean>>(() => true);
+expect<OneOfDefaultType<boolean>>().type.toBeAssignable(true);
+expect<OneOfDefaultType<boolean>>().type.not.toBeAssignable(undefined);
+expect<OneOfDefaultType<boolean>>().type.not.toBeAssignable(() => true);
 
-expectNotAssignable<OneOfDefaultType<User>>(user1);
-expectAssignable<OneOfDefaultType<User>>(() => user1);
+expect<OneOfDefaultType<User>>().type.not.toBeAssignable(user1);
+expect<OneOfDefaultType<User>>().type.toBeAssignable(() => user1);
 
-expectNotAssignable<OneOfDefaultType<object>>({});
-expectAssignable<OneOfDefaultType<object>>(() => ({}));
+expect<OneOfDefaultType<object>>().type.not.toBeAssignable({});
+expect<OneOfDefaultType<object>>().type.toBeAssignable(() => ({}));
 
-expectNotAssignable<OneOfDefaultType<unknown[]>>([]);
-expectAssignable<OneOfDefaultType<unknown[]>>(() => []);
+expect<OneOfDefaultType<unknown[]>>().type.not.toBeAssignable([]);
+expect<OneOfDefaultType<unknown[]>>().type.toBeAssignable(() => []);

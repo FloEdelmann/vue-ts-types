@@ -9,11 +9,18 @@ Please follow these guidelines:
 Make sure that Node.js (at least version 14) is installed.  
 Install all development dependencies with `npm install`.
 
-Run tests or type tests in watch mode:
+Run tests:
 
 ```bash
+npm run test
+# or in watch mode
 npm run test:watch
-npm run type-test:watch
+```
+
+And type tests:
+
+```bash
+npm run type-test
 ```
 
 Before you commit, run all following commands to ensure that all tests pass:

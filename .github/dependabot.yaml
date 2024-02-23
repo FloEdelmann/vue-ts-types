@@ -13,10 +13,6 @@ updates:
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
-      typescript:
-        patterns:
-          - 'typescript'
-          - '@tsd/typescript'
 
   - package-ecosystem: 'github-actions'
     directory: '/'

@@ -1,4 +1,4 @@
-import { expectAssignable, expectType } from 'tsd-lite';
+import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
 import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
@@ -10,96 +10,96 @@ const options = [Number, String];
 type Options = number | string;
 
 describe('oneOfTypesProp().optional', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Options | undefined>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<Options | undefined>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).optional,
     );
 
-    expectType<Vue2ComponentWithProp<Options | undefined>>(
+    expect(
       createVue2Component(oneOfTypesProp<Options>(options).optional),
-    );
+    ).type.toEqual<Vue2ComponentWithProp<Options | undefined>>();
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Options | undefined>>(
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<Options | undefined>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).optional,
     );
   });
 
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<Options | undefined>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<Options | undefined>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).optional,
     );
   });
 });
 
 describe('oneOfTypesProp().nullable', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Options | null>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<Options | null>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).nullable,
     );
 
-    expectType<Vue2ComponentWithProp<Options | null>>(
+    expect(
       createVue2Component(oneOfTypesProp<Options>(options).nullable),
-    );
+    ).type.toEqual<Vue2ComponentWithProp<Options | null>>();
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Options | null>>(
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<Options | null>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).nullable,
     );
   });
 
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<Options | null>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<Options | null>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).nullable,
     );
   });
 });
 
 describe('oneOfTypesProp().withDefault', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Options>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<Options>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).withDefault('a'),
     );
 
-    expectType<Vue2ComponentWithProp<Options>>(
+    expect(
       createVue2Component(oneOfTypesProp<Options>(options).withDefault('a')),
-    );
+    ).type.toEqual<Vue2ComponentWithProp<Options>>();
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Options>>(
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<Options>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).withDefault('a'),
     );
   });
 
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<Options>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<Options>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).withDefault('a'),
     );
   });
 });
 
 describe('oneOfTypesProp().required', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Options>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<Options>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).required,
     );
 
-    expectType<Vue2ComponentWithProp<Options>>(
+    expect(
       createVue2Component(oneOfTypesProp<Options>(options).required),
-    );
+    ).type.toEqual<Vue2ComponentWithProp<Options>>();
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Options>>(
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<Options>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).required,
     );
   });
 
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<Options>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<Options>>().type.toBeAssignable(
       oneOfTypesProp<Options>(options).required,
     );
   });
