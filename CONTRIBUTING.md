@@ -13,7 +13,6 @@ Run tests or type tests in watch mode:
 
 ```bash
 npm run test:watch
-npm run type-test:watch
 ```
 
 Before you commit, run all following commands to ensure that all tests pass:
