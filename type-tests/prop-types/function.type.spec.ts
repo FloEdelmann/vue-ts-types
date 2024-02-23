@@ -1,4 +1,4 @@
-import { expectAssignable, expectNotAssignable, expectType } from 'tsd-lite';
+import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
 import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
@@ -11,129 +11,155 @@ import type { Vue2ComponentWithProp } from '../utils';
 type MyCustomCallback = (parameter: string) => Promise<boolean>;
 
 describe('functionProp().optional', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Function | undefined>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<Function | undefined>>().type.toBeAssignable(
       functionProp().optional,
     );
-    expectAssignable<Vue2_6.PropOptions<MyCustomCallback | undefined>>(
-      functionProp<MyCustomCallback>().optional,
+    expect<
+      Vue2_6.PropOptions<MyCustomCallback | undefined>
+    >().type.toBeAssignable(functionProp<MyCustomCallback>().optional);
+    expect<Vue2_6.PropOptions<Function>>().type.not.toBeAssignable(
+      functionProp().optional,
     );
-    expectNotAssignable<Vue2_6.PropOptions<Function>>(functionProp().optional);
-    expectNotAssignable<Vue2_6.PropOptions<MyCustomCallback>>(
+    expect<Vue2_6.PropOptions<MyCustomCallback>>().type.not.toBeAssignable(
       functionProp<MyCustomCallback>().optional,
     );
 
-    expectType<Vue2ComponentWithProp<Function | undefined>>(
-      createVue2Component(functionProp().optional),
-    );
+    expect(createVue2Component(functionProp().optional)).type.toEqual<
+      Vue2ComponentWithProp<Function | undefined>
+    >();
 
-    expectType<Vue2ComponentWithProp<MyCustomCallback | undefined>>(
+    expect(
       createVue2Component(functionProp<MyCustomCallback>().optional),
-    );
+    ).type.toEqual<Vue2ComponentWithProp<MyCustomCallback | undefined>>();
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Function | undefined>>(
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<Function | undefined>>().type.toBeAssignable(
       functionProp().optional,
     );
-    expectAssignable<Vue2_7.PropOptions<MyCustomCallback | undefined>>(
-      functionProp<MyCustomCallback>().optional,
+    expect<
+      Vue2_7.PropOptions<MyCustomCallback | undefined>
+    >().type.toBeAssignable(functionProp<MyCustomCallback>().optional);
+    expect<Vue2_7.PropOptions<Function>>().type.not.toBeAssignable(
+      functionProp().optional,
     );
-    expectNotAssignable<Vue2_7.PropOptions<Function>>(functionProp().optional);
-    expectNotAssignable<Vue2_7.PropOptions<MyCustomCallback>>(
+    expect<Vue2_7.PropOptions<MyCustomCallback>>().type.not.toBeAssignable(
       functionProp<MyCustomCallback>().optional,
     );
   });
 
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<Function | undefined>>(functionProp().optional);
-    expectAssignable<Vue3.Prop<MyCustomCallback | undefined>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<Function | undefined>>().type.toBeAssignable(
+      functionProp().optional,
+    );
+    expect<Vue3.Prop<MyCustomCallback | undefined>>().type.toBeAssignable(
       functionProp<MyCustomCallback>().optional,
     );
-    expectNotAssignable<Vue3.Prop<Function>>(functionProp().optional);
-    expectNotAssignable<Vue3.Prop<MyCustomCallback>>(
+    expect<Vue3.Prop<Function>>().type.not.toBeAssignable(
+      functionProp().optional,
+    );
+    expect<Vue3.Prop<MyCustomCallback>>().type.not.toBeAssignable(
       functionProp<MyCustomCallback>().optional,
     );
   });
 });
 
 describe('functionProp().nullable', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Function | null>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<Function | null>>().type.toBeAssignable(
       functionProp().nullable,
     );
-    expectAssignable<Vue2_6.PropOptions<MyCustomCallback | null>>(
+    expect<Vue2_6.PropOptions<MyCustomCallback | null>>().type.toBeAssignable(
       functionProp<MyCustomCallback>().nullable,
     );
-    expectNotAssignable<Vue2_6.PropOptions<Function>>(functionProp().nullable);
-    expectNotAssignable<Vue2_6.PropOptions<MyCustomCallback>>(
+    expect<Vue2_6.PropOptions<Function>>().type.not.toBeAssignable(
+      functionProp().nullable,
+    );
+    expect<Vue2_6.PropOptions<MyCustomCallback>>().type.not.toBeAssignable(
       functionProp<MyCustomCallback>().nullable,
     );
 
-    expectType<Vue2ComponentWithProp<Function | null>>(
-      createVue2Component(functionProp().nullable),
-    );
+    expect(createVue2Component(functionProp().nullable)).type.toEqual<
+      Vue2ComponentWithProp<Function | null>
+    >();
 
-    expectType<Vue2ComponentWithProp<MyCustomCallback | null>>(
+    expect(
       createVue2Component(functionProp<MyCustomCallback>().nullable),
-    );
+    ).type.toEqual<Vue2ComponentWithProp<MyCustomCallback | null>>();
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Function | null>>(
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<Function | null>>().type.toBeAssignable(
       functionProp().nullable,
     );
-    expectAssignable<Vue2_7.PropOptions<MyCustomCallback | null>>(
+    expect<Vue2_7.PropOptions<MyCustomCallback | null>>().type.toBeAssignable(
       functionProp<MyCustomCallback>().nullable,
     );
-    expectNotAssignable<Vue2_7.PropOptions<Function>>(functionProp().nullable);
-    expectNotAssignable<Vue2_7.PropOptions<MyCustomCallback>>(
+    expect<Vue2_7.PropOptions<Function>>().type.not.toBeAssignable(
+      functionProp().nullable,
+    );
+    expect<Vue2_7.PropOptions<MyCustomCallback>>().type.not.toBeAssignable(
       functionProp<MyCustomCallback>().nullable,
     );
   });
 
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<Function | null>>(functionProp().nullable);
-    expectAssignable<Vue3.Prop<MyCustomCallback | null>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<Function | null>>().type.toBeAssignable(
+      functionProp().nullable,
+    );
+    expect<Vue3.Prop<MyCustomCallback | null>>().type.toBeAssignable(
       functionProp<MyCustomCallback>().nullable,
     );
-    expectNotAssignable<Vue3.Prop<Function>>(functionProp().nullable);
-    expectNotAssignable<Vue3.Prop<MyCustomCallback>>(
+    expect<Vue3.Prop<Function>>().type.not.toBeAssignable(
+      functionProp().nullable,
+    );
+    expect<Vue3.Prop<MyCustomCallback>>().type.not.toBeAssignable(
       functionProp<MyCustomCallback>().nullable,
     );
   });
 });
 
 describe('functionProp().required', () => {
-  describe('Vue 2.6', () => {
-    expectAssignable<Vue2_6.PropOptions<Function>>(functionProp().required);
-    expectAssignable<Vue2_6.PropOptions<MyCustomCallback>>(
+  test('Vue 2.6', () => {
+    expect<Vue2_6.PropOptions<Function>>().type.toBeAssignable(
+      functionProp().required,
+    );
+    expect<Vue2_6.PropOptions<MyCustomCallback>>().type.toBeAssignable(
       functionProp<MyCustomCallback>().required,
     );
-    expectNotAssignable<Vue2_6.PropOptions<string>>(functionProp().required);
-
-    expectType<Vue2ComponentWithProp<Function>>(
-      createVue2Component(functionProp().required),
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignable(
+      functionProp().required,
     );
 
-    expectType<Vue2ComponentWithProp<MyCustomCallback>>(
+    expect(createVue2Component(functionProp().required)).type.toEqual<
+      Vue2ComponentWithProp<Function>
+    >();
+
+    expect(
       createVue2Component(functionProp<MyCustomCallback>().required),
+    ).type.toEqual<Vue2ComponentWithProp<MyCustomCallback>>();
+  });
+
+  test('Vue 2.7', () => {
+    expect<Vue2_7.PropOptions<Function>>().type.toBeAssignable(
+      functionProp().required,
+    );
+    expect<Vue2_7.PropOptions<MyCustomCallback>>().type.toBeAssignable(
+      functionProp<MyCustomCallback>().required,
+    );
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignable(
+      functionProp().required,
     );
   });
 
-  describe('Vue 2.7', () => {
-    expectAssignable<Vue2_7.PropOptions<Function>>(functionProp().required);
-    expectAssignable<Vue2_7.PropOptions<MyCustomCallback>>(
+  test('Vue 3', () => {
+    expect<Vue3.Prop<Function>>().type.toBeAssignable(functionProp().required);
+    expect<Vue3.Prop<MyCustomCallback>>().type.toBeAssignable(
       functionProp<MyCustomCallback>().required,
     );
-    expectNotAssignable<Vue2_7.PropOptions<string>>(functionProp().required);
-  });
-
-  describe('Vue 3', () => {
-    expectAssignable<Vue3.Prop<Function>>(functionProp().required);
-    expectAssignable<Vue3.Prop<MyCustomCallback>>(
-      functionProp<MyCustomCallback>().required,
+    expect<Vue3.Prop<string>>().type.not.toBeAssignable(
+      functionProp().required,
     );
-    expectNotAssignable<Vue3.Prop<string>>(functionProp().required);
   });
 });
