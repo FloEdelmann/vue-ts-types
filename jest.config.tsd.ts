@@ -6,10 +6,7 @@ const config: Config.InitialOptions = {
     name: 'types',
   },
   runner: 'jest-runner-tsd',
-  testMatch: [
-    '**/type-tests/**/*.type.spec.ts',
-    '!**/type-tests/validators/*'
-  ],
+  testMatch: ['**/type-tests/**/*.type.spec.ts', '!**/type-tests/validators/*'],
 };
 
 export default config;
