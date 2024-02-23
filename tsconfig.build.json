@@ -5,7 +5,6 @@
   },
   "exclude": [
     "jest.config.ts",
-    "jest.config.tsd.ts",
     "tests",
     "type-tests",
     "node_modules",
