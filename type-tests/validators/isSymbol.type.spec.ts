@@ -1,4 +1,4 @@
-import { expectType } from 'tsd-lite';
+import { expect } from 'tstyche';
 import { isSymbol } from '../../src/validators/isSymbol';
 
-expectType<string | undefined>(isSymbol(undefined));
+expect(isSymbol(undefined)).type.toEqual<string | undefined>();

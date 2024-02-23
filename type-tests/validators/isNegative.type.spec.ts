@@ -1,4 +1,4 @@
-import { expectType } from 'tsd-lite';
+import { expect } from 'tstyche';
 import { isNegative } from '../../src/validators/isNegative';
 
-expectType<string | undefined>(isNegative(undefined));
+expect(isNegative(undefined)).type.toEqual<string | undefined>();
