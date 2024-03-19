@@ -10,5 +10,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": [".eslintrc.cjs", "**/*.ts"]
+  "include": ["eslint.config.mjs", "**/*.ts"]
 }
