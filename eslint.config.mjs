@@ -1,10 +1,10 @@
 // @ts-check
 
 import eslint from '@eslint/js';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginJest from 'eslint-plugin-jest';
 import * as eslintPluginJestFormatting from 'eslint-plugin-jest-formatting';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
 
 export default typescriptEslint.config(
