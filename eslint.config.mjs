@@ -133,7 +133,7 @@ export default typescriptEslint.config(
       'jest/no-duplicate-hooks': 'error',
       'jest/no-test-return-statement': 'error',
       'jest/no-untyped-mock-factory': 'error',
-      'jest/prefer-called-with': 'warn',
+      'jest/prefer-called-with': 'error',
       'jest/prefer-comparison-matcher': 'warn',
       'jest/prefer-equality-matcher': 'warn',
       'jest/prefer-expect-resolves': 'warn',
