@@ -22,9 +22,7 @@ describe('oneOfProp().optional', () => {
     expect(
       oneOfProp([true, false, 'both'] as const).optional.type,
     ).toStrictEqual([Boolean, String]);
-    expect(oneOfProp([undefined, null] as const).optional.type).toStrictEqual(
-      undefined,
-    );
+    expect(oneOfProp([undefined, null] as const).optional.type).toBeUndefined();
     expect(
       oneOfProp([undefined, 'defined'] as const).optional.type,
     ).toStrictEqual(String);
@@ -53,9 +51,7 @@ describe('oneOfProp().nullable', () => {
     expect(
       oneOfProp([true, false, 'both'] as const).nullable.type,
     ).toStrictEqual([Boolean, String]);
-    expect(oneOfProp([undefined, null] as const).nullable.type).toStrictEqual(
-      undefined,
-    );
+    expect(oneOfProp([undefined, null] as const).nullable.type).toBeUndefined();
     expect(
       oneOfProp([undefined, 'defined'] as const).nullable.type,
     ).toStrictEqual(String);
