@@ -124,6 +124,7 @@ export default typescriptEslint.config(
     },
     rules: {
       ...eslintPluginJest.configs['flat/recommended'].rules,
+      ...eslintPluginJest.configs['flat/style'].rules,
       ...eslintPluginJestFormatting.configs.recommended.overrides[0].rules,
 
       // additional Jest rules

@@ -14,8 +14,8 @@ describe('vuePropValidator', () => {
   });
 
   it('returns a Vue validator function if a validator is passed', () => {
-    expect(vuePropValidator(validator1)).not.toBeUndefined();
-    expect(vuePropValidator(undefined, validator1)).not.toBeUndefined();
+    expect(vuePropValidator(validator1)).toBeDefined();
+    expect(vuePropValidator(undefined, validator1)).toBeDefined();
   });
 
   describe('returned Vue validator', () => {
