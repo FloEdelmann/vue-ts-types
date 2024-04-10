@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { isNegative } from '../../src/validators/isNegative';
 
 describe('isNegative', () => {

@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { symbolProp } from '../../src/prop-types/symbol';
 
 describe('symbolProp().optional', () => {

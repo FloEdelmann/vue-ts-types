@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { numberProp } from '../../src/prop-types/number';
 
 describe('numberProp().optional', () => {

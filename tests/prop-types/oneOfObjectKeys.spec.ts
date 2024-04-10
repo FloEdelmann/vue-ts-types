@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { oneOfObjectKeysProp } from '../../src/prop-types/oneOfObjectKeys';
 
 const options = { a: 'a', b: 'b', c: 'c' };

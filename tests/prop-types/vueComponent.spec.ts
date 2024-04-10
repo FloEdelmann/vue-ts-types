@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { vueComponentProp } from '../../src/prop-types/vueComponent';
 
 describe('vueComponentProp().optional', () => {

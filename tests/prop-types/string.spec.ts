@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { stringProp } from '../../src/prop-types/string';
 
 describe('stringProp().optional', () => {

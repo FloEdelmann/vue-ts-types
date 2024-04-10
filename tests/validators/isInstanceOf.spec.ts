@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { isInstanceOf } from '../../src/validators/isInstanceOf';
 
 describe('isInstanceOf', () => {
