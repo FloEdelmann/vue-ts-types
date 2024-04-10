@@ -9,6 +9,11 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
+    groups:
+      jest:
+        patterns:
+          - 'jest'
+          - '@jest/globals'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
