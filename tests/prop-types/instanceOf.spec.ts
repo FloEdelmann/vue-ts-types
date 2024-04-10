@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { instanceOfProp } from '../../src/prop-types/instanceOf';
 
 class User {}

@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { isInteger } from '../../src/validators/isInteger';
 
 describe('isInteger', () => {

@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { arrayProp } from '../../src/prop-types/array';
 
 describe('arrayProp().optional', () => {

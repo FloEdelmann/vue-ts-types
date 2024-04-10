@@ -1,12 +1,17 @@
+import { describe, expect, it, jest } from '@jest/globals';
 import { vuePropValidator } from '../../src/validators';
 
 describe('vuePropValidator', () => {
-  const validator1 = jest.fn();
-  const validator2 = jest.fn();
-  const validator3 = jest.fn().mockReturnValue('some error message');
-  const validator4 = jest.fn();
+  const validator1 = jest.fn<() => string | undefined>();
+  const validator2 = jest.fn<() => string | undefined>();
+  const validator3 = jest
+    .fn<() => string | undefined>()
+    .mockReturnValue('some error message');
+  const validator4 = jest.fn<() => string | undefined>();
 
-  const warnSpy = jest.spyOn(console, 'warn').mockImplementation();
+  const warnSpy = jest
+    .spyOn(console, 'warn')
+    .mockImplementation(() => undefined);
 
   it('returns undefined if no validator is passed', () => {
     expect(vuePropValidator()).toBeUndefined();

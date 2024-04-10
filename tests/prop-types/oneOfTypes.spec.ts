@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { oneOfTypesProp } from '../../src/prop-types/oneOfTypes';
 
 describe('oneOfTypesProp().optional', () => {

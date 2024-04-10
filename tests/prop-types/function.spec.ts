@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { functionProp } from '../../src/prop-types/function';
 
 describe('functionProp().optional', () => {

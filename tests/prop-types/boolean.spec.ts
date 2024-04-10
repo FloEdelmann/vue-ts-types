@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { booleanProp } from '../../src/prop-types/boolean';
 
 describe('booleanProp().optional', () => {
