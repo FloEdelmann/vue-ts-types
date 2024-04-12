@@ -2,7 +2,15 @@
 
 > Lightweight TypeScript-first [Vue prop type](https://vuejs.org/guide/components/props.html#prop-validation) definitions
 
-[![npm](https://img.shields.io/npm/v/vue-ts-types?color=red)](https://www.npmjs.com/package/vue-ts-types) [![GitHub](https://img.shields.io/github/package-json/v/FloEdelmann/vue-ts-types?color=blue&logo=github)](https://github.com/FloEdelmann/vue-ts-types)
+[![npm][badge-npm]][npm] [![GitHub][badge-github]][github] [![GitHub tests workflow][badge-actions]][actions]
+
+[npm]: https://www.npmjs.com/package/vue-ts-types
+[github]: https://github.com/FloEdelmann/vue-ts-types
+[actions]: https://github.com/FloEdelmann/vue-ts-types/actions/workflows/test.yaml?query=branch%253Amain
+
+[badge-npm]: https://img.shields.io/npm/v/vue-ts-types?logo=npm&logoColor=white&color=red
+[badge-github]: https://img.shields.io/github/package-json/v/FloEdelmann/vue-ts-types?logo=github&color=blue
+[badge-actions]: https://img.shields.io/github/actions/workflow/status/FloEdelmann/vue-ts-types/test.yaml?logo=github&label=Tests
 
 ## Example
 
