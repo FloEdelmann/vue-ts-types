@@ -6,7 +6,7 @@
 
 [npm]: https://www.npmjs.com/package/vue-ts-types
 [github]: https://github.com/FloEdelmann/vue-ts-types
-[actions]: https://github.com/FloEdelmann/vue-ts-types/actions/workflows/test.yaml?query=branch%253Amain
+[actions]: https://github.com/FloEdelmann/vue-ts-types/actions/workflows/test.yaml?query=branch%3Amain
 
 [badge-npm]: https://img.shields.io/npm/v/vue-ts-types?logo=npm&logoColor=white&color=red
 [badge-github]: https://img.shields.io/github/package-json/v/FloEdelmann/vue-ts-types?logo=github&color=blue
