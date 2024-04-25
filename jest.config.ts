@@ -8,6 +8,7 @@ const config: JestConfigWithTsJest = {
   },
   testMatch: ['**/tests/**/*.spec.ts'],
   setupFilesAfterEnv: ['jest-extended/all'],
+  injectGlobals: false,
 };
 
 export default config;
