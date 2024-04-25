@@ -4,10 +4,11 @@ const config: JestConfigWithTsJest = {
   clearMocks: true,
   preset: 'ts-jest',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest/legacy',
+    '^.+\\.tsx?$': 'ts-jest',
   },
-  testMatch: ['**/tests/**/*.spec.ts'],
-  setupFilesAfterEnv: ['jest-extended/all'],
+  testMatch: ['<rootDir>/tests/**/*.spec.ts'],
+  setupFilesAfterEnv: ['<rootDir>/tests/jest-setup.ts'],
+  injectGlobals: false,
 };
 
 export default config;
