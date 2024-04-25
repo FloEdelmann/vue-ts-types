@@ -7,7 +7,7 @@ const config: JestConfigWithTsJest = {
     '^.+\\.tsx?$': 'ts-jest/legacy',
   },
   testMatch: ['**/tests/**/*.spec.ts'],
-  setupFilesAfterEnv: ['jest-extended/all'],
+  setupFilesAfterEnv: ['./jest-setup.ts'],
   injectGlobals: false,
 };
 
