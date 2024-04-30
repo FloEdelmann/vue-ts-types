@@ -1,0 +1,50 @@
+{
+  "pre-commit": {
+    "parallel": true,
+    "commands": {
+      "main-branch-check": {
+        "only": [{ "ref": "main" }],
+        "run": "exit 1",
+        "fail_text": "Please switch to another branch before committing. Use `git switch -c <branch-name>`."
+      },
+      "prettier": {
+        "run": "npx prettier {staged_files} --check --ignore-unknown",
+        "fail_text": "Please fix the formatting issues before committing. Use `npm run format`."
+      },
+      "eslint": {
+        "glob": "*.{mjs,ts}",
+        "run": "npx eslint {staged_files}",
+        "fail_text": "Please fix the ESLint issues before committing. Try `npx eslint --fix .`."
+      },
+      "markdownlint": {
+        "glob": "*.md",
+        "run": "npx markdownlint {staged_files}",
+        "fail_text": "Please fix the markdownlint issues before committing. Try `npx markdownlint --fix .`."
+      },
+      "build": {
+        "glob": "src/**",
+        "run": "npm run build",
+        "fail_text": "Please fix the build issues before committing. Try `npm run build`."
+      },
+      "test": {
+        "glob": "{src,tests}/**",
+        "run": "npm run test",
+        "fail_text": "Please fix the test issues before committing. Try `npm run test:watch`."
+      },
+      "type-test": {
+        "glob": "{src,type-tests}/**",
+        "run": "npm run type-test",
+        "fail_text": "Please fix the type test issues before committing. Try `npm run type-test`."
+      }
+    }
+  },
+  "output": [
+    "summary",
+    "success",
+    "failure",
+    "execution",
+    "execution_out",
+    "execution_info",
+    "skips"
+  ]
+}
