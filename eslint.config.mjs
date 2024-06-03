@@ -1,11 +1,20 @@
 // @ts-check
 
 import eslint from '@eslint/js';
+import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginJest from 'eslint-plugin-jest';
 import * as eslintPluginJestFormatting from 'eslint-plugin-jest-formatting';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
+
+/** @type import('@typescript-eslint/utils').TSESLint.SharedConfig.RulesRecord */
+const disabledTypeScriptEslintRules = Object.fromEntries(
+  typescriptEslint.configs.all
+    .flatMap((config) => Object.keys(config.rules ?? []))
+    .filter((ruleName) => ruleName.startsWith('@typescript-eslint/'))
+    .map((ruleName) => [ruleName, 'off']),
+);
 
 export default typescriptEslint.config(
   eslint.configs.recommended,
@@ -105,7 +114,17 @@ export default typescriptEslint.config(
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
     },
   },
-  { ignores: ['**/*.json', 'node_modules', 'dist'] },
+  { ignores: ['**/!(package).json', 'node_modules', 'dist'] },
+  {
+    // disable all TypeScript-related rules because they interfere with JSON parsing
+    files: ['**/package.json'],
+    languageOptions: eslintConfigPackageJson.languageOptions,
+    plugins: eslintConfigPackageJson.plugins,
+    rules: {
+      ...disabledTypeScriptEslintRules,
+      ...eslintConfigPackageJson.rules,
+    },
+  },
   {
     files: ['eslint.config.mjs'],
     rules: {
