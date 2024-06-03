@@ -5,15 +5,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "type-test": "tstyche",
+    "build": "tsc --project tsconfig.build.json",
     "format": "prettier . --write",
     "lint": "npm run lint:eslint && npm run lint:markdownlint && npm run lint:prettier",
     "lint:eslint": "eslint .",
     "lint:markdownlint": "markdownlint \"**/*.md\"",
     "lint:prettier": "prettier . --check",
-    "build": "tsc --project tsconfig.build.json"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-test": "tstyche"
   },
   "repository": {
     "type": "git",
