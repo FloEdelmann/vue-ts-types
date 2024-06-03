@@ -2,26 +2,6 @@
   "name": "vue-ts-types",
   "version": "1.6.2",
   "description": "Lightweight TypeScript-first Vue prop type definitions",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc --project tsconfig.build.json",
-    "format": "prettier . --write",
-    "lint": "npm run lint:eslint && npm run lint:markdownlint && npm run lint:prettier",
-    "lint:eslint": "eslint .",
-    "lint:markdownlint": "markdownlint \"**/*.md\"",
-    "lint:prettier": "prettier . --check",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "type-test": "tstyche"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FloEdelmann/vue-ts-types.git"
-  },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "vue",
     "vue2",
@@ -36,12 +16,32 @@
     "proptypes",
     "hacktoberfest"
   ],
-  "author": "Flo Edelmann",
-  "license": "MIT",
+  "homepage": "https://github.com/FloEdelmann/vue-ts-types",
   "bugs": {
     "url": "https://github.com/FloEdelmann/vue-ts-types/issues"
   },
-  "homepage": "https://github.com/FloEdelmann/vue-ts-types",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FloEdelmann/vue-ts-types.git"
+  },
+  "license": "MIT",
+  "author": "Flo Edelmann",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "format": "prettier . --write",
+    "lint": "npm run lint:eslint && npm run lint:markdownlint && npm run lint:prettier",
+    "lint:eslint": "eslint .",
+    "lint:markdownlint": "markdownlint \"**/*.md\"",
+    "lint:prettier": "prettier . --check",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-test": "tstyche"
+  },
   "devDependencies": {
     "@eslint/js": "^9.3.0",
     "@jest/globals": "^29.7.0",
