@@ -101,12 +101,12 @@ export default typescriptEslint.config(
       ],
       '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
       '@typescript-eslint/no-extraneous-class': 'off',
+      '@typescript-eslint/no-unnecessary-template-expression': 'error',
       '@typescript-eslint/no-shadow': [
         'warn',
         { ignoreOnInitialization: true },
       ],
       '@typescript-eslint/no-unsafe-unary-minus': 'error',
-      '@typescript-eslint/no-useless-template-literals': 'error',
       '@typescript-eslint/prefer-enum-initializers': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       '@typescript-eslint/promise-function-async': 'error',
