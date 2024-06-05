@@ -11,23 +11,23 @@ type Options = number | string;
 
 describe('oneOfTypesProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Options | undefined>>().type.toBeAssignable(
+    expect<Vue2_6.PropOptions<Options | undefined>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).optional,
     );
 
     expect(
       createVue2Component(oneOfTypesProp<Options>(options).optional),
-    ).type.toEqual<Vue2ComponentWithProp<Options | undefined>>();
+    ).type.toBe<Vue2ComponentWithProp<Options | undefined>>();
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Options | undefined>>().type.toBeAssignable(
+    expect<Vue2_7.PropOptions<Options | undefined>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Options | undefined>>().type.toBeAssignable(
+    expect<Vue3.Prop<Options | undefined>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).optional,
     );
   });
@@ -35,23 +35,23 @@ describe('oneOfTypesProp().optional', () => {
 
 describe('oneOfTypesProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Options | null>>().type.toBeAssignable(
+    expect<Vue2_6.PropOptions<Options | null>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).nullable,
     );
 
     expect(
       createVue2Component(oneOfTypesProp<Options>(options).nullable),
-    ).type.toEqual<Vue2ComponentWithProp<Options | null>>();
+    ).type.toBe<Vue2ComponentWithProp<Options | null>>();
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Options | null>>().type.toBeAssignable(
+    expect<Vue2_7.PropOptions<Options | null>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).nullable,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Options | null>>().type.toBeAssignable(
+    expect<Vue3.Prop<Options | null>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).nullable,
     );
   });
@@ -59,23 +59,23 @@ describe('oneOfTypesProp().nullable', () => {
 
 describe('oneOfTypesProp().withDefault', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Options>>().type.toBeAssignable(
+    expect<Vue2_6.PropOptions<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).withDefault('a'),
     );
 
     expect(
       createVue2Component(oneOfTypesProp<Options>(options).withDefault('a')),
-    ).type.toEqual<Vue2ComponentWithProp<Options>>();
+    ).type.toBe<Vue2ComponentWithProp<Options>>();
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Options>>().type.toBeAssignable(
+    expect<Vue2_7.PropOptions<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).withDefault('a'),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Options>>().type.toBeAssignable(
+    expect<Vue3.Prop<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).withDefault('a'),
     );
   });
@@ -83,23 +83,23 @@ describe('oneOfTypesProp().withDefault', () => {
 
 describe('oneOfTypesProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Options>>().type.toBeAssignable(
+    expect<Vue2_6.PropOptions<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).required,
     );
 
     expect(
       createVue2Component(oneOfTypesProp<Options>(options).required),
-    ).type.toEqual<Vue2ComponentWithProp<Options>>();
+    ).type.toBe<Vue2ComponentWithProp<Options>>();
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Options>>().type.toBeAssignable(
+    expect<Vue2_7.PropOptions<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Options>>().type.toBeAssignable(
+    expect<Vue3.Prop<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).required,
     );
   });
