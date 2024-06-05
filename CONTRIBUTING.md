@@ -6,21 +6,21 @@ Please follow these guidelines:
 
 ## Development setup
 
-Make sure that Node.js (at least version 14) is installed.  
+Make sure that Node.js (at least version 16) is installed.  
 Install all development dependencies with `npm install`.
 
-Run tests:
+Run tests and type tests:
 
 ```bash
 npm run test
-# or in watch mode
-npm run test:watch
+npm run type-test
 ```
 
-And type tests:
+Or in watch mode:
 
 ```bash
-npm run type-test
+npm run test:watch
+npm run type-test:watch
 ```
 
 Before you commit, run all following commands to ensure that all tests pass:
