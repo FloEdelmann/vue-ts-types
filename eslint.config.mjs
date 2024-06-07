@@ -157,6 +157,7 @@ export default typescriptEslint.config(
       'jest/prefer-equality-matcher': 'warn',
       'jest/prefer-expect-resolves': 'warn',
       'jest/prefer-hooks-on-top': 'warn',
+      'jest/prefer-jest-mocked': 'error',
       'jest/prefer-importing-jest-globals': 'error',
       'jest/prefer-mock-promise-shorthand': 'error',
       'jest/prefer-spy-on': 'warn',
