@@ -56,7 +56,7 @@
     "jest-extended": "^4.0.2",
     "lefthook": "^1.6.15",
     "markdownlint-cli": "^0.41.0",
-    "prettier": "3.3.1",
+    "prettier": "3.3.2",
     "ts-jest": "^29.1.4",
     "ts-node": "^10.9.2",
     "tstyche": "^2.0.0",
