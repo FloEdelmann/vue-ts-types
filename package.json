@@ -26,6 +26,7 @@
   },
   "license": "MIT",
   "author": "Flo Edelmann",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
