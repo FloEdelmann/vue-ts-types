@@ -50,7 +50,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^28.6.0",
     "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-package-json": "^0.14.0",
+    "eslint-plugin-package-json": "^0.15.0",
     "eslint-plugin-unicorn": "^53.0.0",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
