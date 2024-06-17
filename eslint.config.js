@@ -126,7 +126,7 @@ export default typescriptEslint.config(
     },
   },
   {
-    files: ['eslint.config.mjs'],
+    files: ['eslint.config.js'],
     rules: {
       // less strict rules for ESLint config while some ESLint plugins don't provide proper types
       '@typescript-eslint/no-unsafe-argument': 'off',
