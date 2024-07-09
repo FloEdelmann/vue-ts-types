@@ -29,6 +29,9 @@ export default typescriptEslint.config(
         project: true,
       },
     },
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
+    },
     rules: {
       // Core ESLint rules
       'accessor-pairs': 'error',
