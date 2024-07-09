@@ -29,6 +29,9 @@ export default typescriptEslint.config(
         project: true,
       },
     },
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
+    },
     rules: {
       // Core ESLint rules
       'accessor-pairs': 'error',
@@ -101,7 +104,10 @@ export default typescriptEslint.config(
       ],
       '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
       '@typescript-eslint/no-extraneous-class': 'off',
+      '@typescript-eslint/no-unnecessary-parameter-property-assignment':
+        'error',
       '@typescript-eslint/no-unnecessary-template-expression': 'error',
+      '@typescript-eslint/no-unnecessary-type-parameters': 'error',
       '@typescript-eslint/no-shadow': [
         'warn',
         { ignoreOnInitialization: true },
