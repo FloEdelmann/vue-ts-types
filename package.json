@@ -61,7 +61,7 @@
     "ts-jest": "^29.2.3",
     "ts-node": "^10.9.2",
     "tstyche": "^2.1.0",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "typescript-eslint": "^7.16.1",
     "vue": "^3.4.33",
     "vue2-6": "npm:vue@~2.6.14",
