@@ -7,8 +7,9 @@ import eslintPluginJest from 'eslint-plugin-jest';
 import * as eslintPluginJestFormatting from 'eslint-plugin-jest-formatting';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
+/** @import {TSESLint} from '@typescript-eslint/utils' */
 
-/** @type import('@typescript-eslint/utils').TSESLint.SharedConfig.RulesRecord */
+/** @type TSESLint.SharedConfig.RulesRecord */
 const disabledTypeScriptEslintRules = Object.fromEntries(
   typescriptEslint.configs.all
     .flatMap((config) => Object.keys(config.rules ?? []))
@@ -20,7 +21,9 @@ export default typescriptEslint.config(
   eslint.configs.recommended,
   ...typescriptEslint.configs.strictTypeChecked,
   ...typescriptEslint.configs.stylisticTypeChecked,
-  /** @type {any} */ (eslintPluginUnicorn.configs['flat/recommended']),
+  /** @type {TSESLint.FlatConfig.Config} */ (
+    eslintPluginUnicorn.configs['flat/recommended']
+  ),
   eslintConfigPrettier,
   {
     languageOptions: {
