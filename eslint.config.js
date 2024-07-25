@@ -7,8 +7,9 @@ import eslintPluginJest from 'eslint-plugin-jest';
 import * as eslintPluginJestFormatting from 'eslint-plugin-jest-formatting';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
+/** @import {TSESLint} from '@typescript-eslint/utils' */
 
-/** @type import('@typescript-eslint/utils').TSESLint.SharedConfig.RulesRecord */
+/** @type TSESLint.SharedConfig.RulesRecord */
 const disabledTypeScriptEslintRules = Object.fromEntries(
   typescriptEslint.configs.all
     .flatMap((config) => Object.keys(config.rules ?? []))
@@ -20,7 +21,9 @@ export default typescriptEslint.config(
   eslint.configs.recommended,
   ...typescriptEslint.configs.strictTypeChecked,
   ...typescriptEslint.configs.stylisticTypeChecked,
-  /** @type {any} */ (eslintPluginUnicorn.configs['flat/recommended']),
+  /** @type {TSESLint.FlatConfig.Config} */ (
+    eslintPluginUnicorn.configs['flat/recommended']
+  ),
   eslintConfigPrettier,
   {
     languageOptions: {
@@ -92,6 +95,7 @@ export default typescriptEslint.config(
       ],
 
       // @typescript-eslint/eslint-plugin
+      '@typescript-eslint/ban-types': 'off', // see https://typescript-eslint.io/blog/announcing-typescript-eslint-v8-beta#replacement-of-ban-types
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/explicit-module-boundary-types': 'error',
@@ -101,6 +105,11 @@ export default typescriptEslint.config(
           ignoreVoidOperator: true,
           ignoreArrowShorthand: true,
         },
+      ],
+      '@typescript-eslint/no-empty-interface': 'off', // see https://typescript-eslint.io/blog/announcing-typescript-eslint-v8-beta#replacement-of-ban-types
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        { allowInterfaces: 'with-single-extends' },
       ],
       '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
       '@typescript-eslint/no-extraneous-class': 'off',
@@ -112,7 +121,9 @@ export default typescriptEslint.config(
         'warn',
         { ignoreOnInitialization: true },
       ],
+      '@typescript-eslint/no-unsafe-function-type': 'error',
       '@typescript-eslint/no-unsafe-unary-minus': 'error',
+      '@typescript-eslint/no-wrapper-object-types': 'error',
       '@typescript-eslint/prefer-enum-initializers': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       '@typescript-eslint/promise-function-async': 'error',

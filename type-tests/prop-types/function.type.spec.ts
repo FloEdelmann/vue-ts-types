@@ -6,7 +6,7 @@ import { functionProp } from '../../src/prop-types/function';
 import { createVue2Component } from '../utils';
 import type { Vue2ComponentWithProp } from '../utils';
 
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 
 type MyCustomCallback = (parameter: string) => Promise<boolean>;
 
