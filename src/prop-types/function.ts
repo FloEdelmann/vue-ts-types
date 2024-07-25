@@ -8,7 +8,7 @@ interface FunctionPropOptionsGenerator<T> {
   required: RequiredPropOptions<T> & { default?: () => T };
 }
 
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 
 /**
  * Allows any function. No further runtime validation is performed by default.
