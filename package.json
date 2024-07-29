@@ -60,7 +60,7 @@
     "prettier": "3.3.3",
     "ts-jest": "^29.2.3",
     "ts-node": "^10.9.2",
-    "tstyche": "^2.1.0",
+    "tstyche": "^2.1.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.17.0",
     "vue": "^3.4.34",
