@@ -4,7 +4,6 @@ import eslint from '@eslint/js';
 import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginJest from 'eslint-plugin-jest';
-import * as eslintPluginJestFormatting from 'eslint-plugin-jest-formatting';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
 /** @import {TSESLint} from '@typescript-eslint/utils' */
@@ -155,13 +154,11 @@ export default typescriptEslint.config(
   {
     files: ['tests/**/*.spec.ts'],
     plugins: {
-      'jest': eslintPluginJest,
-      'jest-formatting': eslintPluginJestFormatting,
+      jest: eslintPluginJest,
     },
     rules: {
       ...eslintPluginJest.configs['flat/recommended'].rules,
       ...eslintPluginJest.configs['flat/style'].rules,
-      ...eslintPluginJestFormatting.configs.recommended.overrides[0].rules,
 
       // additional Jest rules
       'jest/consistent-test-it': 'error',
@@ -169,6 +166,12 @@ export default typescriptEslint.config(
       'jest/no-duplicate-hooks': 'error',
       'jest/no-test-return-statement': 'error',
       'jest/no-untyped-mock-factory': 'error',
+      'jest/padding-around-after-all-blocks': 'error',
+      'jest/padding-around-after-each-blocks': 'error',
+      'jest/padding-around-before-all-blocks': 'error',
+      'jest/padding-around-before-each-blocks': 'error',
+      'jest/padding-around-describe-blocks': 'error',
+      'jest/padding-around-test-blocks': 'error',
       'jest/prefer-called-with': 'error',
       'jest/prefer-comparison-matcher': 'warn',
       'jest/prefer-equality-matcher': 'warn',
