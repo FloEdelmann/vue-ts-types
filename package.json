@@ -45,7 +45,7 @@
     "type-test:watch": "tstyche --watch"
   },
   "devDependencies": {
-    "@eslint/js": "^9.8.0",
+    "@eslint/js": "^9.9.0",
     "@jest/globals": "^29.7.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
@@ -55,7 +55,7 @@
     "eslint-plugin-unicorn": "^55.0.0",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
-    "lefthook": "^1.7.11",
+    "lefthook": "^1.7.12",
     "markdownlint-cli": "^0.41.0",
     "prettier": "3.3.3",
     "ts-jest": "^29.2.4",
@@ -63,7 +63,7 @@
     "tstyche": "^2.1.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0",
-    "vue": "^3.4.35",
+    "vue": "^3.4.37",
     "vue2-6": "npm:vue@~2.6.14",
     "vue2-7": "npm:vue@~2.7.16"
   },
