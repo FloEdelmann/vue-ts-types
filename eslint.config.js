@@ -28,7 +28,10 @@ export default typescriptEslint.config(
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
-        project: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.js'],
+          defaultProject: './tsconfig.json',
+        },
       },
     },
     linterOptions: {
