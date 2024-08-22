@@ -6,29 +6,26 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
-/** @import {TSESLint} from '@typescript-eslint/utils' */
-
-/** @type TSESLint.SharedConfig.RulesRecord */
-const disabledTypeScriptEslintRules = Object.fromEntries(
-  typescriptEslint.configs.all
-    .flatMap((config) => Object.keys(config.rules ?? []))
-    .filter((ruleName) => ruleName.startsWith('@typescript-eslint/'))
-    .map((ruleName) => [ruleName, 'off']),
-);
 
 export default typescriptEslint.config(
-  eslint.configs.recommended,
-  ...typescriptEslint.configs.strictTypeChecked,
-  ...typescriptEslint.configs.stylisticTypeChecked,
-  /** @type {TSESLint.FlatConfig.Config} */ (
-    eslintPluginUnicorn.configs['flat/recommended']
-  ),
-  eslintConfigPrettier,
+  { ignores: ['dist'] },
+  eslintConfigPackageJson,
   {
+    files: ['**/*.ts', '**/*.js'],
+    extends: [
+      eslint.configs.recommended,
+      ...typescriptEslint.configs.strictTypeChecked,
+      ...typescriptEslint.configs.stylisticTypeChecked,
+      eslintPluginUnicorn.configs['flat/recommended'],
+      eslintConfigPrettier,
+    ],
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
-        project: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.js'],
+          defaultProject: './tsconfig.json',
+        },
       },
     },
     linterOptions: {
@@ -62,7 +59,6 @@ export default typescriptEslint.config(
       'no-new-object': 'error',
       'no-prototype-builtins': 'error',
       'no-return-assign': 'error',
-      'no-return-await': 'error',
       'no-shadow': 'off', // replaced by @typescript-eslint/no-shadow
       'no-template-curly-in-string': 'error',
       'no-unsafe-optional-chaining': [
@@ -94,7 +90,6 @@ export default typescriptEslint.config(
       ],
 
       // @typescript-eslint/eslint-plugin
-      '@typescript-eslint/ban-types': 'off', // see https://typescript-eslint.io/blog/announcing-typescript-eslint-v8-beta#replacement-of-ban-types
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/explicit-module-boundary-types': 'error',
@@ -105,7 +100,6 @@ export default typescriptEslint.config(
           ignoreArrowShorthand: true,
         },
       ],
-      '@typescript-eslint/no-empty-interface': 'off', // see https://typescript-eslint.io/blog/announcing-typescript-eslint-v8-beta#replacement-of-ban-types
       '@typescript-eslint/no-empty-object-type': [
         'error',
         { allowInterfaces: 'with-single-extends' },
@@ -115,30 +109,15 @@ export default typescriptEslint.config(
       '@typescript-eslint/no-unnecessary-parameter-property-assignment':
         'error',
       '@typescript-eslint/no-unnecessary-template-expression': 'error',
-      '@typescript-eslint/no-unnecessary-type-parameters': 'error',
       '@typescript-eslint/no-shadow': [
         'warn',
         { ignoreOnInitialization: true },
       ],
-      '@typescript-eslint/no-unsafe-function-type': 'error',
-      '@typescript-eslint/no-unsafe-unary-minus': 'error',
-      '@typescript-eslint/no-wrapper-object-types': 'error',
       '@typescript-eslint/prefer-enum-initializers': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       '@typescript-eslint/promise-function-async': 'error',
       '@typescript-eslint/sort-type-constituents': 'warn',
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
-    },
-  },
-  { ignores: ['**/!(package).json', 'node_modules', 'dist'] },
-  {
-    // disable all TypeScript-related rules because they interfere with JSON parsing
-    files: ['**/package.json'],
-    languageOptions: eslintConfigPackageJson.languageOptions,
-    plugins: eslintConfigPackageJson.plugins,
-    rules: {
-      ...disabledTypeScriptEslintRules,
-      ...eslintConfigPackageJson.rules,
     },
   },
   {
