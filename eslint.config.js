@@ -20,9 +20,7 @@ export default typescriptEslint.config(
   eslint.configs.recommended,
   ...typescriptEslint.configs.strictTypeChecked,
   ...typescriptEslint.configs.stylisticTypeChecked,
-  /** @type {TSESLint.FlatConfig.Config} */ (
-    eslintPluginUnicorn.configs['flat/recommended']
-  ),
+  eslintPluginUnicorn.configs['flat/recommended'],
   eslintConfigPrettier,
   {
     languageOptions: {
