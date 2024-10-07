@@ -6,6 +6,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
+/** @import { FlatConfig } from '@typescript-eslint/utils/ts-eslint' */
 
 export default typescriptEslint.config(
   { ignores: ['dist'] },
@@ -17,7 +18,7 @@ export default typescriptEslint.config(
       ...typescriptEslint.configs.strictTypeChecked,
       ...typescriptEslint.configs.stylisticTypeChecked,
       eslintPluginUnicorn.configs['flat/recommended'],
-      eslintConfigPrettier,
+      /** @type {FlatConfig.Config} */ (eslintConfigPrettier),
     ],
     languageOptions: {
       ecmaVersion: 'latest',
