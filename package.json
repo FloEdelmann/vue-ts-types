@@ -45,7 +45,7 @@
     "type-test:watch": "tstyche --watch"
   },
   "devDependencies": {
-    "@eslint/js": "^9.12.0",
+    "@eslint/js": "^9.13.0",
     "@jest/globals": "^29.7.0",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
