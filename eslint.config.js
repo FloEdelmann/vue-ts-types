@@ -70,7 +70,6 @@ export default typescriptEslint.config(
       'eqeqeq': 'error',
       'grouped-accessor-pairs': ['error', 'getBeforeSet'],
       'guard-for-in': 'error',
-      'no-array-constructor': 'error',
       'no-bitwise': 'error',
       'no-constant-binary-expression': 'error',
       'no-constant-condition': 'error',
