@@ -72,7 +72,6 @@ export default typescriptEslint.config(
       'guard-for-in': 'error',
       'no-bitwise': 'error',
       'no-else-return': ['error', { allowElseIf: false }],
-      'no-irregular-whitespace': 'error',
       'no-lonely-if': 'error',
       'no-loop-func': 'error',
       'no-object-constructor': 'error',
