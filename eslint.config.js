@@ -93,11 +93,6 @@ export default typescriptEslint.config(
       'object-shorthand': ['error', 'always', { avoidQuotes: true }],
       'prefer-arrow-callback': 'error',
       'prefer-template': 'error',
-      'quotes': [
-        'error',
-        'single',
-        { avoidEscape: true, allowTemplateLiterals: false },
-      ],
       'radix': 'error',
       'spaced-comment': 'error',
 
