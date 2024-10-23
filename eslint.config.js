@@ -81,7 +81,7 @@ export default typescriptEslint.config(
       'no-lonely-if': 'error',
       'no-loop-func': 'error',
       'no-mixed-operators': 'error',
-      'no-new-object': 'error',
+      'no-object-constructor': 'error',
       'no-prototype-builtins': 'error',
       'no-return-assign': 'error',
       'no-shadow': 'off', // replaced by @typescript-eslint/no-shadow
