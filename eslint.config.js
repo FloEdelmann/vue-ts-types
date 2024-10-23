@@ -71,7 +71,6 @@ export default typescriptEslint.config(
       'grouped-accessor-pairs': ['error', 'getBeforeSet'],
       'guard-for-in': 'error',
       'no-bitwise': 'error',
-      'no-constant-binary-expression': 'error',
       'no-constant-condition': 'error',
       'no-else-return': ['error', { allowElseIf: false }],
       'no-irregular-whitespace': 'error',
