@@ -67,7 +67,6 @@ export default typescriptEslint.config(
       ],
       'consistent-return': 'error',
       'curly': ['error', 'all'],
-      'dot-notation': 'error',
       'eqeqeq': 'error',
       'getter-return': 'error',
       'grouped-accessor-pairs': ['error', 'getBeforeSet'],
