@@ -134,7 +134,6 @@ export default typescriptEslint.config(
       '@typescript-eslint/prefer-enum-initializers': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       '@typescript-eslint/promise-function-async': 'error',
-      '@typescript-eslint/sort-type-constituents': 'warn',
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
     },
   },
