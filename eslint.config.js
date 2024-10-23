@@ -8,6 +8,15 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
 /** @import { FlatConfig } from '@typescript-eslint/utils/ts-eslint' */
 
+const typescriptEslintStrictAndStylisticConfigs = [
+  ...typescriptEslint.configs.strictTypeChecked,
+  ...typescriptEslint.configs.stylisticTypeChecked.filter(
+    ({ name }) =>
+      name !== 'typescript-eslint/base' &&
+      name !== 'typescript-eslint/eslint-recommended',
+  ),
+];
+
 export default typescriptEslint.config(
   { ignores: ['dist'] },
   eslintConfigPackageJson,
@@ -15,8 +24,7 @@ export default typescriptEslint.config(
     files: ['**/*.ts', '**/*.js'],
     extends: [
       eslint.configs.recommended,
-      ...typescriptEslint.configs.strictTypeChecked,
-      ...typescriptEslint.configs.stylisticTypeChecked,
+      ...typescriptEslintStrictAndStylisticConfigs,
       eslintPluginUnicorn.configs['flat/recommended'],
       /** @type {FlatConfig.Config} */ (eslintConfigPrettier),
     ],
