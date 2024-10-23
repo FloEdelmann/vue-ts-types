@@ -1,25 +1,49 @@
 // @ts-check
 
-import eslint from '@eslint/js';
+import eslintJs from '@eslint/js';
 import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
-/** @import { FlatConfig } from '@typescript-eslint/utils/ts-eslint' */
+
+const namedRecommendedEslintConfig = {
+  name: 'eslint/recommended',
+  ...eslintJs.configs.recommended,
+};
+
+const typescriptEslintStrictAndStylisticConfigs = [
+  ...typescriptEslint.configs.strictTypeChecked,
+  ...typescriptEslint.configs.stylisticTypeChecked.filter(
+    ({ name }) =>
+      name !== 'typescript-eslint/base' &&
+      name !== 'typescript-eslint/eslint-recommended',
+  ),
+];
+
+const namedEslintConfigPrettier = {
+  name: 'config-prettier',
+  ...eslintConfigPrettier,
+};
 
 export default typescriptEslint.config(
-  { ignores: ['dist'] },
+  {
+    name: 'vue-ts-types/ignore-dist',
+    ignores: ['dist'],
+  },
   eslintConfigPackageJson,
   {
     files: ['**/*.ts', '**/*.js'],
     extends: [
-      eslint.configs.recommended,
-      ...typescriptEslint.configs.strictTypeChecked,
-      ...typescriptEslint.configs.stylisticTypeChecked,
+      namedRecommendedEslintConfig,
+      ...typescriptEslintStrictAndStylisticConfigs,
       eslintPluginUnicorn.configs['flat/recommended'],
-      /** @type {FlatConfig.Config} */ (eslintConfigPrettier),
+      namedEslintConfigPrettier,
     ],
+  },
+  {
+    name: 'vue-ts-types/main',
+    files: ['**/*.ts', '**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
@@ -43,22 +67,14 @@ export default typescriptEslint.config(
       ],
       'consistent-return': 'error',
       'curly': ['error', 'all'],
-      'dot-notation': 'error',
       'eqeqeq': 'error',
-      'getter-return': 'error',
       'grouped-accessor-pairs': ['error', 'getBeforeSet'],
       'guard-for-in': 'error',
-      'no-array-constructor': 'error',
       'no-bitwise': 'error',
-      'no-constant-binary-expression': 'error',
-      'no-constant-condition': 'error',
       'no-else-return': ['error', { allowElseIf: false }],
-      'no-irregular-whitespace': 'error',
       'no-lonely-if': 'error',
       'no-loop-func': 'error',
-      'no-mixed-operators': 'error',
-      'no-new-object': 'error',
-      'no-prototype-builtins': 'error',
+      'no-object-constructor': 'error',
       'no-return-assign': 'error',
       'no-shadow': 'off', // replaced by @typescript-eslint/no-shadow
       'no-template-curly-in-string': 'error',
@@ -69,13 +85,7 @@ export default typescriptEslint.config(
       'object-shorthand': ['error', 'always', { avoidQuotes: true }],
       'prefer-arrow-callback': 'error',
       'prefer-template': 'error',
-      'quotes': [
-        'error',
-        'single',
-        { avoidEscape: true, allowTemplateLiterals: false },
-      ],
       'radix': 'error',
-      'spaced-comment': 'error',
 
       // eslint-plugin-unicorn
       'unicorn/filename-case': 'off',
@@ -94,13 +104,6 @@ export default typescriptEslint.config(
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/explicit-module-boundary-types': 'error',
-      '@typescript-eslint/no-confusing-void-expression': [
-        'error',
-        {
-          ignoreVoidOperator: true,
-          ignoreArrowShorthand: true,
-        },
-      ],
       '@typescript-eslint/no-empty-object-type': [
         'error',
         { allowInterfaces: 'with-single-extends' },
@@ -109,7 +112,6 @@ export default typescriptEslint.config(
       '@typescript-eslint/no-extraneous-class': 'off',
       '@typescript-eslint/no-unnecessary-parameter-property-assignment':
         'error',
-      '@typescript-eslint/no-unnecessary-template-expression': 'error',
       '@typescript-eslint/no-shadow': [
         'warn',
         { ignoreOnInitialization: true },
@@ -117,11 +119,11 @@ export default typescriptEslint.config(
       '@typescript-eslint/prefer-enum-initializers': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       '@typescript-eslint/promise-function-async': 'error',
-      '@typescript-eslint/sort-type-constituents': 'warn',
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
     },
   },
   {
+    name: 'vue-ts-types/eslint',
     files: ['eslint.config.js'],
     rules: {
       // less strict rules for ESLint config while some ESLint plugins don't provide proper types
@@ -132,6 +134,7 @@ export default typescriptEslint.config(
     },
   },
   {
+    name: 'vue-ts-types/tests',
     files: ['tests/**/*.spec.ts'],
     plugins: {
       jest: eslintPluginJest,
