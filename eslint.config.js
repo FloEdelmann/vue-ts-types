@@ -94,7 +94,6 @@ export default typescriptEslint.config(
       'prefer-arrow-callback': 'error',
       'prefer-template': 'error',
       'radix': 'error',
-      'spaced-comment': 'error',
 
       // eslint-plugin-unicorn
       'unicorn/filename-case': 'off',
