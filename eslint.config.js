@@ -80,7 +80,6 @@ export default typescriptEslint.config(
       'no-irregular-whitespace': 'error',
       'no-lonely-if': 'error',
       'no-loop-func': 'error',
-      'no-mixed-operators': 'error',
       'no-object-constructor': 'error',
       'no-prototype-builtins': 'error',
       'no-return-assign': 'error',
