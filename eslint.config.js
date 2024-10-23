@@ -33,7 +33,6 @@ export default typescriptEslint.config(
   },
   eslintConfigPackageJson,
   {
-    name: 'vue-ts-types/main',
     files: ['**/*.ts', '**/*.js'],
     extends: [
       namedRecommendedEslintConfig,
@@ -41,6 +40,10 @@ export default typescriptEslint.config(
       eslintPluginUnicorn.configs['flat/recommended'],
       namedEslintConfigPrettier,
     ],
+  },
+  {
+    name: 'vue-ts-types/main',
+    files: ['**/*.ts', '**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
