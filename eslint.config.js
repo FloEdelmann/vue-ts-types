@@ -68,7 +68,6 @@ export default typescriptEslint.config(
       'consistent-return': 'error',
       'curly': ['error', 'all'],
       'eqeqeq': 'error',
-      'getter-return': 'error',
       'grouped-accessor-pairs': ['error', 'getBeforeSet'],
       'guard-for-in': 'error',
       'no-array-constructor': 'error',
