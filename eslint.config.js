@@ -1,12 +1,16 @@
 // @ts-check
 
-import eslint from '@eslint/js';
+import eslintJs from '@eslint/js';
 import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import typescriptEslint from 'typescript-eslint';
-/** @import { FlatConfig } from '@typescript-eslint/utils/ts-eslint' */
+
+const namedRecommendedEslintConfig = {
+  name: 'eslint/recommended',
+  ...eslintJs.configs.recommended,
+};
 
 const typescriptEslintStrictAndStylisticConfigs = [
   ...typescriptEslint.configs.strictTypeChecked,
@@ -17,16 +21,25 @@ const typescriptEslintStrictAndStylisticConfigs = [
   ),
 ];
 
+const namedEslintConfigPrettier = {
+  name: 'config-prettier',
+  ...eslintConfigPrettier,
+};
+
 export default typescriptEslint.config(
-  { ignores: ['dist'] },
+  {
+    name: 'vue-ts-types/ignore-dist',
+    ignores: ['dist'],
+  },
   eslintConfigPackageJson,
   {
+    name: 'vue-ts-types/main',
     files: ['**/*.ts', '**/*.js'],
     extends: [
-      eslint.configs.recommended,
+      namedRecommendedEslintConfig,
       ...typescriptEslintStrictAndStylisticConfigs,
       eslintPluginUnicorn.configs['flat/recommended'],
-      /** @type {FlatConfig.Config} */ (eslintConfigPrettier),
+      namedEslintConfigPrettier,
     ],
     languageOptions: {
       ecmaVersion: 'latest',
@@ -130,6 +143,7 @@ export default typescriptEslint.config(
     },
   },
   {
+    name: 'vue-ts-types/eslint',
     files: ['eslint.config.js'],
     rules: {
       // less strict rules for ESLint config while some ESLint plugins don't provide proper types
@@ -140,6 +154,7 @@ export default typescriptEslint.config(
     },
   },
   {
+    name: 'vue-ts-types/tests',
     files: ['tests/**/*.spec.ts'],
     plugins: {
       jest: eslintPluginJest,
