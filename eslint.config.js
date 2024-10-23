@@ -104,13 +104,6 @@ export default typescriptEslint.config(
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/explicit-module-boundary-types': 'error',
-      '@typescript-eslint/no-confusing-void-expression': [
-        'error',
-        {
-          ignoreVoidOperator: true,
-          ignoreArrowShorthand: true,
-        },
-      ],
       '@typescript-eslint/no-empty-object-type': [
         'error',
         { allowInterfaces: 'with-single-extends' },
