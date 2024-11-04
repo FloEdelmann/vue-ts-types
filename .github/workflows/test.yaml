@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [16, 18, 20]
+        version: [16, 18, 20, 22]
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Checkout'
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [16, 18, 20]
+        version: [16, 18, 20, 22]
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Checkout'
@@ -64,7 +64,7 @@ jobs:
       - name: 'Setup Node.js'
         uses: 'actions/setup-node@v4.1.0'
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
       - name: 'Install dependencies'
         run: 'npm ci'
@@ -86,7 +86,7 @@ jobs:
       - name: 'Setup Node.js'
         uses: 'actions/setup-node@v4.1.0'
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
       - name: 'Install dependencies'
         run: 'npm ci'
