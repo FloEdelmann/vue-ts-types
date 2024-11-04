@@ -1,3 +1,23 @@
+<a id="v1.7.0"></a>
+# [Version 1.7.0 (v1.7.0)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.7.0) - 2024-11-04
+
+## Internal changes
+
+* Convert some YAML config files to JSON, by [@FloEdelmann](https://github.com/FloEdelmann) in [#550](https://github.com/FloEdelmann/vue-ts-types/issues/550)
+* Remove no longer needed VS Code settings, by [@FloEdelmann](https://github.com/FloEdelmann) in [#589](https://github.com/FloEdelmann/vue-ts-types/issues/589)
+* Install `eslint-plugin-package-json`, by [@FloEdelmann](https://github.com/FloEdelmann) in [#569](https://github.com/FloEdelmann/vue-ts-types/issues/569)
+* Switch from `eslint-plugin-jest-formatting` to `eslint-plugin-jest` rules, by [@FloEdelmann](https://github.com/FloEdelmann) in [#636](https://github.com/FloEdelmann/vue-ts-types/issues/636)
+* Update ESLint to v9, by [@FloEdelmann](https://github.com/FloEdelmann) in [#680](https://github.com/FloEdelmann/vue-ts-types/issues/680)
+* Simplify ESLint config, by [@FloEdelmann](https://github.com/FloEdelmann) in [#696](https://github.com/FloEdelmann/vue-ts-types/issues/696)
+* Run CI workflows on Node 22, by [@FloEdelmann](https://github.com/FloEdelmann) in [#704](https://github.com/FloEdelmann/vue-ts-types/issues/704) and [#705](https://github.com/FloEdelmann/vue-ts-types/issues/705)
+* Don't run CI tests on EOL Node 16 anymore, by [@FloEdelmann](https://github.com/FloEdelmann) in [#704](https://github.com/FloEdelmann/vue-ts-types/issues/704)
+* Bump development dependencies, by [@dependabot](https://github.com/dependabot), [@FloEdelmann](https://github.com/FloEdelmann), and [@mrazauskas](https://github.com/mrazauskas)
+
+**Full Changelog**: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.2...v1.7.0
+
+[Changes][v1.7.0]
+
+
 <a id="v1.6.2"></a>
 # [Version 1.6.2 (v1.6.2)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.6.2) - 2024-04-25
 
@@ -209,6 +229,7 @@ Initial release
 [Changes][v0.1.0]
 
 
+[v1.7.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.2...v1.7.0
 [v1.6.2]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.1...v1.6.2
 [v1.6.1]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.0...v1.6.1
 [v1.6.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.5.1...v1.6.0
