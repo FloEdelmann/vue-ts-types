@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [16, 18, 20, 22]
+        version: [18, 20, 22]
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Checkout'
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [16, 18, 20, 22]
+        version: [18, 20, 22]
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Checkout'
