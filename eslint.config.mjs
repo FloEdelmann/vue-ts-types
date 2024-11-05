@@ -33,7 +33,7 @@ export default typescriptEslint.config(
   },
   eslintConfigPackageJson,
   {
-    files: ['**/*.ts', '**/*.js'],
+    files: ['**/*.ts', '**/*.mjs'],
     extends: [
       namedRecommendedEslintConfig,
       ...typescriptEslintStrictAndStylisticConfigs,
@@ -43,12 +43,12 @@ export default typescriptEslint.config(
   },
   {
     name: 'vue-ts-types/main',
-    files: ['**/*.ts', '**/*.js'],
+    files: ['**/*.ts', '**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
         projectService: {
-          allowDefaultProject: ['eslint.config.js'],
+          allowDefaultProject: ['eslint.config.mjs'],
           defaultProject: './tsconfig.json',
         },
       },
@@ -124,7 +124,7 @@ export default typescriptEslint.config(
   },
   {
     name: 'vue-ts-types/eslint',
-    files: ['eslint.config.js'],
+    files: ['eslint.config.mjs'],
     rules: {
       // less strict rules for ESLint config while some ESLint plugins don't provide proper types
       '@typescript-eslint/no-unsafe-argument': 'off',

@@ -12,7 +12,7 @@
         "fail_text": "Please fix the formatting issues before committing. Use `npm run format`."
       },
       "eslint": {
-        "glob": "*.{js,ts}",
+        "glob": "*.{mjs,ts}",
         "run": "npx eslint {staged_files}",
         "fail_text": "Please fix the ESLint issues before committing. Try `npx eslint --fix .`."
       },
