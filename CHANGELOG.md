@@ -1,5 +1,20 @@
+<a id="v1.7.1"></a>
+# [Version 1.7.1 (v1.7.1)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.7.1) - 2024-11-05
+
+## Bug fixes
+
+* Switch back to CommonJS (which has mistakenly changed to ESM in [v1.7.0](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.7.0)), by [@FloEdelmann](https://github.com/FloEdelmann) in [#707](https://github.com/FloEdelmann/vue-ts-types/issues/707)
+
+**Full Changelog**: https://github.com/FloEdelmann/vue-ts-types/compare/v1.7.0...v1.7.1
+
+[Changes][v1.7.1]
+
+
 <a id="v1.7.0"></a>
 # [Version 1.7.0 (v1.7.0)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.7.0) - 2024-11-04
+
+> [!WARNING]
+> This release mistakenly changed `"type": "commonjs"` to `"type": "module"` in `package.json`. Please use [v1.7.1](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.7.1) which is back to CommonJS. Switching to ESM will be a major version bump in the future; and there will probably be releases supporting both ESM and CommonJS before that.
 
 ## Internal changes
 
@@ -260,6 +275,7 @@ Initial release
 [Changes][v0.1.0]
 
 
+[v1.7.1]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.7.0...v1.7.1
 [v1.7.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.2...v1.7.0
 [v1.6.2]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.1...v1.6.2
 [v1.6.1]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.0...v1.6.1
