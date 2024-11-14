@@ -34,7 +34,7 @@
       "type-test": {
         "glob": "{src,type-tests}/**",
         "run": "npm run type-test",
-        "fail_text": "Please fix the type test issues before committing. Try `npm run type-test`."
+        "fail_text": "Please fix the type test issues before committing. Try `npm run type-test:watch`."
       }
     }
   },

@@ -3,5 +3,5 @@
   "compilerOptions": {
     "rootDir": "./src"
   },
-  "exclude": ["jest.config.ts", "tests", "type-tests", "node_modules", "dist"]
+  "exclude": ["vitest.config.ts", "tests", "type-tests", "node_modules", "dist"]
 }

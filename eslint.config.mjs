@@ -3,8 +3,8 @@
 import eslintJs from '@eslint/js';
 import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import eslintPluginVitest from '@vitest/eslint-plugin';
 import typescriptEslint from 'typescript-eslint';
 
 const namedRecommendedEslintConfig = {
@@ -137,36 +137,23 @@ export default typescriptEslint.config(
     name: 'vue-ts-types/tests',
     files: ['tests/**/*.spec.ts'],
     plugins: {
-      jest: eslintPluginJest,
+      vitest: eslintPluginVitest,
     },
     rules: {
-      ...eslintPluginJest.configs['flat/recommended'].rules,
-      ...eslintPluginJest.configs['flat/style'].rules,
+      ...eslintPluginVitest.configs.recommended.rules,
+      ...Object.fromEntries(
+        Object.keys(eslintPluginVitest.configs.all.rules).map((ruleName) => [
+          ruleName,
+          'error',
+        ]),
+      ),
 
-      // additional Jest rules
-      'jest/consistent-test-it': 'error',
-      'jest/no-confusing-set-timeout': 'error',
-      'jest/no-duplicate-hooks': 'error',
-      'jest/no-test-return-statement': 'error',
-      'jest/no-untyped-mock-factory': 'error',
-      'jest/padding-around-after-all-blocks': 'error',
-      'jest/padding-around-after-each-blocks': 'error',
-      'jest/padding-around-before-all-blocks': 'error',
-      'jest/padding-around-before-each-blocks': 'error',
-      'jest/padding-around-describe-blocks': 'error',
-      'jest/padding-around-test-blocks': 'error',
-      'jest/prefer-called-with': 'error',
-      'jest/prefer-comparison-matcher': 'warn',
-      'jest/prefer-equality-matcher': 'warn',
-      'jest/prefer-expect-resolves': 'warn',
-      'jest/prefer-hooks-on-top': 'warn',
-      'jest/prefer-importing-jest-globals': 'error',
-      'jest/prefer-jest-mocked': 'error',
-      'jest/prefer-mock-promise-shorthand': 'error',
-      'jest/prefer-spy-on': 'warn',
-      'jest/prefer-strict-equal': 'warn',
-      'jest/require-to-throw-message': 'warn',
-      'jest/require-top-level-describe': 'warn',
+      'vitest/consistent-test-filename': 'off', // already covered by specific `include` path
+      'vitest/max-expects': 'off', // more expect statements are needed for some tests
+      'vitest/padding-around-all': 'off', // already covered by individual `padding` rules
+      'vitest/prefer-expect-assertions': 'off', // too verbose
+      'vitest/prefer-to-be-falsy': 'off', // `.toBe(false)` is more explicit
+      'vitest/prefer-to-be-truthy': 'off', // `.toBe(true)` is more explicit
 
       // less strict other rules
       '@typescript-eslint/no-non-null-assertion': 'off',

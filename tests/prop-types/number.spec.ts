@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from 'vitest';
 import { numberProp } from '../../src/prop-types/number';
 
 describe('numberProp().optional', () => {

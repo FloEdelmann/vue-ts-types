@@ -14,10 +14,6 @@ updates:
         patterns:
           - 'eslint'
           - '@eslint/js'
-      jest:
-        patterns:
-          - 'jest'
-          - '@jest/globals'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
