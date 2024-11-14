@@ -32,6 +32,7 @@ describe('vuePropValidator', () => {
 
     it('does not warn all validators pass', () => {
       vuePropValidator(undefined, validator1, validator2)!('foo');
+
       expect(warnSpy).not.toHaveBeenCalled();
     });
 
@@ -45,6 +46,7 @@ describe('vuePropValidator', () => {
 
     it('warns if any validator fails', () => {
       vuePropValidator(undefined, validator3, validator2)!('foo');
+
       expect(warnSpy).toHaveBeenCalledWith(
         "some error message (received: 'foo')",
       );
