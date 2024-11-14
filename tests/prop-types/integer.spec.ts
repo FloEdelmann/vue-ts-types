@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from 'vitest';
 import { integerProp } from '../../src/prop-types/integer';
 
 describe('integerProp().optional', () => {

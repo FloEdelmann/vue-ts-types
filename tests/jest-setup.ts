@@ -1,4 +1,4 @@
-import { expect } from '@jest/globals';
+import { expect } from 'vitest';
 import * as matchers from 'jest-extended';
 
 expect.extend(matchers);
