@@ -1,17 +1,15 @@
-import { describe, expect, it, jest } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { vuePropValidator } from '../../src/validators';
 
 describe('vuePropValidator', () => {
-  const validator1 = jest.fn<() => string | undefined>();
-  const validator2 = jest.fn<() => string | undefined>();
-  const validator3 = jest
+  const validator1 = vi.fn<() => string | undefined>();
+  const validator2 = vi.fn<() => string | undefined>();
+  const validator3 = vi
     .fn<() => string | undefined>()
     .mockReturnValue('some error message');
-  const validator4 = jest.fn<() => string | undefined>();
+  const validator4 = vi.fn<() => string | undefined>();
 
-  const warnSpy = jest
-    .spyOn(console, 'warn')
-    .mockImplementation(() => undefined);
+  const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
 
   it('returns undefined if no validator is passed', () => {
     expect(vuePropValidator()).toBeUndefined();
