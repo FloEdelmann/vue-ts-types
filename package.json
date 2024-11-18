@@ -51,7 +51,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-package-json": "^0.15.6",
     "eslint-plugin-unicorn": "^56.0.0",
-    "lefthook": "^1.8.2",
+    "lefthook": "^1.8.4",
     "markdownlint-cli": "^0.42.0",
     "prettier": "3.3.3",
     "tstyche": "^3.0.0",
