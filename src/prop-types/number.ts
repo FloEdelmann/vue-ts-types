@@ -5,8 +5,7 @@ import type { Validator } from '../validators';
 /**
  * Allows any number (validated at runtime and compile time).
  *
- * Type parameter `T` can be used to restrict the type at compile time with a union type.
- *
+ * @template T - can be used to restrict the type at compile time with a union type.
  * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
  */
 export const numberProp = <T extends number = number>(

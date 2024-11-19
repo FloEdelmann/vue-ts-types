@@ -13,8 +13,7 @@ interface FunctionPropOptionsGenerator<T> {
 /**
  * Allows any function. No further runtime validation is performed by default.
  *
- * Type parameter `T` can be used to restrict the type to a specific function signature at compile time.
- *
+ * @template T - can be used to restrict the type to a specific function signature at compile time.
  * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
  */
 export const functionProp = <T extends Function>(
