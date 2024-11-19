@@ -6,8 +6,7 @@ import { isInstanceOf } from '../validators';
 /**
  * Allows instances of the given constructor (validated at runtime and compile time).
  *
- * Type parameter `T` can be used to adjust the inferred type at compile time.
- *
+ * @template T - can be used to adjust the inferred type at compile time.
  * @param parent - The constructor to allow.
  * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
  */
