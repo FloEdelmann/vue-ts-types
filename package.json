@@ -49,6 +49,7 @@
     "@vitest/eslint-plugin": "^1.1.10",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsdoc": "^50.5.0",
     "eslint-plugin-package-json": "^0.15.6",
     "eslint-plugin-unicorn": "^56.0.1",
     "lefthook": "^1.8.4",

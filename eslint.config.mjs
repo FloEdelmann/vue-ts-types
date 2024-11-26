@@ -4,6 +4,7 @@ import eslintJs from '@eslint/js';
 import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import eslintPluginJsdoc from 'eslint-plugin-jsdoc';
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import typescriptEslint from 'typescript-eslint';
 
@@ -37,6 +38,7 @@ export default typescriptEslint.config(
     extends: [
       namedRecommendedEslintConfig,
       ...typescriptEslintStrictAndStylisticConfigs,
+      eslintPluginJsdoc.configs['flat/recommended-typescript-error'],
       eslintPluginUnicorn.configs['flat/recommended'],
       namedEslintConfigPrettier,
     ],
@@ -86,6 +88,11 @@ export default typescriptEslint.config(
       'prefer-arrow-callback': 'error',
       'prefer-template': 'error',
       'radix': 'error',
+
+      // eslint-plugin-jsdoc
+      'jsdoc/require-returns': 'off',
+      'jsdoc/check-template-names': 'error',
+      'jsdoc/require-template': 'error',
 
       // eslint-plugin-unicorn
       'unicorn/filename-case': 'off',
