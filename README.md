@@ -263,6 +263,21 @@ integerProp().withDefault(42);
 // → prop type: number
 ```
 
+### `dateProp(validator?: Validator)`
+
+Allows any `Date` object (validated at runtime and compile time).
+
+```ts
+dateProp().optional;
+// → prop type: Date | undefined
+dateProp().nullable;
+// → prop type: Date | null
+dateProp().required;
+// → prop type: Date
+dateProp().withDefault(() => new Date());
+// → prop type: Date
+```
+
 ### `symbolProp(validator?: Validator)`
 
 Allows any symbol (validated at runtime and compile time).
