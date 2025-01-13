@@ -1,3 +1,25 @@
+<a id="v1.8.0"></a>
+# [Version 1.8.0 (v1.8.0)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.8.0) - 2025-01-13
+
+## Features
+
+* Add new `dateProp` prop type, by [@FloEdelmann](https://github.com/FloEdelmann) in [#774](https://github.com/FloEdelmann/vue-ts-types/pull/774)
+
+## Docs
+
+* Use `@template` in JSDoc to document type parameters by [@FloEdelmann](https://github.com/FloEdelmann) in [#722](https://github.com/FloEdelmann/vue-ts-types/pull/722)
+
+## Internal changes
+
+* Switch from Jest to Vitest, by [@FloEdelmann](https://github.com/FloEdelmann) in [#714](https://github.com/FloEdelmann/vue-ts-types/pull/714)
+* Remove unneeded ts-node dependency, by [@FloEdelmann](https://github.com/FloEdelmann) in [#715](https://github.com/FloEdelmann/vue-ts-types/pull/715)
+* Bump development dependencies, by [@dependabot](https://github.com/dependabot)
+
+**Full Changelog**: https://github.com/FloEdelmann/vue-ts-types/compare/v1.7.1...v1.8.0
+
+[Changes][v1.8.0]
+
+
 <a id="v1.7.1"></a>
 # [Version 1.7.1 (v1.7.1)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.7.1) - 2024-11-05
 
@@ -275,6 +297,7 @@ Initial release
 [Changes][v0.1.0]
 
 
+[v1.8.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.7.1...v1.8.0
 [v1.7.1]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.7.0...v1.7.1
 [v1.7.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.2...v1.7.0
 [v1.6.2]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.6.1...v1.6.2
