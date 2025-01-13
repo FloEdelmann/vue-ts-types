@@ -2,6 +2,7 @@ export { stringProp } from './prop-types/string';
 export { booleanProp } from './prop-types/boolean';
 export { numberProp } from './prop-types/number';
 export { integerProp } from './prop-types/integer';
+export { dateProp } from './prop-types/date';
 export { symbolProp } from './prop-types/symbol';
 export { vueComponentProp } from './prop-types/vueComponent';
 
