@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core/dist/runtime-core';
+import type * as Vue3 from '@vue/runtime-core';
 import { vueComponentProp } from '../../src/prop-types/vueComponent';
 import type { VueComponent } from '../../src/prop-types/vueComponent';
 import { createVue2Component } from '../utils';

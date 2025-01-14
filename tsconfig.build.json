@@ -3,5 +3,12 @@
   "compilerOptions": {
     "rootDir": "./src"
   },
-  "exclude": ["vitest.config.ts", "tests", "type-tests", "node_modules", "dist"]
+  "exclude": [
+    "eslint.config.mts",
+    "vitest.config.ts",
+    "tests",
+    "type-tests",
+    "node_modules",
+    "dist"
+  ]
 }
