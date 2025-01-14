@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "outDir": "./dist/",
     "esModuleInterop": true,
@@ -10,5 +10,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "eslint.config.mts"]
 }
