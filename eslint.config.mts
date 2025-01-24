@@ -29,7 +29,13 @@ export default typescriptEslint.config(
     name: 'vue-ts-types/ignore-dist',
     ignores: ['dist'],
   },
-  eslintConfigPackageJson,
+  {
+    ...eslintConfigPackageJson,
+    rules: {
+      ...eslintConfigPackageJson.rules,
+      'package-json/no-redundant-files': 'error',
+    },
+  },
   {
     files: ['**/*.ts', '**/*.mjs'],
     extends: [
