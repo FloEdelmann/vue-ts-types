@@ -34,6 +34,7 @@ export default typescriptEslint.config(
     rules: {
       ...eslintConfigPackageJson.rules,
       'package-json/no-redundant-files': 'error',
+      'package-json/require-author': 'error',
     },
   },
   {
