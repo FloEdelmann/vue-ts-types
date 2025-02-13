@@ -160,7 +160,6 @@ export default typescriptEslint.config(
       'vitest/max-expects': 'off', // more expect statements are needed for some tests
       'vitest/padding-around-all': 'off', // already covered by individual `padding` rules
       'vitest/prefer-expect-assertions': 'off', // too verbose
-      'vitest/require-mock-type-parameters': 'off', // https://github.com/vitest-dev/eslint-plugin-vitest/issues/654
 
       // less strict other rules
       '@typescript-eslint/no-non-null-assertion': 'off',
