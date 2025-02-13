@@ -147,21 +147,19 @@ export default typescriptEslint.config(
       vitest: eslintPluginVitest,
     },
     rules: {
-      ...eslintPluginVitest.configs.recommended.rules,
       ...Object.fromEntries(
-        Object.keys(eslintPluginVitest.configs.all.rules).map((ruleName) => [
-          ruleName,
-          'error',
-        ]),
+        Object.entries(eslintPluginVitest.configs.all.rules).map(
+          ([ruleName, severity]) => [
+            ruleName,
+            severity === 'off' ? 'off' : 'error',
+          ],
+        ),
       ),
 
       'vitest/consistent-test-filename': 'off', // already covered by specific `include` path
       'vitest/max-expects': 'off', // more expect statements are needed for some tests
       'vitest/padding-around-all': 'off', // already covered by individual `padding` rules
       'vitest/prefer-expect-assertions': 'off', // too verbose
-      'vitest/prefer-to-be-falsy': 'off', // `.toBe(false)` is more explicit
-      'vitest/prefer-to-be-truthy': 'off', // `.toBe(true)` is more explicit
-      'vitest/require-mock-type-parameters': 'off', // https://github.com/vitest-dev/eslint-plugin-vitest/issues/654
 
       // less strict other rules
       '@typescript-eslint/no-non-null-assertion': 'off',
