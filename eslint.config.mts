@@ -147,12 +147,13 @@ export default typescriptEslint.config(
       vitest: eslintPluginVitest,
     },
     rules: {
-      ...eslintPluginVitest.configs.recommended.rules,
       ...Object.fromEntries(
-        Object.keys(eslintPluginVitest.configs.all.rules).map((ruleName) => [
-          ruleName,
-          'error',
-        ]),
+        Object.entries(eslintPluginVitest.configs.all.rules).map(
+          ([ruleName, severity]) => [
+            ruleName,
+            severity === 'off' ? 'off' : 'error',
+          ],
+        ),
       ),
 
       'vitest/consistent-test-filename': 'off', // already covered by specific `include` path
