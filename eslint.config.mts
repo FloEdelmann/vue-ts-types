@@ -1,6 +1,6 @@
 import eslintJs from '@eslint/js';
 import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import typescriptEslint from 'typescript-eslint';
@@ -18,11 +18,6 @@ const typescriptEslintStrictAndStylisticConfigs = [
       name !== 'typescript-eslint/eslint-recommended',
   ),
 ];
-
-const namedEslintConfigPrettier = {
-  name: 'config-prettier',
-  ...eslintConfigPrettier,
-};
 
 export default typescriptEslint.config(
   {
@@ -44,8 +39,8 @@ export default typescriptEslint.config(
     extends: [
       namedRecommendedEslintConfig,
       ...typescriptEslintStrictAndStylisticConfigs,
-      eslintPluginUnicorn.configs['flat/recommended'],
-      namedEslintConfigPrettier,
+      eslintPluginUnicorn.configs.recommended,
+      eslintConfigPrettier,
     ],
   },
   {
