@@ -1,5 +1,5 @@
 import eslintJs from '@eslint/js';
-import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
+import eslintPluginPackageJson from 'eslint-plugin-package-json';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginVitest from '@vitest/eslint-plugin';
@@ -25,9 +25,9 @@ export default typescriptEslint.config(
     ignores: ['dist'],
   },
   {
-    ...eslintConfigPackageJson,
+    ...eslintPluginPackageJson.configs.recommended,
     rules: {
-      ...eslintConfigPackageJson.rules,
+      ...eslintPluginPackageJson.configs.recommended.rules,
       'package-json/no-redundant-files': 'error',
       'package-json/require-author': 'error',
       'package-json/require-files': 'error',
@@ -35,7 +35,7 @@ export default typescriptEslint.config(
     },
   },
   {
-    files: ['**/*.ts', '**/*.mjs'],
+    files: ['**/*.ts', '**/*.mts'],
     extends: [
       namedRecommendedEslintConfig,
       ...typescriptEslintStrictAndStylisticConfigs,
@@ -45,18 +45,16 @@ export default typescriptEslint.config(
   },
   {
     name: 'vue-ts-types/main',
-    files: ['**/*.ts', '**/*.mjs'],
+    files: ['**/*.ts', '**/*.mts'],
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
-        projectService: {
-          allowDefaultProject: ['eslint.config.mjs'],
-          defaultProject: './tsconfig.json',
-        },
+        projectService: true,
       },
     },
     linterOptions: {
       reportUnusedDisableDirectives: 'error',
+      reportUnusedInlineConfigs: 'error',
     },
     rules: {
       // Core ESLint rules
@@ -115,24 +113,13 @@ export default typescriptEslint.config(
       '@typescript-eslint/no-unnecessary-parameter-property-assignment':
         'error',
       '@typescript-eslint/no-shadow': [
-        'warn',
+        'error',
         { ignoreOnInitialization: true },
       ],
       '@typescript-eslint/prefer-enum-initializers': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       '@typescript-eslint/promise-function-async': 'error',
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
-    },
-  },
-  {
-    name: 'vue-ts-types/eslint',
-    files: ['eslint.config.mjs'],
-    rules: {
-      // less strict rules for ESLint config while some ESLint plugins don't provide proper types
-      '@typescript-eslint/no-unsafe-argument': 'off',
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
     },
   },
   {
