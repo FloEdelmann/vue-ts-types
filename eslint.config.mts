@@ -54,6 +54,7 @@ export default typescriptEslint.config(
     },
     linterOptions: {
       reportUnusedDisableDirectives: 'error',
+      reportUnusedInlineConfigs: 'error',
     },
     rules: {
       // Core ESLint rules
@@ -112,7 +113,7 @@ export default typescriptEslint.config(
       '@typescript-eslint/no-unnecessary-parameter-property-assignment':
         'error',
       '@typescript-eslint/no-shadow': [
-        'warn',
+        'error',
         { ignoreOnInitialization: true },
       ],
       '@typescript-eslint/prefer-enum-initializers': 'error',
