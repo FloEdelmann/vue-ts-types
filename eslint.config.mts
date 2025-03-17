@@ -35,7 +35,7 @@ export default typescriptEslint.config(
     },
   },
   {
-    files: ['**/*.ts'],
+    files: ['**/*.ts', '**/*.mts'],
     extends: [
       namedRecommendedEslintConfig,
       ...typescriptEslintStrictAndStylisticConfigs,
@@ -45,7 +45,7 @@ export default typescriptEslint.config(
   },
   {
     name: 'vue-ts-types/main',
-    files: ['**/*.ts'],
+    files: ['**/*.ts', '**/*.mts'],
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
