@@ -1,5 +1,5 @@
 import eslintJs from '@eslint/js';
-import eslintConfigPackageJson from 'eslint-plugin-package-json/configs/recommended';
+import eslintPluginPackageJson from 'eslint-plugin-package-json';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginVitest from '@vitest/eslint-plugin';
@@ -25,9 +25,9 @@ export default typescriptEslint.config(
     ignores: ['dist'],
   },
   {
-    ...eslintConfigPackageJson,
+    ...eslintPluginPackageJson.configs.recommended,
     rules: {
-      ...eslintConfigPackageJson.rules,
+      ...eslintPluginPackageJson.configs.recommended.rules,
       'package-json/no-redundant-files': 'error',
       'package-json/require-author': 'error',
       'package-json/require-files': 'error',
