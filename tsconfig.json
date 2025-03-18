@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "node16",
     "declaration": true,
     "outDir": "./dist/",
     "esModuleInterop": true,

@@ -30,8 +30,10 @@ export default typescriptEslint.config(
       ...eslintPluginPackageJson.configs.recommended.rules,
       'package-json/no-redundant-files': 'error',
       'package-json/require-author': 'error',
+      'package-json/require-engines': 'error',
       'package-json/require-files': 'error',
       'package-json/require-keywords': 'error',
+      'package-json/require-types': 'error',
     },
   },
   {
