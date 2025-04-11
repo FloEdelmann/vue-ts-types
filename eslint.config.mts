@@ -94,7 +94,7 @@ export default typescriptEslint.config(
       'unicorn/no-null': 'off',
       'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
       'unicorn/prevent-abbreviations': [
-        'warn',
+        'error',
         {
           replacements: {
             prop: false,
