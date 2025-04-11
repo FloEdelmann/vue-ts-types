@@ -1,5 +1,5 @@
 import type { PropOptionsGenerator } from '../types';
-import { propOptionsGenerator } from '../util';
+import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
 
 /** Has to be so broad to allow Vue 2 and Vue 3 component options or instances. */
