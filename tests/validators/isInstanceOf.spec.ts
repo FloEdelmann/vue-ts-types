@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { isInstanceOf } from '../../src/validators/isInstanceOf';
 
-describe('isInstanceOf', () => {
+describe(isInstanceOf, () => {
   class User {}
 
   it('returns undefined if value is instance', () => {
