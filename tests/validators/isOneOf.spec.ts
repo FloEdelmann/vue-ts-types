@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { isOneOf } from '../../src/validators/isOneOf';
 
-describe('isOneOf', () => {
+describe(isOneOf, () => {
   const validator = isOneOf(['foo', 27, undefined]);
 
   it('returns undefined if value is included', () => {
