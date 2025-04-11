@@ -1,5 +1,5 @@
 import type { Constructor, PropOptionsGenerator } from '../types';
-import { propOptionsGenerator } from '../util';
+import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
 import { isInstanceOf } from '../validators';
 

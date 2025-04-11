@@ -3,8 +3,8 @@ import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
 import type * as Vue3 from '@vue/runtime-core';
 import { arrayProp } from '../../src/prop-types/array';
-import { createVue2Component } from '../utils';
-import type { Vue2ComponentWithProp } from '../utils';
+import { createVue2Component } from '../utilities';
+import type { Vue2ComponentWithProp } from '../utilities';
 
 describe('arrayProp().optional', () => {
   test('Vue 2.6', () => {
