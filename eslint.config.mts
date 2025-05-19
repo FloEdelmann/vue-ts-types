@@ -114,6 +114,7 @@ export default typescriptEslint.config(
       '@typescript-eslint/no-extraneous-class': 'off',
       '@typescript-eslint/no-unnecessary-parameter-property-assignment':
         'error',
+      '@typescript-eslint/no-unnecessary-type-conversion': 'error',
       '@typescript-eslint/no-shadow': [
         'error',
         { ignoreOnInitialization: true },
