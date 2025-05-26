@@ -17,7 +17,7 @@ export type RequiredPropOptions<T> = PropOptions<T> & { required: true };
 export type DefaultPropOptions<T> = PropOptions<T> & { default: unknown };
 
 export interface PropOptionsGenerator<T> {
-  optional: DefaultPropOptions<T | undefined>;
+  optional: PropOptions<T | undefined>;
   nullable: DefaultPropOptions<T | null>;
   withDefault: (defaultValue: OneOfDefaultType<T>) => DefaultPropOptions<T>;
   required: RequiredPropOptions<T>;
