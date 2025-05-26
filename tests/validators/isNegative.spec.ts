@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { isNegative } from '../../src/validators/isNegative';
 
-describe('isNegative', () => {
+describe(isNegative, () => {
   it('returns undefined for negative numbers', () => {
     expect(isNegative(-0.1)).toBeUndefined();
     expect(isNegative(-27)).toBeUndefined();
