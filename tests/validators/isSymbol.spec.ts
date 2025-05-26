@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { isSymbol } from '../../src/validators/isSymbol';
 
-describe('isSymbol', () => {
+describe(isSymbol, () => {
   it('returns undefined for symbols', () => {
     expect(isSymbol(Symbol('foo'))).toBeUndefined();
     expect(isSymbol(Symbol.for('foo'))).toBeUndefined();

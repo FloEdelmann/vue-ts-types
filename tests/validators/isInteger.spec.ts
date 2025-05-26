@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { isInteger } from '../../src/validators/isInteger';
 
-describe('isInteger', () => {
+describe(isInteger, () => {
   it('returns undefined for integers', () => {
     expect(isInteger(3)).toBeUndefined();
     expect(isInteger(0)).toBeUndefined();
