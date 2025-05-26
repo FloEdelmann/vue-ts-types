@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { objectProp } from '../../src/prop-types/object';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -53,6 +53,26 @@ describe('objectProp().optional', () => {
     expect<Vue3.Prop<User>>().type.not.toBeAssignableWith(
       objectProp<User>().optional,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: objectProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<object | undefined>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: objectProp<User>().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<User | undefined>();
   });
 });
 
@@ -99,6 +119,26 @@ describe('objectProp().nullable', () => {
     expect<Vue3.Prop<User>>().type.not.toBeAssignableWith(
       objectProp<User>().nullable,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: objectProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<object | null>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: objectProp<User>().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<User | null>();
   });
 });
 
@@ -125,6 +165,16 @@ describe('objectProp().withDefault', () => {
     expect<Vue3.Prop<User>>().type.toBeAssignableWith(
       objectProp<User>().withDefault(userGenerator),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: objectProp<User>().withDefault(userGenerator),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<User>();
   });
 });
 
@@ -160,5 +210,25 @@ describe('objectProp().required', () => {
     expect<Vue3.Prop<User>>().type.toBeAssignableWith(
       objectProp<User>().required,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: objectProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<object>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: objectProp<User>().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<User>();
   });
 });

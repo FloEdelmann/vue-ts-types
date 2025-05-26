@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { oneOfTypesProp } from '../../src/prop-types/oneOfTypes';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -30,6 +30,16 @@ describe('oneOfTypesProp().optional', () => {
     expect<Vue3.Prop<Options | undefined>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfTypesProp<Options>(options).optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options | undefined>();
   });
 });
 
@@ -54,6 +64,16 @@ describe('oneOfTypesProp().nullable', () => {
     expect<Vue3.Prop<Options | null>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).nullable,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfTypesProp<Options>(options).nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options | null>();
   });
 });
 
@@ -78,6 +98,16 @@ describe('oneOfTypesProp().withDefault', () => {
     expect<Vue3.Prop<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).withDefault('a'),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfTypesProp<Options>(options).withDefault('a'),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options>();
   });
 });
 
@@ -102,5 +132,15 @@ describe('oneOfTypesProp().required', () => {
     expect<Vue3.Prop<Options>>().type.toBeAssignableWith(
       oneOfTypesProp<Options>(options).required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfTypesProp<Options>(options).required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options>();
   });
 });

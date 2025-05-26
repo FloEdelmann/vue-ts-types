@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { arrayProp } from '../../src/prop-types/array';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -58,6 +58,26 @@ describe('arrayProp().optional', () => {
     expect<Vue3.Prop<string[]>>().type.not.toBeAssignableWith(
       arrayProp<string>().optional,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<unknown[] | undefined>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp<string>().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<string[] | undefined>();
   });
 });
 
@@ -113,6 +133,26 @@ describe('arrayProp().nullable', () => {
     expect<Vue3.Prop<string[]>>().type.not.toBeAssignableWith(
       arrayProp<string>().nullable,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<unknown[] | null>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp<string>().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<string[] | null>();
   });
 });
 
@@ -157,6 +197,26 @@ describe('arrayProp().withDefault', () => {
     expect<Vue3.Prop<string[]>>().type.toBeAssignableWith(
       arrayProp<string>().withDefault(() => ['foo', 'bar']),
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp().withDefault(() => ['foo', 'bar']),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<unknown[]>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp<string>().withDefault(() => ['foo', 'bar']),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<string[]>();
   });
 });
 
@@ -203,5 +263,25 @@ describe('arrayProp().required', () => {
     expect<Vue3.Prop<number[]>>().type.not.toBeAssignableWith(
       arrayProp<string>().required,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<unknown[]>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: arrayProp<string>().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<string[]>();
   });
 });

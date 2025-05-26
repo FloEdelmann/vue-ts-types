@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { booleanProp } from '../../src/prop-types/boolean';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -36,6 +36,16 @@ describe('booleanProp().optional', () => {
     expect<Vue3.Prop<boolean>>().type.not.toBeAssignableWith(
       booleanProp().optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: booleanProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<boolean | undefined>();
   });
 });
 
@@ -69,6 +79,16 @@ describe('booleanProp().nullable', () => {
     expect<Vue3.Prop<boolean>>().type.not.toBeAssignableWith(
       booleanProp().nullable,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: booleanProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<boolean | null>();
   });
 });
 
@@ -102,6 +122,16 @@ describe('booleanProp().withDefault(false)', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       booleanProp().withDefault(false),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: booleanProp().withDefault(false),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<boolean>();
   });
 });
 
@@ -135,5 +165,15 @@ describe('booleanProp().required', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       booleanProp().required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: booleanProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<boolean>();
   });
 });
