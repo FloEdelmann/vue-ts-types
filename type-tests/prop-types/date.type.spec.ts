@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { dateProp } from '../../src/prop-types/date';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -34,6 +34,16 @@ describe('dateProp().optional', () => {
       dateProp().optional,
     );
     expect<Vue3.Prop<Date>>().type.not.toBeAssignableWith(dateProp().optional);
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: dateProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Date | undefined>();
   });
 });
 
@@ -65,10 +75,20 @@ describe('dateProp().nullable', () => {
       dateProp().nullable,
     );
     expect<Vue3.Prop<Date>>().type.not.toBeAssignableWith(dateProp().nullable);
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: dateProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Date | null>();
   });
 });
 
-describe('dateProp().withDefault(false)', () => {
+describe('dateProp().withDefault(() => new Date())', () => {
   test('Vue 2.6', () => {
     expect<Vue2_6.PropOptions<Date>>().type.toBeAssignableWith(
       dateProp().withDefault(() => new Date()),
@@ -98,6 +118,16 @@ describe('dateProp().withDefault(false)', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       dateProp().withDefault(() => new Date()),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: dateProp().withDefault(() => new Date()),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Date>();
   });
 });
 
@@ -129,5 +159,15 @@ describe('dateProp().required', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       dateProp().required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: dateProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Date>();
   });
 });

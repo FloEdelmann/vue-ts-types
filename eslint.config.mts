@@ -98,6 +98,7 @@ export default typescriptEslint.config(
         {
           replacements: {
             prop: false,
+            props: false,
           },
         },
       ],

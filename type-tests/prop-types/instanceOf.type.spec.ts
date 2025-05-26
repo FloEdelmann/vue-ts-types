@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { instanceOfProp } from '../../src/prop-types/instanceOf';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -43,6 +43,16 @@ describe('instanceOfProp().optional', () => {
     expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
       instanceOfProp(User).optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: instanceOfProp(User).optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<User | undefined>();
   });
 });
 
@@ -76,6 +86,16 @@ describe('instanceOfProp().nullable', () => {
     expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
       instanceOfProp(User).optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: instanceOfProp(User).nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<User | null>();
   });
 });
 
@@ -109,6 +129,16 @@ describe('instanceOfProp().withDefault', () => {
     expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
       instanceOfProp(User).withDefault(() => new User()),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: instanceOfProp(User).withDefault(() => new User()),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<User>();
   });
 });
 
@@ -142,5 +172,15 @@ describe('instanceOfProp().required', () => {
     expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
       instanceOfProp(User).required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: instanceOfProp(User).required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<User>();
   });
 });

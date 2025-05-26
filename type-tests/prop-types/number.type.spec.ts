@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { numberProp } from '../../src/prop-types/number';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -48,6 +48,26 @@ describe('numberProp().optional', () => {
     expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
       numberProp().optional,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: numberProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<number | undefined>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: numberProp<Foo>().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo | undefined>();
   });
 });
 
@@ -100,6 +120,26 @@ describe('numberProp().nullable', () => {
     expect<Vue3.Prop<Foo>>().type.not.toBeAssignableWith(
       numberProp<Foo>().nullable,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: numberProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<number | null>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: numberProp<Foo>().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo | null>();
   });
 });
 
@@ -152,6 +192,26 @@ describe('numberProp().withDefault', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       numberProp<Foo>().withDefault(1),
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: numberProp().withDefault(27),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<number>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: numberProp<Foo>().withDefault(1),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo>();
   });
 });
 
@@ -205,5 +265,25 @@ describe('numberProp().required', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       numberProp<Foo>().required,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: numberProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<number>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: numberProp<Foo>().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo>();
   });
 });

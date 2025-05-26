@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { stringProp } from '../../src/prop-types/string';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -60,6 +60,26 @@ describe('stringProp().optional', () => {
     expect<Vue3.Prop<Foo>>().type.not.toBeAssignableWith(
       stringProp<Foo>().optional,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: stringProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<string | undefined>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: stringProp<Foo>().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo | undefined>();
   });
 });
 
@@ -115,6 +135,26 @@ describe('stringProp().nullable', () => {
     expect<Vue3.Prop<Foo>>().type.not.toBeAssignableWith(
       stringProp<Foo>().nullable,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: stringProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<string | null>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: stringProp<Foo>().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo | null>();
   });
 });
 
@@ -170,6 +210,26 @@ describe('stringProp().withDefault', () => {
     expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
       stringProp<Foo>().withDefault('a'),
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: stringProp().withDefault('a'),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<string>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: stringProp<Foo>().withDefault('a'),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo>();
   });
 });
 
@@ -223,5 +283,25 @@ describe('stringProp().required', () => {
     expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
       stringProp<Foo>().required,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: stringProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<string>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: stringProp<Foo>().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<Foo>();
   });
 });

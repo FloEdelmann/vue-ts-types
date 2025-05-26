@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { anyProp } from '../../src/prop-types/any';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -57,6 +57,16 @@ describe('anyProp().optional', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       anyProp<string>().optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: anyProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<any>();
   });
 });
 
@@ -111,6 +121,16 @@ describe('anyProp().nullable', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       anyProp<string>().nullable,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: anyProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<any>();
   });
 });
 
@@ -175,6 +195,16 @@ describe('anyProp().withDefault', () => {
     expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
       anyProp<string>().withDefault('foo'),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: anyProp().withDefault('foo'),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<any>();
   });
 });
 
@@ -222,5 +252,15 @@ describe('anyProp().required', () => {
     expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
       anyProp<string>().required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: anyProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<any>();
   });
 });

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { symbolProp } from '../../src/prop-types/symbol';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -36,6 +36,16 @@ describe('symbolProp().optional', () => {
     expect<Vue3.Prop<symbol>>().type.not.toBeAssignableWith(
       symbolProp().optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: symbolProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<symbol | undefined>();
   });
 });
 
@@ -69,6 +79,16 @@ describe('symbolProp().nullable', () => {
     expect<Vue3.Prop<symbol>>().type.not.toBeAssignableWith(
       symbolProp().nullable,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: symbolProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<symbol | null>();
   });
 });
 
@@ -102,6 +122,16 @@ describe('symbolProp().withDefault', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       symbolProp().withDefault(Symbol.for('foo')),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: symbolProp().withDefault(Symbol.for('foo')),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<symbol>();
   });
 });
 
@@ -133,5 +163,15 @@ describe('symbolProp().required', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       symbolProp().required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: symbolProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<symbol>();
   });
 });

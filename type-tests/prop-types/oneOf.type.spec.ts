@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { oneOfProp } from '../../src/prop-types/oneOf';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -39,6 +39,16 @@ describe('oneOfProp().optional', () => {
     expect<Vue3.Prop<Options | undefined>>().type.toBeAssignableWith(
       oneOfProp(options).optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfProp(options).optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options | undefined>();
   });
 });
 
@@ -72,6 +82,16 @@ describe('oneOfProp().nullable', () => {
     expect<Vue3.Prop<Options | null>>().type.toBeAssignableWith(
       oneOfProp(options).nullable,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfProp(options).nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options | null>();
   });
 });
 
@@ -96,6 +116,16 @@ describe('oneOfProp().withDefault', () => {
     expect<Vue3.Prop<Options>>().type.toBeAssignableWith(
       oneOfProp(options).withDefault('a'),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfProp(options).withDefault('a'),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options>();
   });
 });
 
@@ -120,5 +150,15 @@ describe('oneOfProp().required', () => {
     expect<Vue3.Prop<Options>>().type.toBeAssignableWith(
       oneOfProp(options).required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: oneOfProp(options).required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<Options>();
   });
 });

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { vueComponentProp } from '../../src/prop-types/vueComponent';
 import type { VueComponent } from '../../src/prop-types/vueComponent';
 import { createVue2Component } from '../utilities';
@@ -37,6 +37,16 @@ describe('vueComponentProp().optional', () => {
     expect<Vue3.Prop<VueComponent>>().type.not.toBeAssignableWith(
       vueComponentProp().optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: vueComponentProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<VueComponent | undefined>();
   });
 });
 
@@ -70,6 +80,16 @@ describe('vueComponentProp().nullable', () => {
     expect<Vue3.Prop<VueComponent>>().type.not.toBeAssignableWith(
       vueComponentProp().nullable,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: vueComponentProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<VueComponent | null>();
   });
 });
 
@@ -103,6 +123,16 @@ describe('vueComponentProp().withDefault', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       vueComponentProp().withDefault('foo'),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: vueComponentProp().withDefault('foo'),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<VueComponent>();
   });
 });
 
@@ -136,5 +166,15 @@ describe('vueComponentProp().required', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       vueComponentProp().required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: vueComponentProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<VueComponent>();
   });
 });

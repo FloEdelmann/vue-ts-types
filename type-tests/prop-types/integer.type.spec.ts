@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { integerProp } from '../../src/prop-types/integer';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -36,6 +36,16 @@ describe('integerProp().optional', () => {
     expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
       integerProp().optional,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: integerProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<number | undefined>();
   });
 });
 
@@ -69,6 +79,16 @@ describe('integerProp().nullable', () => {
     expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
       integerProp().nullable,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: integerProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<number | null>();
   });
 });
 
@@ -102,6 +122,16 @@ describe('integerProp().withDefault', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       integerProp().withDefault(27),
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: integerProp().withDefault(27),
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<number>();
   });
 });
 
@@ -133,5 +163,15 @@ describe('integerProp().required', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       integerProp().required,
     );
+
+    const component = Vue3.defineComponent({
+      props: {
+        prop: integerProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component().prop).type.toBe<number>();
   });
 });

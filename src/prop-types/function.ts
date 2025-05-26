@@ -1,9 +1,13 @@
-import type { DefaultPropOptions, RequiredPropOptions } from '../types';
+import type {
+  DefaultPropOptions,
+  PropOptions,
+  RequiredPropOptions,
+} from '../types';
 import type { Validator } from '../validators';
 import { vuePropValidator } from '../validators';
 
 interface FunctionPropOptionsGenerator<T> {
-  optional: DefaultPropOptions<T | undefined> & { default?: () => T };
+  optional: PropOptions<T | undefined> & { default?: () => T };
   nullable: DefaultPropOptions<T | null> & { default?: (() => T) | null };
   required: RequiredPropOptions<T> & { default?: () => T };
 }

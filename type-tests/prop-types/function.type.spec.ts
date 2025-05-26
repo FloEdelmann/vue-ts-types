@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'tstyche';
 import type * as Vue2_6 from 'vue2-6/types/options';
 import type * as Vue2_7 from 'vue2-7/types/options';
-import type * as Vue3 from '@vue/runtime-core';
+import * as Vue3 from '@vue/runtime-core';
 import { functionProp } from '../../src/prop-types/function';
 import { createVue2Component } from '../utilities';
 import type { Vue2ComponentWithProp } from '../utilities';
@@ -62,6 +62,26 @@ describe('functionProp().optional', () => {
     expect<Vue3.Prop<MyCustomCallback>>().type.not.toBeAssignableWith(
       functionProp<MyCustomCallback>().optional,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: functionProp().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<Function | undefined>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: functionProp<MyCustomCallback>().optional,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<MyCustomCallback | undefined>();
   });
 });
 
@@ -117,6 +137,26 @@ describe('functionProp().nullable', () => {
     expect<Vue3.Prop<MyCustomCallback>>().type.not.toBeAssignableWith(
       functionProp<MyCustomCallback>().nullable,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: functionProp().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<Function | null>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: functionProp<MyCustomCallback>().nullable,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<MyCustomCallback | null>();
   });
 });
 
@@ -163,5 +203,25 @@ describe('functionProp().required', () => {
     expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
       functionProp().required,
     );
+
+    const component1 = Vue3.defineComponent({
+      props: {
+        prop: functionProp().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component1().prop).type.toBe<Function>();
+
+    const component2 = Vue3.defineComponent({
+      props: {
+        prop: functionProp<MyCustomCallback>().required,
+      },
+      setup(props) {
+        return props;
+      },
+    });
+    expect(new component2().prop).type.toBe<MyCustomCallback>();
   });
 });
