@@ -56,7 +56,7 @@
     "lefthook": "^1.11.14",
     "markdownlint-cli": "^0.45.0",
     "prettier": "3.5.3",
-    "tstyche": "^4.0.0",
+    "tstyche": "^4.0.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.0",
     "vitest": "^3.2.3",
