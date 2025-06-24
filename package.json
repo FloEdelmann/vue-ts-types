@@ -50,7 +50,7 @@
     "@vitest/eslint-plugin": "^1.2.7",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-package-json": "^0.40.4",
+    "eslint-plugin-package-json": "^0.40.5",
     "eslint-plugin-unicorn": "^59.0.1",
     "jiti": "^2.4.2",
     "lefthook": "^1.11.14",
