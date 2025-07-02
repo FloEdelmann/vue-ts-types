@@ -146,7 +146,6 @@ export default typescriptEslint.config(
       'vitest/max-expects': 'off', // more expect statements are needed for some tests
       'vitest/no-importing-vitest-globals': 'off', // conflicts with `vitest/prefer-importing-vitest-globals`
       'vitest/padding-around-all': 'off', // already covered by individual `padding` rules
-      'vitest/prefer-called-once': 'off', // conflicts with `vitest/prefer-called-times`
       'vitest/prefer-expect-assertions': 'off', // too verbose
 
       // less strict other rules
