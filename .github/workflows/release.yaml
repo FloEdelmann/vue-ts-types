@@ -60,9 +60,10 @@ jobs:
           branch: '${{ github.ref }}'
           tags: true
       - name: 'Create GitHub Release'
-        uses: 'ncipollo/release-action@v1.19.0'
+        uses: 'ncipollo/release-action@v1.19.1'
         with:
           tag: 'v${{ env.VERSION_NUMBER }}'
           name: 'Version ${{ env.VERSION_NUMBER }}'
           generateReleaseNotes: true
           draft: true
+          immutableCreate: true
