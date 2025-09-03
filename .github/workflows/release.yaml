@@ -66,3 +66,4 @@ jobs:
           name: 'Version ${{ env.VERSION_NUMBER }}'
           generateReleaseNotes: true
           draft: true
+          immutableCreate: true
