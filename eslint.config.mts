@@ -1,4 +1,5 @@
 import eslintJs from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import eslintPluginPackageJson from 'eslint-plugin-package-json';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -19,7 +20,7 @@ const typescriptEslintStrictAndStylisticConfigs = [
   ),
 ];
 
-export default typescriptEslint.config(
+export default defineConfig(
   {
     name: 'vue-ts-types/ignore-dist',
     ignores: ['dist'],
