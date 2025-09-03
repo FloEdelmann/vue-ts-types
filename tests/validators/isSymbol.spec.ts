@@ -8,9 +8,9 @@ describe(isSymbol, () => {
   });
 
   it('returns a string for non-symbols', () => {
-    expect(typeof isSymbol(undefined)).toBe('string');
-    expect(typeof isSymbol('foo')).toBe('string');
-    expect(typeof isSymbol(27)).toBe('string');
-    expect(typeof isSymbol({ value: 2 })).toBe('string');
+    expect(isSymbol(undefined)).toBeTypeOf('string');
+    expect(isSymbol('foo')).toBeTypeOf('string');
+    expect(isSymbol(27)).toBeTypeOf('string');
+    expect(isSymbol({ value: 2 })).toBeTypeOf('string');
   });
 });
