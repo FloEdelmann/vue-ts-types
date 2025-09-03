@@ -11,8 +11,8 @@ describe(isOneOf, () => {
   });
 
   it('returns a string if value is not included', () => {
-    expect(typeof validator('')).toBe('string');
-    expect(typeof validator(27.1)).toBe('string');
-    expect(typeof validator(null)).toBe('string');
+    expect(validator('')).toBeTypeOf('string');
+    expect(validator(27.1)).toBeTypeOf('string');
+    expect(validator(null)).toBeTypeOf('string');
   });
 });

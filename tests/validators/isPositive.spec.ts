@@ -10,15 +10,15 @@ describe(isPositive, () => {
   });
 
   it('returns a string for non-positive numbers', () => {
-    expect(typeof isPositive(0)).toBe('string');
-    expect(typeof isPositive(-3.4)).toBe('string');
-    expect(typeof isPositive(Number.NaN)).toBe('string');
-    expect(typeof isPositive(Number.MIN_SAFE_INTEGER)).toBe('string');
+    expect(isPositive(0)).toBeTypeOf('string');
+    expect(isPositive(-3.4)).toBeTypeOf('string');
+    expect(isPositive(Number.NaN)).toBeTypeOf('string');
+    expect(isPositive(Number.MIN_SAFE_INTEGER)).toBeTypeOf('string');
   });
 
   it('returns a string for non-numbers', () => {
-    expect(typeof isPositive(undefined)).toBe('string');
-    expect(typeof isPositive('foo')).toBe('string');
-    expect(typeof isPositive({ value: 2 })).toBe('string');
+    expect(isPositive(undefined)).toBeTypeOf('string');
+    expect(isPositive('foo')).toBeTypeOf('string');
+    expect(isPositive({ value: 2 })).toBeTypeOf('string');
   });
 });

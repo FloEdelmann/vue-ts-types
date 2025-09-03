@@ -18,12 +18,12 @@ describe(isInstanceOf, () => {
   it('returns a string if value is not instance', () => {
     const user1 = new User();
 
-    expect(typeof isInstanceOf(Array)(user1)).toBe('string');
-    expect(typeof isInstanceOf(User)({})).toBe('string');
-    expect(typeof isInstanceOf(User)(undefined)).toBe('string');
-    expect(typeof isInstanceOf(User)('foo')).toBe('string');
-    expect(typeof isInstanceOf(User)(27)).toBe('string');
-    expect(typeof isInstanceOf(User)({ value: 2 })).toBe('string');
+    expect(isInstanceOf(Array)(user1)).toBeTypeOf('string');
+    expect(isInstanceOf(User)({})).toBeTypeOf('string');
+    expect(isInstanceOf(User)(undefined)).toBeTypeOf('string');
+    expect(isInstanceOf(User)('foo')).toBeTypeOf('string');
+    expect(isInstanceOf(User)(27)).toBeTypeOf('string');
+    expect(isInstanceOf(User)({ value: 2 })).toBeTypeOf('string');
   });
 
   it('throws if parent is not a constructor', () => {

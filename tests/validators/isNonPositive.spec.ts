@@ -10,14 +10,14 @@ describe(isNonPositive, () => {
   });
 
   it('returns a string for non-positive numbers', () => {
-    expect(typeof isNonPositive(3.4)).toBe('string');
-    expect(typeof isNonPositive(Number.NaN)).toBe('string');
-    expect(typeof isNonPositive(Number.MAX_SAFE_INTEGER)).toBe('string');
+    expect(isNonPositive(3.4)).toBeTypeOf('string');
+    expect(isNonPositive(Number.NaN)).toBeTypeOf('string');
+    expect(isNonPositive(Number.MAX_SAFE_INTEGER)).toBeTypeOf('string');
   });
 
   it('returns a string for non-numbers', () => {
-    expect(typeof isNonPositive(undefined)).toBe('string');
-    expect(typeof isNonPositive('foo')).toBe('string');
-    expect(typeof isNonPositive({ value: 2 })).toBe('string');
+    expect(isNonPositive(undefined)).toBeTypeOf('string');
+    expect(isNonPositive('foo')).toBeTypeOf('string');
+    expect(isNonPositive({ value: 2 })).toBeTypeOf('string');
   });
 });

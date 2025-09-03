@@ -9,14 +9,14 @@ describe(isInteger, () => {
   });
 
   it('returns a string for non-integer numbers', () => {
-    expect(typeof isInteger(3.4)).toBe('string');
-    expect(typeof isInteger(Number.NaN)).toBe('string');
-    expect(typeof isInteger(Number.POSITIVE_INFINITY)).toBe('string');
+    expect(isInteger(3.4)).toBeTypeOf('string');
+    expect(isInteger(Number.NaN)).toBeTypeOf('string');
+    expect(isInteger(Number.POSITIVE_INFINITY)).toBeTypeOf('string');
   });
 
   it('returns a string for non-numbers', () => {
-    expect(typeof isInteger(undefined)).toBe('string');
-    expect(typeof isInteger('foo')).toBe('string');
-    expect(typeof isInteger({ value: 2 })).toBe('string');
+    expect(isInteger(undefined)).toBeTypeOf('string');
+    expect(isInteger('foo')).toBeTypeOf('string');
+    expect(isInteger({ value: 2 })).toBeTypeOf('string');
   });
 });
