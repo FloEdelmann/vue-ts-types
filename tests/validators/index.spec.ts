@@ -47,7 +47,7 @@ describe(vuePropValidator, () => {
     it('warns if any validator fails', () => {
       vuePropValidator(undefined, validator3, validator2)!('foo');
 
-      expect(warnSpy).toHaveBeenCalledWith(
+      expect(warnSpy).toHaveBeenCalledExactlyOnceWith(
         "some error message (received: 'foo')",
       );
     });
@@ -61,11 +61,11 @@ describe(vuePropValidator, () => {
         validator4,
       )!('foo');
 
-      expect(validator1).toHaveBeenCalledWith('foo');
+      expect(validator1).toHaveBeenCalledExactlyOnceWith('foo');
       expect(validator1).toHaveBeenCalledBefore(validator2);
-      expect(validator2).toHaveBeenCalledWith('foo');
+      expect(validator2).toHaveBeenCalledExactlyOnceWith('foo');
       expect(validator2).toHaveBeenCalledBefore(validator3);
-      expect(validator3).toHaveBeenCalledWith('foo');
+      expect(validator3).toHaveBeenCalledExactlyOnceWith('foo');
       expect(validator4).not.toHaveBeenCalled();
     });
 
