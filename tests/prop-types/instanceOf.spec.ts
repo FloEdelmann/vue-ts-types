@@ -1,5 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { instanceOfProp } from '../../src/prop-types/instanceOf';
+
+vi.mock(import('vue'), async () => ({
+  ...(await vi.importActual('vue')),
+  default: undefined,
+}));
 
 class User {}
 

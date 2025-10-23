@@ -1,5 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { integerProp } from '../../src/prop-types/integer';
+
+vi.mock(import('vue'), async () => ({
+  ...(await vi.importActual('vue')),
+  default: undefined,
+}));
 
 describe('integerProp().optional', () => {
   it('creates the correct prop options', () => {
