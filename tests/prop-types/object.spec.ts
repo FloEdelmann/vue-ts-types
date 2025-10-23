@@ -1,5 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { objectProp } from '../../src/prop-types/object';
+
+vi.mock(import('vue'), async () => ({
+  ...(await vi.importActual('vue')),
+  default: undefined,
+}));
 
 describe('objectProp().optional', () => {
   it('creates the correct prop options', () => {

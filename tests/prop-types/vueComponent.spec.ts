@@ -1,5 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { vueComponentProp } from '../../src/prop-types/vueComponent';
+
+vi.mock(import('vue'), async () => ({
+  ...(await vi.importActual('vue')),
+  default: undefined,
+}));
 
 describe('vueComponentProp().optional', () => {
   it('creates the correct prop options', () => {

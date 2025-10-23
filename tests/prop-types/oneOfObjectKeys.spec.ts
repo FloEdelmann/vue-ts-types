@@ -1,5 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { oneOfObjectKeysProp } from '../../src/prop-types/oneOfObjectKeys';
+
+vi.mock(import('vue'), async () => ({
+  ...(await vi.importActual('vue')),
+  default: undefined,
+}));
 
 const options = { a: 'a', b: 'b', c: 'c' };
 

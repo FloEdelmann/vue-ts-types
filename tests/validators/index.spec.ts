@@ -1,6 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import { vuePropValidator } from '../../src/validators';
 
+vi.mock(import('vue'), async () => ({
+  ...(await vi.importActual('vue')),
+  default: undefined,
+}));
+
 describe(vuePropValidator, () => {
   const validator1 = vi.fn<() => string | undefined>();
   const validator2 = vi.fn<() => string | undefined>();
