@@ -8,10 +8,10 @@ import type { Vue2ComponentWithProp } from '../utilities';
 
 describe('integerProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number | undefined>>().type.toBeAssignableFrom(
       integerProp().optional,
     );
-    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableFrom(
       integerProp().optional,
     );
 
@@ -21,19 +21,19 @@ describe('integerProp().optional', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number | undefined>>().type.toBeAssignableFrom(
       integerProp().optional,
     );
-    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableFrom(
       integerProp().optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<number | undefined>>().type.toBeAssignableFrom(
       integerProp().optional,
     );
-    expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.not.toBeAssignableFrom(
       integerProp().optional,
     );
 
@@ -51,10 +51,10 @@ describe('integerProp().optional', () => {
 
 describe('integerProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number | null>>().type.toBeAssignableFrom(
       integerProp().nullable,
     );
-    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableFrom(
       integerProp().nullable,
     );
 
@@ -64,19 +64,19 @@ describe('integerProp().nullable', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number | null>>().type.toBeAssignableFrom(
       integerProp().nullable,
     );
-    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableFrom(
       integerProp().nullable,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<number | null>>().type.toBeAssignableFrom(
       integerProp().nullable,
     );
-    expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.not.toBeAssignableFrom(
       integerProp().nullable,
     );
 
@@ -94,10 +94,10 @@ describe('integerProp().nullable', () => {
 
 describe('integerProp().withDefault', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableFrom(
       integerProp().withDefault(27),
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       integerProp().withDefault(27),
     );
 
@@ -107,19 +107,19 @@ describe('integerProp().withDefault', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableFrom(
       integerProp().withDefault(27),
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       integerProp().withDefault(27),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.toBeAssignableFrom(
       integerProp().withDefault(27),
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       integerProp().withDefault(27),
     );
 
@@ -137,10 +137,10 @@ describe('integerProp().withDefault', () => {
 
 describe('integerProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableFrom(
       integerProp().required,
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       integerProp().required,
     );
 
@@ -150,17 +150,17 @@ describe('integerProp().required', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableFrom(
       integerProp().required,
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       integerProp().required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number>>().type.toBeAssignableWith(integerProp().required);
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.toBeAssignableFrom(integerProp().required);
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       integerProp().required,
     );
 

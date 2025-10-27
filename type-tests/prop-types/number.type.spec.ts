@@ -10,10 +10,10 @@ type Foo = 1 | 2 | 3;
 
 describe('numberProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number | undefined>>().type.toBeAssignableFrom(
       numberProp().optional,
     );
-    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableFrom(
       numberProp().optional,
     );
 
@@ -27,25 +27,25 @@ describe('numberProp().optional', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number | undefined>>().type.toBeAssignableFrom(
       numberProp().optional,
     );
-    expect<Vue2_7.PropOptions<Foo | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Foo | undefined>>().type.toBeAssignableFrom(
       numberProp<Foo>().optional,
     );
-    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableFrom(
       numberProp().optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<number | undefined>>().type.toBeAssignableFrom(
       numberProp().optional,
     );
-    expect<Vue3.Prop<Foo | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<Foo | undefined>>().type.toBeAssignableFrom(
       numberProp<Foo>().optional,
     );
-    expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.not.toBeAssignableFrom(
       numberProp().optional,
     );
 
@@ -73,16 +73,16 @@ describe('numberProp().optional', () => {
 
 describe('numberProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number | null>>().type.toBeAssignableFrom(
       numberProp().nullable,
     );
-    expect<Vue2_6.PropOptions<Foo | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Foo | null>>().type.toBeAssignableFrom(
       numberProp<Foo>().nullable,
     );
-    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.not.toBeAssignableFrom(
       numberProp().nullable,
     );
-    expect<Vue2_6.PropOptions<Foo>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Foo>>().type.not.toBeAssignableFrom(
       numberProp<Foo>().nullable,
     );
 
@@ -96,28 +96,28 @@ describe('numberProp().nullable', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number | null>>().type.toBeAssignableFrom(
       numberProp().nullable,
     );
-    expect<Vue2_7.PropOptions<Foo | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Foo | null>>().type.toBeAssignableFrom(
       numberProp<Foo>().nullable,
     );
-    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.not.toBeAssignableFrom(
       numberProp().nullable,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<number | null>>().type.toBeAssignableFrom(
       numberProp().nullable,
     );
-    expect<Vue3.Prop<Foo | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<Foo | null>>().type.toBeAssignableFrom(
       numberProp<Foo>().nullable,
     );
-    expect<Vue3.Prop<number>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.not.toBeAssignableFrom(
       numberProp().nullable,
     );
-    expect<Vue3.Prop<Foo>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<Foo>>().type.not.toBeAssignableFrom(
       numberProp<Foo>().nullable,
     );
 
@@ -145,13 +145,13 @@ describe('numberProp().nullable', () => {
 
 describe('numberProp().withDefault', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableFrom(
       numberProp().withDefault(27),
     );
-    expect<Vue2_6.PropOptions<Foo>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Foo>>().type.toBeAssignableFrom(
       numberProp<Foo>().withDefault(1),
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       numberProp().withDefault(27),
     );
 
@@ -165,31 +165,31 @@ describe('numberProp().withDefault', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableFrom(
       numberProp().withDefault(27),
     );
-    expect<Vue2_7.PropOptions<Foo>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Foo>>().type.toBeAssignableFrom(
       numberProp<Foo>().withDefault(1),
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       numberProp().withDefault(27),
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       numberProp<Foo>().withDefault(1),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.toBeAssignableFrom(
       numberProp().withDefault(27),
     );
-    expect<Vue3.Prop<Foo>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<Foo>>().type.toBeAssignableFrom(
       numberProp<Foo>().withDefault(1),
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       numberProp().withDefault(27),
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       numberProp<Foo>().withDefault(1),
     );
 
@@ -217,16 +217,16 @@ describe('numberProp().withDefault', () => {
 
 describe('numberProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<number>>().type.toBeAssignableFrom(
       numberProp().required,
     );
-    expect<Vue2_6.PropOptions<Foo>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Foo>>().type.toBeAssignableFrom(
       numberProp<Foo>().required,
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       numberProp().required,
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       numberProp<Foo>().required,
     );
 
@@ -240,29 +240,29 @@ describe('numberProp().required', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<number>>().type.toBeAssignableFrom(
       numberProp().required,
     );
-    expect<Vue2_7.PropOptions<Foo>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Foo>>().type.toBeAssignableFrom(
       numberProp<Foo>().required,
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       numberProp().required,
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       numberProp<Foo>().required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<number>>().type.toBeAssignableWith(numberProp().required);
-    expect<Vue3.Prop<Foo>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<number>>().type.toBeAssignableFrom(numberProp().required);
+    expect<Vue3.Prop<Foo>>().type.toBeAssignableFrom(
       numberProp<Foo>().required,
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       numberProp().required,
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       numberProp<Foo>().required,
     );
 

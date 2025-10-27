@@ -8,10 +8,10 @@ import type { Vue2ComponentWithProp } from '../utilities';
 
 describe('symbolProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<symbol | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<symbol | undefined>>().type.toBeAssignableFrom(
       symbolProp().optional,
     );
-    expect<Vue2_6.PropOptions<symbol>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<symbol>>().type.not.toBeAssignableFrom(
       symbolProp().optional,
     );
 
@@ -21,19 +21,19 @@ describe('symbolProp().optional', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<symbol | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<symbol | undefined>>().type.toBeAssignableFrom(
       symbolProp().optional,
     );
-    expect<Vue2_7.PropOptions<symbol>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<symbol>>().type.not.toBeAssignableFrom(
       symbolProp().optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<symbol | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<symbol | undefined>>().type.toBeAssignableFrom(
       symbolProp().optional,
     );
-    expect<Vue3.Prop<symbol>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<symbol>>().type.not.toBeAssignableFrom(
       symbolProp().optional,
     );
 
@@ -51,10 +51,10 @@ describe('symbolProp().optional', () => {
 
 describe('symbolProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<symbol | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<symbol | null>>().type.toBeAssignableFrom(
       symbolProp().nullable,
     );
-    expect<Vue2_6.PropOptions<symbol>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<symbol>>().type.not.toBeAssignableFrom(
       symbolProp().nullable,
     );
 
@@ -64,19 +64,19 @@ describe('symbolProp().nullable', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<symbol | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<symbol | null>>().type.toBeAssignableFrom(
       symbolProp().nullable,
     );
-    expect<Vue2_7.PropOptions<symbol>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<symbol>>().type.not.toBeAssignableFrom(
       symbolProp().nullable,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<symbol | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<symbol | null>>().type.toBeAssignableFrom(
       symbolProp().nullable,
     );
-    expect<Vue3.Prop<symbol>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<symbol>>().type.not.toBeAssignableFrom(
       symbolProp().nullable,
     );
 
@@ -94,10 +94,10 @@ describe('symbolProp().nullable', () => {
 
 describe('symbolProp().withDefault', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<symbol>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<symbol>>().type.toBeAssignableFrom(
       symbolProp().withDefault(Symbol.for('foo')),
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       symbolProp().withDefault(Symbol.for('foo')),
     );
 
@@ -107,19 +107,19 @@ describe('symbolProp().withDefault', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<symbol>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<symbol>>().type.toBeAssignableFrom(
       symbolProp().withDefault(Symbol.for('foo')),
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       symbolProp().withDefault(Symbol.for('foo')),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<symbol>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<symbol>>().type.toBeAssignableFrom(
       symbolProp().withDefault(Symbol.for('foo')),
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       symbolProp().withDefault(Symbol.for('foo')),
     );
 
@@ -137,10 +137,10 @@ describe('symbolProp().withDefault', () => {
 
 describe('symbolProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<symbol>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<symbol>>().type.toBeAssignableFrom(
       symbolProp().required,
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       symbolProp().required,
     );
 
@@ -150,17 +150,17 @@ describe('symbolProp().required', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<symbol>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<symbol>>().type.toBeAssignableFrom(
       symbolProp().required,
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       symbolProp().required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<symbol>>().type.toBeAssignableWith(symbolProp().required);
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<symbol>>().type.toBeAssignableFrom(symbolProp().required);
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       symbolProp().required,
     );
 
