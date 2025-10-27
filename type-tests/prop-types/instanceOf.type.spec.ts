@@ -15,12 +15,12 @@ class Account {
 
 describe('instanceOfProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User | undefined>>().type.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
     expect<
       Vue2_6.PropOptions<Account | undefined>
-    >().type.not.toBeAssignableWith(instanceOfProp(User).optional);
+    >().type.not.toBeAssignableFrom(instanceOfProp(User).optional);
 
     expect(createVue2Component(instanceOfProp(User).optional)).type.toBe<
       Vue2ComponentWithProp<User | undefined>
@@ -28,19 +28,19 @@ describe('instanceOfProp().optional', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User | undefined>>().type.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
-    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<User | undefined>>().type.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
-    expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
 
@@ -58,12 +58,12 @@ describe('instanceOfProp().optional', () => {
 
 describe('instanceOfProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User | undefined>>().type.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
     expect<
       Vue2_6.PropOptions<Account | undefined>
-    >().type.not.toBeAssignableWith(instanceOfProp(User).optional);
+    >().type.not.toBeAssignableFrom(instanceOfProp(User).optional);
 
     expect(createVue2Component(instanceOfProp(User).optional)).type.toBe<
       Vue2ComponentWithProp<User | undefined>
@@ -71,19 +71,19 @@ describe('instanceOfProp().nullable', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User | undefined>>().type.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
-    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<User | undefined>>().type.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
-    expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).optional,
     );
 
@@ -101,10 +101,10 @@ describe('instanceOfProp().nullable', () => {
 
 describe('instanceOfProp().withDefault', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableFrom(
       instanceOfProp(User).withDefault(() => new User()),
     );
-    expect<Vue2_6.PropOptions<Account>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).withDefault(() => new User()),
     );
 
@@ -114,19 +114,19 @@ describe('instanceOfProp().withDefault', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableFrom(
       instanceOfProp(User).withDefault(() => new User()),
     );
-    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).withDefault(() => new User()),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<User>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<User>>().type.toBeAssignableFrom(
       instanceOfProp(User).withDefault(() => new User()),
     );
-    expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).withDefault(() => new User()),
     );
 
@@ -144,10 +144,10 @@ describe('instanceOfProp().withDefault', () => {
 
 describe('instanceOfProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableFrom(
       instanceOfProp(User).required,
     );
-    expect<Vue2_6.PropOptions<Account>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).required,
     );
 
@@ -157,19 +157,19 @@ describe('instanceOfProp().required', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableFrom(
       instanceOfProp(User).required,
     );
-    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<User>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<User>>().type.toBeAssignableFrom(
       instanceOfProp(User).required,
     );
-    expect<Vue3.Prop<Account>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<Account>>().type.not.toBeAssignableFrom(
       instanceOfProp(User).required,
     );
 

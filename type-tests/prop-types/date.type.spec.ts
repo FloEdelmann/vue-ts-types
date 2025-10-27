@@ -8,10 +8,10 @@ import type { Vue2ComponentWithProp } from '../utilities';
 
 describe('dateProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Date | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Date | undefined>>().type.toBeAssignableFrom(
       dateProp().optional,
     );
-    expect<Vue2_6.PropOptions<Date>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Date>>().type.not.toBeAssignableFrom(
       dateProp().optional,
     );
 
@@ -21,19 +21,19 @@ describe('dateProp().optional', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Date | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Date | undefined>>().type.toBeAssignableFrom(
       dateProp().optional,
     );
-    expect<Vue2_7.PropOptions<Date>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Date>>().type.not.toBeAssignableFrom(
       dateProp().optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Date | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<Date | undefined>>().type.toBeAssignableFrom(
       dateProp().optional,
     );
-    expect<Vue3.Prop<Date>>().type.not.toBeAssignableWith(dateProp().optional);
+    expect<Vue3.Prop<Date>>().type.not.toBeAssignableFrom(dateProp().optional);
 
     const component = Vue3.defineComponent({
       props: {
@@ -49,10 +49,10 @@ describe('dateProp().optional', () => {
 
 describe('dateProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Date | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Date | null>>().type.toBeAssignableFrom(
       dateProp().nullable,
     );
-    expect<Vue2_6.PropOptions<Date>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Date>>().type.not.toBeAssignableFrom(
       dateProp().nullable,
     );
 
@@ -62,19 +62,19 @@ describe('dateProp().nullable', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Date | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Date | null>>().type.toBeAssignableFrom(
       dateProp().nullable,
     );
-    expect<Vue2_7.PropOptions<Date>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Date>>().type.not.toBeAssignableFrom(
       dateProp().nullable,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Date | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<Date | null>>().type.toBeAssignableFrom(
       dateProp().nullable,
     );
-    expect<Vue3.Prop<Date>>().type.not.toBeAssignableWith(dateProp().nullable);
+    expect<Vue3.Prop<Date>>().type.not.toBeAssignableFrom(dateProp().nullable);
 
     const component = Vue3.defineComponent({
       props: {
@@ -90,10 +90,10 @@ describe('dateProp().nullable', () => {
 
 describe('dateProp().withDefault(() => new Date())', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Date>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Date>>().type.toBeAssignableFrom(
       dateProp().withDefault(() => new Date()),
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       dateProp().withDefault(() => new Date()),
     );
 
@@ -103,19 +103,19 @@ describe('dateProp().withDefault(() => new Date())', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Date>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Date>>().type.toBeAssignableFrom(
       dateProp().withDefault(() => new Date()),
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       dateProp().withDefault(() => new Date()),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Date>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<Date>>().type.toBeAssignableFrom(
       dateProp().withDefault(() => new Date()),
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       dateProp().withDefault(() => new Date()),
     );
 
@@ -133,10 +133,10 @@ describe('dateProp().withDefault(() => new Date())', () => {
 
 describe('dateProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<Date>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<Date>>().type.toBeAssignableFrom(
       dateProp().required,
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       dateProp().required,
     );
 
@@ -146,17 +146,17 @@ describe('dateProp().required', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<Date>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<Date>>().type.toBeAssignableFrom(
       dateProp().required,
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       dateProp().required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<Date>>().type.toBeAssignableWith(dateProp().required);
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<Date>>().type.toBeAssignableFrom(dateProp().required);
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       dateProp().required,
     );
 

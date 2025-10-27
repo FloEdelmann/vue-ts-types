@@ -12,13 +12,13 @@ interface User {
 
 describe('objectProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<object | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<object | undefined>>().type.toBeAssignableFrom(
       objectProp().optional,
     );
-    expect<Vue2_6.PropOptions<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User | undefined>>().type.toBeAssignableFrom(
       objectProp<User>().optional,
     );
-    expect<Vue2_6.PropOptions<User>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User>>().type.not.toBeAssignableFrom(
       objectProp<User>().optional,
     );
 
@@ -32,25 +32,25 @@ describe('objectProp().optional', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<object | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<object | undefined>>().type.toBeAssignableFrom(
       objectProp().optional,
     );
-    expect<Vue2_7.PropOptions<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User | undefined>>().type.toBeAssignableFrom(
       objectProp<User>().optional,
     );
-    expect<Vue2_7.PropOptions<User>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User>>().type.not.toBeAssignableFrom(
       objectProp<User>().optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<object | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<object | undefined>>().type.toBeAssignableFrom(
       objectProp().optional,
     );
-    expect<Vue3.Prop<User | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<User | undefined>>().type.toBeAssignableFrom(
       objectProp<User>().optional,
     );
-    expect<Vue3.Prop<User>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<User>>().type.not.toBeAssignableFrom(
       objectProp<User>().optional,
     );
 
@@ -78,13 +78,13 @@ describe('objectProp().optional', () => {
 
 describe('objectProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<object | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<object | null>>().type.toBeAssignableFrom(
       objectProp().nullable,
     );
-    expect<Vue2_6.PropOptions<User | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User | null>>().type.toBeAssignableFrom(
       objectProp<User>().nullable,
     );
-    expect<Vue2_6.PropOptions<User>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User>>().type.not.toBeAssignableFrom(
       objectProp<User>().nullable,
     );
 
@@ -98,25 +98,25 @@ describe('objectProp().nullable', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<object | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<object | null>>().type.toBeAssignableFrom(
       objectProp().nullable,
     );
-    expect<Vue2_7.PropOptions<User | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User | null>>().type.toBeAssignableFrom(
       objectProp<User>().nullable,
     );
-    expect<Vue2_7.PropOptions<User>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User>>().type.not.toBeAssignableFrom(
       objectProp<User>().nullable,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<object | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<object | null>>().type.toBeAssignableFrom(
       objectProp().nullable,
     );
-    expect<Vue3.Prop<User | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<User | null>>().type.toBeAssignableFrom(
       objectProp<User>().nullable,
     );
-    expect<Vue3.Prop<User>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<User>>().type.not.toBeAssignableFrom(
       objectProp<User>().nullable,
     );
 
@@ -146,7 +146,7 @@ const userGenerator = () => ({ name: 'bar' });
 
 describe('objectProp().withDefault', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableFrom(
       objectProp<User>().withDefault(userGenerator),
     );
 
@@ -156,13 +156,13 @@ describe('objectProp().withDefault', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableFrom(
       objectProp<User>().withDefault(userGenerator),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<User>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<User>>().type.toBeAssignableFrom(
       objectProp<User>().withDefault(userGenerator),
     );
 
@@ -180,10 +180,10 @@ describe('objectProp().withDefault', () => {
 
 describe('objectProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<object>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<object>>().type.toBeAssignableFrom(
       objectProp().required,
     );
-    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<User>>().type.toBeAssignableFrom(
       objectProp<User>().required,
     );
 
@@ -197,17 +197,17 @@ describe('objectProp().required', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<object>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<object>>().type.toBeAssignableFrom(
       objectProp().required,
     );
-    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<User>>().type.toBeAssignableFrom(
       objectProp<User>().required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<object>>().type.toBeAssignableWith(objectProp().required);
-    expect<Vue3.Prop<User>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<object>>().type.toBeAssignableFrom(objectProp().required);
+    expect<Vue3.Prop<User>>().type.toBeAssignableFrom(
       objectProp<User>().required,
     );
 

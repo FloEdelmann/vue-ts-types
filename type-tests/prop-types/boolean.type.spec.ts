@@ -8,10 +8,10 @@ import type { Vue2ComponentWithProp } from '../utilities';
 
 describe('booleanProp().optional', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<boolean | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<boolean | undefined>>().type.toBeAssignableFrom(
       booleanProp().optional,
     );
-    expect<Vue2_6.PropOptions<boolean>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<boolean>>().type.not.toBeAssignableFrom(
       booleanProp().optional,
     );
 
@@ -21,19 +21,19 @@ describe('booleanProp().optional', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<boolean | undefined>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<boolean | undefined>>().type.toBeAssignableFrom(
       booleanProp().optional,
     );
-    expect<Vue2_7.PropOptions<boolean>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<boolean>>().type.not.toBeAssignableFrom(
       booleanProp().optional,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<boolean | undefined>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<boolean | undefined>>().type.toBeAssignableFrom(
       booleanProp().optional,
     );
-    expect<Vue3.Prop<boolean>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<boolean>>().type.not.toBeAssignableFrom(
       booleanProp().optional,
     );
 
@@ -51,10 +51,10 @@ describe('booleanProp().optional', () => {
 
 describe('booleanProp().nullable', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<boolean | null>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<boolean | null>>().type.toBeAssignableFrom(
       booleanProp().nullable,
     );
-    expect<Vue2_6.PropOptions<boolean>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<boolean>>().type.not.toBeAssignableFrom(
       booleanProp().nullable,
     );
 
@@ -64,19 +64,19 @@ describe('booleanProp().nullable', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<boolean | null>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<boolean | null>>().type.toBeAssignableFrom(
       booleanProp().nullable,
     );
-    expect<Vue2_7.PropOptions<boolean>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<boolean>>().type.not.toBeAssignableFrom(
       booleanProp().nullable,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<boolean | null>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<boolean | null>>().type.toBeAssignableFrom(
       booleanProp().nullable,
     );
-    expect<Vue3.Prop<boolean>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<boolean>>().type.not.toBeAssignableFrom(
       booleanProp().nullable,
     );
 
@@ -94,10 +94,10 @@ describe('booleanProp().nullable', () => {
 
 describe('booleanProp().withDefault(false)', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<boolean>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<boolean>>().type.toBeAssignableFrom(
       booleanProp().withDefault(false),
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       booleanProp().withDefault(false),
     );
 
@@ -107,19 +107,19 @@ describe('booleanProp().withDefault(false)', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<boolean>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<boolean>>().type.toBeAssignableFrom(
       booleanProp().withDefault(false),
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       booleanProp().withDefault(false),
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<boolean>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<boolean>>().type.toBeAssignableFrom(
       booleanProp().withDefault(false),
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       booleanProp().withDefault(false),
     );
 
@@ -137,10 +137,10 @@ describe('booleanProp().withDefault(false)', () => {
 
 describe('booleanProp().required', () => {
   test('Vue 2.6', () => {
-    expect<Vue2_6.PropOptions<boolean>>().type.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<boolean>>().type.toBeAssignableFrom(
       booleanProp().required,
     );
-    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
       booleanProp().required,
     );
 
@@ -150,19 +150,19 @@ describe('booleanProp().required', () => {
   });
 
   test('Vue 2.7', () => {
-    expect<Vue2_7.PropOptions<boolean>>().type.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<boolean>>().type.toBeAssignableFrom(
       booleanProp().required,
     );
-    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableWith(
+    expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
       booleanProp().required,
     );
   });
 
   test('Vue 3', () => {
-    expect<Vue3.Prop<boolean>>().type.toBeAssignableWith(
+    expect<Vue3.Prop<boolean>>().type.toBeAssignableFrom(
       booleanProp().required,
     );
-    expect<Vue3.Prop<string>>().type.not.toBeAssignableWith(
+    expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
       booleanProp().required,
     );
 
