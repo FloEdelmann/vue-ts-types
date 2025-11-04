@@ -25,17 +25,8 @@ export default defineConfig(
     name: 'vue-ts-types/ignore-dist',
     ignores: ['dist'],
   },
-  {
-    ...eslintPluginPackageJson.configs.recommended,
-    rules: {
-      ...eslintPluginPackageJson.configs.recommended.rules,
-      'package-json/require-author': 'error',
-      'package-json/require-engines': 'error',
-      'package-json/require-files': 'error',
-      'package-json/require-keywords': 'error',
-      'package-json/require-types': 'error',
-    },
-  },
+  eslintPluginPackageJson.configs.recommended,
+  eslintPluginPackageJson.configs.stylistic,
   {
     files: ['**/*.ts', '**/*.mts'],
     extends: [
