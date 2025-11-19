@@ -26,7 +26,15 @@
   },
   "license": "MIT",
   "author": "Flo Edelmann",
+  "sideEffects": false,
   "type": "commonjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
