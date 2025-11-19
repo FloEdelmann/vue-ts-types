@@ -25,7 +25,7 @@ export default defineConfig(
     name: 'vue-ts-types/ignore-dist',
     ignores: ['dist'],
   },
-  eslintPluginPackageJson.configs.recommended,
+  eslintPluginPackageJson.configs['recommended-publishable'],
   eslintPluginPackageJson.configs.stylistic,
   {
     files: ['**/*.ts', '**/*.mts'],
