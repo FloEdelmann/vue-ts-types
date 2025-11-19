@@ -1,6 +1,6 @@
 {
   "name": "vue-ts-types",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Lightweight TypeScript-first Vue prop type definitions",
   "keywords": [
     "vue",
