@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 export type Validator = (value: unknown) => string | undefined;
 export type VuePropValidator = (value: unknown) => boolean;
 
@@ -23,13 +21,7 @@ export function vuePropValidator(
     for (const validator of validators) {
       const errorMessage = validator(value);
       if (errorMessage) {
-        if (typeof Vue === 'object' && 'util' in Vue) {
-          // @ts-expect-error -- Vue.util is only available in Vue 2, but provides more context than console.warn
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          Vue.util.warn(`${errorMessage} (received: '${String(value)}')`);
-        } else {
-          console.warn(`${errorMessage} (received: '${String(value)}')`);
-        }
+        console.warn(`${errorMessage} (received: '${String(value)}')`);
         return false;
       }
     }
