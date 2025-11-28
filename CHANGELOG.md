@@ -1,3 +1,19 @@
+<a id="v1.9.0"></a>
+# [Version 1.9.0 (v1.9.0)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.9.0) - 2025-11-28
+
+## Features
+
+* Generate ESM alongside CJS by [@FloEdelmann](https://github.com/FloEdelmann) in [#1082](https://github.com/FloEdelmann/vue-ts-types/pull/1082)
+
+## Internal changes
+
+* Bump development dependencies, by [@dependabot](https://github.com/dependabot)
+
+**Full Changelog**: https://github.com/FloEdelmann/vue-ts-types/compare/v1.8.2...v1.9.0
+
+[Changes][v1.9.0]
+
+
 <a id="v1.8.2"></a>
 # [Version 1.8.2 (v1.8.2)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.8.2) - 2025-11-19
 
@@ -332,6 +348,7 @@ Initial release
 [Changes][v0.1.0]
 
 
+[v1.9.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.8.2...v1.9.0
 [v1.8.2]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.8.1...v1.8.2
 [v1.8.1]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.8.0...v1.8.1
 [v1.8.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.7.1...v1.8.0
