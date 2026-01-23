@@ -69,7 +69,7 @@
     "tstyche": "^6.0.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.1",
-    "vitest": "^4.0.17",
+    "vitest": "^4.0.18",
     "vue": "^3.5.27",
     "vue2-6": "npm:vue@~2.6.14",
     "vue2-7": "npm:vue@~2.7.16"
