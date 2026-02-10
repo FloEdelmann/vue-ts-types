@@ -68,7 +68,7 @@
     "prettier": "3.8.1",
     "tstyche": "^6.2.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0",
+    "typescript-eslint": "^8.55.0",
     "vitest": "^4.0.18",
     "vue": "^3.5.28",
     "vue2-6": "npm:vue@~2.6.14",
