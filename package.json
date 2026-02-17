@@ -55,10 +55,10 @@
     "type-test:watch": "tstyche --watch"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@types/eslint-config-prettier": "^6.11.3",
     "@vitest/eslint-plugin": "^1.6.9",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-package-json": "^0.88.3",
     "eslint-plugin-unicorn": "^63.0.0",
