@@ -64,7 +64,7 @@
     "eslint-plugin-unicorn": "^63.0.0",
     "jiti": "^2.6.1",
     "lefthook": "^2.1.2",
-    "markdownlint-cli": "^0.47.0",
+    "markdownlint-cli": "^0.48.0",
     "prettier": "3.8.1",
     "tstyche": "^6.2.0",
     "typescript": "^5.9.3",
