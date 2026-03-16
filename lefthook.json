@@ -7,8 +7,8 @@
         "run": "exit 1",
         "fail_text": "Please switch to another branch before committing. Use `git switch -c <branch-name>`."
       },
-      "prettier": {
-        "run": "npx prettier {staged_files} --check --ignore-unknown",
+      "oxfmt": {
+        "run": "npx oxfmt {staged_files} --check --ignore-unknown",
         "fail_text": "Please fix the formatting issues before committing. Use `npm run format`."
       },
       "eslint": {

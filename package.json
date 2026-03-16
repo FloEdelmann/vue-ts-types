@@ -3,31 +3,36 @@
   "version": "1.9.0",
   "description": "Lightweight TypeScript-first Vue prop type definitions",
   "keywords": [
+    "hacktoberfest",
+    "prop-types",
+    "props",
+    "proptype-validators",
+    "proptypes",
+    "typescript",
     "vue",
     "vue2",
     "vue3",
     "vuejs",
     "vuejs2",
-    "vuejs3",
-    "typescript",
-    "prop-types",
-    "props",
-    "proptype-validators",
-    "proptypes",
-    "hacktoberfest"
+    "vuejs3"
   ],
   "homepage": "https://github.com/FloEdelmann/vue-ts-types",
   "bugs": {
     "url": "https://github.com/FloEdelmann/vue-ts-types/issues"
   },
+  "license": "MIT",
+  "author": "Flo Edelmann",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FloEdelmann/vue-ts-types.git"
   },
-  "license": "MIT",
-  "author": "Flo Edelmann",
-  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "type": "commonjs",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -35,20 +40,15 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc --project tsconfig.build.json",
     "build:esm": "tsc --project tsconfig.build.esm.json",
-    "format": "prettier . --write",
-    "lint": "npm run lint:eslint && npm run lint:markdownlint && npm run lint:prettier",
+    "format": "oxfmt . --write",
+    "lint": "npm run lint:eslint && npm run lint:markdownlint && npm run lint:format",
     "lint:eslint": "eslint .",
+    "lint:format": "oxfmt . --check",
     "lint:markdownlint": "markdownlint \"**/*.md\"",
-    "lint:prettier": "prettier . --check",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "type-test": "tstyche",
@@ -65,7 +65,7 @@
     "jiti": "^2.6.1",
     "lefthook": "^2.1.4",
     "markdownlint-cli": "^0.48.0",
-    "prettier": "3.8.1",
+    "oxfmt": "^0.41.0",
     "tstyche": "^6.2.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.0",

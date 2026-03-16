@@ -1,13 +1,13 @@
-import eslintJs from '@eslint/js';
-import { defineConfig } from 'eslint/config';
-import eslintPluginPackageJson from 'eslint-plugin-package-json';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
-import eslintPluginVitest from '@vitest/eslint-plugin';
-import typescriptEslint from 'typescript-eslint';
+import eslintJs from "@eslint/js";
+import { defineConfig } from "eslint/config";
+import eslintPluginPackageJson from "eslint-plugin-package-json";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
+import eslintPluginVitest from "@vitest/eslint-plugin";
+import typescriptEslint from "typescript-eslint";
 
 const namedRecommendedEslintConfig = {
-  name: 'eslint/recommended',
+  name: "eslint/recommended",
   ...eslintJs.configs.recommended,
 };
 
@@ -15,20 +15,29 @@ const typescriptEslintStrictAndStylisticConfigs = [
   ...typescriptEslint.configs.strictTypeChecked,
   ...typescriptEslint.configs.stylisticTypeChecked.filter(
     ({ name }) =>
-      name !== 'typescript-eslint/base' &&
-      name !== 'typescript-eslint/eslint-recommended',
+      name !== "typescript-eslint/base" &&
+      name !== "typescript-eslint/eslint-recommended"
   ),
 ];
 
 export default defineConfig(
   {
-    name: 'vue-ts-types/ignore-dist',
-    ignores: ['dist'],
+    name: "vue-ts-types/ignore-dist",
+    ignores: ["dist"],
   },
-  eslintPluginPackageJson.configs['recommended-publishable'],
-  eslintPluginPackageJson.configs.stylistic,
   {
-    files: ['**/*.ts', '**/*.mts'],
+    name: "package-json",
+    files: ["package.json"],
+    extends: [
+      eslintPluginPackageJson.configs["recommended-publishable"],
+      eslintPluginPackageJson.configs.stylistic,
+    ],
+    rules: {
+      "package-json/order-properties": "off",
+    },
+  },
+  {
+    files: ["**/*.ts", "**/*.mts"],
     extends: [
       namedRecommendedEslintConfig,
       ...typescriptEslintStrictAndStylisticConfigs,
@@ -37,55 +46,55 @@ export default defineConfig(
     ],
   },
   {
-    name: 'vue-ts-types/main',
-    files: ['**/*.ts', '**/*.mts'],
+    name: "vue-ts-types/main",
+    files: ["**/*.ts", "**/*.mts"],
     languageOptions: {
-      ecmaVersion: 'latest',
+      ecmaVersion: "latest",
       parserOptions: {
         projectService: true,
       },
     },
     linterOptions: {
-      reportUnusedDisableDirectives: 'error',
-      reportUnusedInlineConfigs: 'error',
+      reportUnusedDisableDirectives: "error",
+      reportUnusedInlineConfigs: "error",
     },
     rules: {
       // Core ESLint rules
-      'accessor-pairs': 'error',
-      'camelcase': [
-        'error',
+      "accessor-pairs": "error",
+      camelcase: [
+        "error",
         {
-          allow: ['Vue2_6', 'Vue2_7'],
+          allow: ["Vue2_6", "Vue2_7"],
         },
       ],
-      'consistent-return': 'error',
-      'curly': ['error', 'all'],
-      'eqeqeq': 'error',
-      'grouped-accessor-pairs': ['error', 'getBeforeSet'],
-      'guard-for-in': 'error',
-      'no-bitwise': 'error',
-      'no-else-return': ['error', { allowElseIf: false }],
-      'no-lonely-if': 'error',
-      'no-loop-func': 'error',
-      'no-object-constructor': 'error',
-      'no-return-assign': 'error',
-      'no-shadow': 'off', // replaced by @typescript-eslint/no-shadow
-      'no-template-curly-in-string': 'error',
-      'no-unsafe-optional-chaining': [
-        'error',
+      "consistent-return": "error",
+      curly: ["error", "all"],
+      eqeqeq: "error",
+      "grouped-accessor-pairs": ["error", "getBeforeSet"],
+      "guard-for-in": "error",
+      "no-bitwise": "error",
+      "no-else-return": ["error", { allowElseIf: false }],
+      "no-lonely-if": "error",
+      "no-loop-func": "error",
+      "no-object-constructor": "error",
+      "no-return-assign": "error",
+      "no-shadow": "off", // replaced by @typescript-eslint/no-shadow
+      "no-template-curly-in-string": "error",
+      "no-unsafe-optional-chaining": [
+        "error",
         { disallowArithmeticOperators: true },
       ],
-      'object-shorthand': ['error', 'always', { avoidQuotes: true }],
-      'prefer-arrow-callback': 'error',
-      'prefer-template': 'error',
-      'radix': 'error',
+      "object-shorthand": ["error", "always", { avoidQuotes: true }],
+      "prefer-arrow-callback": "error",
+      "prefer-template": "error",
+      radix: "error",
 
       // eslint-plugin-unicorn
-      'unicorn/filename-case': 'off',
-      'unicorn/no-null': 'off',
-      'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
-      'unicorn/prevent-abbreviations': [
-        'error',
+      "unicorn/filename-case": "off",
+      "unicorn/no-null": "off",
+      "unicorn/no-useless-undefined": "off", // conflicts with consistent-return
+      "unicorn/prevent-abbreviations": [
+        "error",
         {
           replacements: {
             prop: false,
@@ -95,31 +104,31 @@ export default defineConfig(
       ],
 
       // @typescript-eslint/eslint-plugin
-      '@typescript-eslint/consistent-type-exports': 'error',
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/explicit-module-boundary-types': 'error',
-      '@typescript-eslint/no-empty-object-type': [
-        'error',
-        { allowInterfaces: 'with-single-extends' },
+      "@typescript-eslint/consistent-type-exports": "error",
+      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/explicit-module-boundary-types": "error",
+      "@typescript-eslint/no-empty-object-type": [
+        "error",
+        { allowInterfaces: "with-single-extends" },
       ],
-      '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
-      '@typescript-eslint/no-extraneous-class': 'off',
-      '@typescript-eslint/no-unnecessary-parameter-property-assignment':
-        'error',
-      '@typescript-eslint/no-unnecessary-type-conversion': 'error',
-      '@typescript-eslint/no-shadow': [
-        'error',
+      "@typescript-eslint/no-explicit-any": "off", // needed for Vue types compatibility
+      "@typescript-eslint/no-extraneous-class": "off",
+      "@typescript-eslint/no-unnecessary-parameter-property-assignment":
+        "error",
+      "@typescript-eslint/no-unnecessary-type-conversion": "error",
+      "@typescript-eslint/no-shadow": [
+        "error",
         { ignoreOnInitialization: true },
       ],
-      '@typescript-eslint/prefer-enum-initializers': 'error',
-      '@typescript-eslint/prefer-readonly': 'error',
-      '@typescript-eslint/promise-function-async': 'error',
-      '@typescript-eslint/switch-exhaustiveness-check': 'error',
+      "@typescript-eslint/prefer-enum-initializers": "error",
+      "@typescript-eslint/prefer-readonly": "error",
+      "@typescript-eslint/promise-function-async": "error",
+      "@typescript-eslint/switch-exhaustiveness-check": "error",
     },
   },
   {
-    name: 'vue-ts-types/tests',
-    files: ['tests/**/*.spec.ts'],
+    name: "vue-ts-types/tests",
+    files: ["tests/**/*.spec.ts"],
     plugins: {
       vitest: eslintPluginVitest,
     },
@@ -128,27 +137,27 @@ export default defineConfig(
         Object.entries(eslintPluginVitest.configs.all.rules).map(
           ([ruleName, severity]) => [
             ruleName,
-            severity === 'off' ? 'off' : 'error',
-          ],
-        ),
+            severity === "off" ? "off" : "error",
+          ]
+        )
       ),
 
-      'vitest/consistent-test-filename': 'off', // already covered by specific `include` path
-      'vitest/max-expects': 'off', // more expect statements are needed for some tests
-      'vitest/no-importing-vitest-globals': 'off', // conflicts with `vitest/prefer-importing-vitest-globals`
-      'vitest/padding-around-all': 'off', // already covered by individual `padding` rules
-      'vitest/prefer-expect-assertions': 'off', // too verbose
+      "vitest/consistent-test-filename": "off", // already covered by specific `include` path
+      "vitest/max-expects": "off", // more expect statements are needed for some tests
+      "vitest/no-importing-vitest-globals": "off", // conflicts with `vitest/prefer-importing-vitest-globals`
+      "vitest/padding-around-all": "off", // already covered by individual `padding` rules
+      "vitest/prefer-expect-assertions": "off", // too verbose
 
       // less strict other rules
-      '@typescript-eslint/no-non-null-assertion': 'off',
-      '@typescript-eslint/no-unsafe-argument': 'off',
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-unsafe-argument": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
     },
     settings: {
       vitest: {
         typecheck: true,
       },
     },
-  },
+  }
 );
