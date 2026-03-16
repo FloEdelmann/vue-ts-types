@@ -135,7 +135,6 @@ export default defineConfig(
 
       'vitest/consistent-test-filename': 'off', // already covered by specific `include` path
       'vitest/max-expects': 'off', // more expect statements are needed for some tests
-      'vitest/no-alias-methods': 'off', // https://github.com/vitest-dev/eslint-plugin-vitest/issues/879
       'vitest/no-importing-vitest-globals': 'off', // conflicts with `vitest/prefer-importing-vitest-globals`
       'vitest/padding-around-all': 'off', // already covered by individual `padding` rules
       'vitest/prefer-expect-assertions': 'off', // too verbose
