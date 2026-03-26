@@ -7,6 +7,9 @@ on:
       - 'published'
   workflow_dispatch: null
 
+permissions:
+  contents: 'write'
+
 jobs:
   changelog:
     runs-on: 'ubuntu-latest'
