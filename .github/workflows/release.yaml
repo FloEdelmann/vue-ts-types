@@ -51,8 +51,6 @@ jobs:
           npm publish --provenance --access public
           VERSION_NUMBER=$(git tag --list | tail -n 1 | cut -d v -f 2)
           echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
-        env:
-          NODE_AUTH_TOKEN: '${{ secrets.NPM_API_TOKEN }}'
       - name: 'Push changes'
         uses: 'ad-m/github-push-action@master'
         with:
