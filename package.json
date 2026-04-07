@@ -63,7 +63,7 @@
     "eslint-plugin-package-json": "^0.91.1",
     "eslint-plugin-unicorn": "^64.0.0",
     "jiti": "^2.6.1",
-    "lefthook": "^2.1.4",
+    "lefthook": "^2.1.5",
     "markdownlint-cli": "^0.48.0",
     "prettier": "3.8.1",
     "tstyche": "^7.0.0",
