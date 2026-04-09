@@ -1,4 +1,5 @@
 {
   "$schema": "https://tstyche.org/schemas/config.json",
+  "target": "5.9 || 6.0",
   "testFileMatch": ["./type-tests/**/*.type.spec.ts"]
 }
