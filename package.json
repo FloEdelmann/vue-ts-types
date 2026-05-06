@@ -70,7 +70,7 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.2",
     "vitest": "^4.1.5",
-    "vue": "^3.5.33",
+    "vue": "^3.5.34",
     "vue2-6": "npm:vue@~2.6.14",
     "vue2-7": "npm:vue@~2.7.16"
   },
