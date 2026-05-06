@@ -62,7 +62,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-package-json": "^0.91.2",
     "eslint-plugin-unicorn": "^64.0.0",
-    "jiti": "^2.6.1",
+    "jiti": "^2.7.0",
     "lefthook": "^2.1.6",
     "markdownlint-cli": "^0.48.0",
     "prettier": "3.8.3",
