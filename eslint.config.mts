@@ -139,7 +139,6 @@ export default defineConfig(
       'vitest/padding-around-all': 'off', // already covered by individual `padding` rules
       'vitest/prefer-expect-assertions': 'off', // too verbose
 
-      // less strict other rules
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
