@@ -20,3 +20,4 @@ export { isNegative } from './validators/isNegative';
 export { isPositive } from './validators/isPositive';
 export { isNonNegative } from './validators/isNonNegative';
 export { isNonPositive } from './validators/isNonPositive';
+export { isSafeInteger } from './validators/isSafeInteger';
