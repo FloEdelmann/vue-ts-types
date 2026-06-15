@@ -39,9 +39,7 @@ describe('dateProp().optional', () => {
       props: {
         prop: dateProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Date | undefined>();
   });
@@ -80,9 +78,7 @@ describe('dateProp().nullable', () => {
       props: {
         prop: dateProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Date | null>();
   });
@@ -123,9 +119,7 @@ describe('dateProp().withDefault(() => new Date())', () => {
       props: {
         prop: dateProp().withDefault(() => new Date()),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Date>();
   });
@@ -164,9 +158,7 @@ describe('dateProp().required', () => {
       props: {
         prop: dateProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Date>();
   });

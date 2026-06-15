@@ -65,9 +65,7 @@ describe('stringProp().optional', () => {
       props: {
         prop: stringProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<string | undefined>();
 
@@ -75,9 +73,7 @@ describe('stringProp().optional', () => {
       props: {
         prop: stringProp<Foo>().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo | undefined>();
   });
@@ -140,9 +136,7 @@ describe('stringProp().nullable', () => {
       props: {
         prop: stringProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<string | null>();
 
@@ -150,9 +144,7 @@ describe('stringProp().nullable', () => {
       props: {
         prop: stringProp<Foo>().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo | null>();
   });
@@ -215,9 +207,7 @@ describe('stringProp().withDefault', () => {
       props: {
         prop: stringProp().withDefault('a'),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<string>();
 
@@ -225,9 +215,7 @@ describe('stringProp().withDefault', () => {
       props: {
         prop: stringProp<Foo>().withDefault('a'),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo>();
   });
@@ -288,9 +276,7 @@ describe('stringProp().required', () => {
       props: {
         prop: stringProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<string>();
 
@@ -298,9 +284,7 @@ describe('stringProp().required', () => {
       props: {
         prop: stringProp<Foo>().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo>();
   });

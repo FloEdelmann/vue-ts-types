@@ -53,9 +53,7 @@ describe('numberProp().optional', () => {
       props: {
         prop: numberProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<number | undefined>();
 
@@ -63,9 +61,7 @@ describe('numberProp().optional', () => {
       props: {
         prop: numberProp<Foo>().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo | undefined>();
   });
@@ -125,9 +121,7 @@ describe('numberProp().nullable', () => {
       props: {
         prop: numberProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<number | null>();
 
@@ -135,9 +129,7 @@ describe('numberProp().nullable', () => {
       props: {
         prop: numberProp<Foo>().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo | null>();
   });
@@ -197,9 +189,7 @@ describe('numberProp().withDefault', () => {
       props: {
         prop: numberProp().withDefault(27),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<number>();
 
@@ -207,9 +197,7 @@ describe('numberProp().withDefault', () => {
       props: {
         prop: numberProp<Foo>().withDefault(1),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo>();
   });
@@ -270,9 +258,7 @@ describe('numberProp().required', () => {
       props: {
         prop: numberProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<number>();
 
@@ -280,9 +266,7 @@ describe('numberProp().required', () => {
       props: {
         prop: numberProp<Foo>().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<Foo>();
   });

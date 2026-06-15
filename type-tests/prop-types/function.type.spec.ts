@@ -67,9 +67,7 @@ describe('functionProp().optional', () => {
       props: {
         prop: functionProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<Function | undefined>();
 
@@ -77,9 +75,7 @@ describe('functionProp().optional', () => {
       props: {
         prop: functionProp<MyCustomCallback>().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<MyCustomCallback | undefined>();
   });
@@ -142,9 +138,7 @@ describe('functionProp().nullable', () => {
       props: {
         prop: functionProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<Function | null>();
 
@@ -152,9 +146,7 @@ describe('functionProp().nullable', () => {
       props: {
         prop: functionProp<MyCustomCallback>().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<MyCustomCallback | null>();
   });
@@ -208,9 +200,7 @@ describe('functionProp().required', () => {
       props: {
         prop: functionProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<Function>();
 
@@ -218,9 +208,7 @@ describe('functionProp().required', () => {
       props: {
         prop: functionProp<MyCustomCallback>().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<MyCustomCallback>();
   });

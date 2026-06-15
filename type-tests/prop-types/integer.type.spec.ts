@@ -41,9 +41,7 @@ describe('integerProp().optional', () => {
       props: {
         prop: integerProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<number | undefined>();
   });
@@ -84,9 +82,7 @@ describe('integerProp().nullable', () => {
       props: {
         prop: integerProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<number | null>();
   });
@@ -127,9 +123,7 @@ describe('integerProp().withDefault', () => {
       props: {
         prop: integerProp().withDefault(27),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<number>();
   });
@@ -168,9 +162,7 @@ describe('integerProp().required', () => {
       props: {
         prop: integerProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<number>();
   });

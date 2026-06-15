@@ -58,9 +58,7 @@ describe('objectProp().optional', () => {
       props: {
         prop: objectProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<object | undefined>();
 
@@ -68,9 +66,7 @@ describe('objectProp().optional', () => {
       props: {
         prop: objectProp<User>().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<User | undefined>();
   });
@@ -124,9 +120,7 @@ describe('objectProp().nullable', () => {
       props: {
         prop: objectProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<object | null>();
 
@@ -134,9 +128,7 @@ describe('objectProp().nullable', () => {
       props: {
         prop: objectProp<User>().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<User | null>();
   });
@@ -170,9 +162,7 @@ describe('objectProp().withDefault', () => {
       props: {
         prop: objectProp<User>().withDefault(userGenerator),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<User>();
   });
@@ -215,9 +205,7 @@ describe('objectProp().required', () => {
       props: {
         prop: objectProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component1().prop).type.toBe<object>();
 
@@ -225,9 +213,7 @@ describe('objectProp().required', () => {
       props: {
         prop: objectProp<User>().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component2().prop).type.toBe<User>();
   });

@@ -62,9 +62,7 @@ describe('anyProp().optional', () => {
       props: {
         prop: anyProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<any>();
   });
@@ -126,9 +124,7 @@ describe('anyProp().nullable', () => {
       props: {
         prop: anyProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<any>();
   });
@@ -200,9 +196,7 @@ describe('anyProp().withDefault', () => {
       props: {
         prop: anyProp().withDefault('foo'),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<any>();
   });
@@ -257,9 +251,7 @@ describe('anyProp().required', () => {
       props: {
         prop: anyProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<any>();
   });

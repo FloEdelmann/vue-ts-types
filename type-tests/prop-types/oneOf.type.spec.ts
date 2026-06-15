@@ -44,9 +44,7 @@ describe('oneOfProp().optional', () => {
       props: {
         prop: oneOfProp(options).optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Options | undefined>();
   });
@@ -87,9 +85,7 @@ describe('oneOfProp().nullable', () => {
       props: {
         prop: oneOfProp(options).nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Options | null>();
   });
@@ -121,9 +117,7 @@ describe('oneOfProp().withDefault', () => {
       props: {
         prop: oneOfProp(options).withDefault('a'),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Options>();
   });
@@ -155,9 +149,7 @@ describe('oneOfProp().required', () => {
       props: {
         prop: oneOfProp(options).required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
     expect(new component().prop).type.toBe<Options>();
   });
