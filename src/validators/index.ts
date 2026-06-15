@@ -29,11 +29,3 @@ export function vuePropValidator(
     return true;
   };
 }
-
-// for internal use only
-export { isInstanceOf } from './isInstanceOf';
-export { isInteger } from './isInteger';
-export { isOneOf } from './isOneOf';
-export { isSymbol } from './isSymbol';
-
-// custom validators provided for user convenience are exported from main entrypoint

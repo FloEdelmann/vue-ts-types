@@ -1,7 +1,7 @@
 import type { PropConstructor, PropOptionsGenerator, PropType } from '../types';
 import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
-import { isOneOf } from '../validators';
+import { isOneOf } from '../validators/isOneOf';
 
 // inspired by https://github.com/dwightjack/vue-types/blob/4.1.1/src/validators/oneof.ts
 const getOneOfType = <T extends readonly unknown[]>(
