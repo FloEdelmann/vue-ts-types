@@ -178,7 +178,9 @@ For convenience, some common validator functions are included in the library and
 - `isPositive`: only allows positive numbers (`> 0`)
 - `isNonNegative`: only allows non-negative numbers (`>= 0`)
 - `isNonPositive`: only allows non-positive numbers (`<= 0`)
+- `isInteger`: only allows integer numbers
 - `isSafeInteger`: only allows [safe integers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)
+- `isSymbol`: only allows symbols
 
 ### `stringProp<T>(validator?: Validator)`
 

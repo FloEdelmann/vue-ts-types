@@ -1,7 +1,7 @@
 import type { PropOptionsGenerator } from '../types';
 import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
-import { isSymbol } from '../validators';
+import { isSymbol } from '../validators/isSymbol';
 
 /**
  * Allows any symbol (validated at runtime and compile time).

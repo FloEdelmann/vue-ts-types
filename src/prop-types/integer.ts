@@ -1,7 +1,7 @@
 import type { PropOptionsGenerator } from '../types';
 import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
-import { isInteger } from '../validators';
+import { isInteger } from '../validators/isInteger';
 
 /**
  * Allows any integer (validated at runtime).

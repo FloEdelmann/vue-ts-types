@@ -1,7 +1,7 @@
 import type { Constructor, PropOptionsGenerator } from '../types';
 import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
-import { isInstanceOf } from '../validators';
+import { isInstanceOf } from '../validators/isInstanceOf';
 
 /**
  * Allows instances of the given constructor (validated at runtime and compile time).
