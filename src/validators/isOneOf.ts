@@ -1,6 +1,9 @@
 import type { Validator } from '.';
 
-/** Validator that only allows any of the given values. */
+/**
+ * Validator that only allows any of the given values.
+ * @internal
+ */
 export const isOneOf =
   (allowedValues: readonly unknown[]): Validator =>
   (value) => {
