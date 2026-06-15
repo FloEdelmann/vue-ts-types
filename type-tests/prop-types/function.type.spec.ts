@@ -69,7 +69,8 @@ describe('functionProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<Function | undefined>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<Function | undefined>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -77,7 +78,8 @@ describe('functionProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<MyCustomCallback | undefined>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<MyCustomCallback | undefined>();
   });
 });
 
@@ -140,7 +142,8 @@ describe('functionProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<Function | null>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<Function | null>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -148,7 +151,8 @@ describe('functionProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<MyCustomCallback | null>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<MyCustomCallback | null>();
   });
 });
 
@@ -202,7 +206,8 @@ describe('functionProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<Function>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<Function>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -210,6 +215,7 @@ describe('functionProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<MyCustomCallback>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<MyCustomCallback>();
   });
 });

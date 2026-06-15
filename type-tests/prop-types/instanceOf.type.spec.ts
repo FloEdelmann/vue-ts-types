@@ -50,7 +50,8 @@ describe('instanceOfProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User | undefined>();
   });
 });
 
@@ -91,7 +92,8 @@ describe('instanceOfProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User | null>();
   });
 });
 
@@ -132,7 +134,8 @@ describe('instanceOfProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User>();
   });
 });
 
@@ -173,6 +176,7 @@ describe('instanceOfProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User>();
   });
 });

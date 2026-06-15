@@ -60,7 +60,8 @@ describe('objectProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<object | undefined>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<object | undefined>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -68,7 +69,8 @@ describe('objectProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<User | undefined>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<User | undefined>();
   });
 });
 
@@ -122,7 +124,8 @@ describe('objectProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<object | null>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<object | null>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -130,7 +133,8 @@ describe('objectProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<User | null>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<User | null>();
   });
 });
 
@@ -164,7 +168,8 @@ describe('objectProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User>();
   });
 });
 
@@ -207,7 +212,8 @@ describe('objectProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<object>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<object>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -215,6 +221,7 @@ describe('objectProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<User>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<User>();
   });
 });

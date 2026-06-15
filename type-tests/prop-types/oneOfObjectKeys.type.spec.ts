@@ -37,7 +37,8 @@ describe('oneOfObjectKeysProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options | undefined>();
   });
 });
 
@@ -69,7 +70,8 @@ describe('oneOfObjectKeysProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options | null>();
   });
 });
 
@@ -101,7 +103,8 @@ describe('oneOfObjectKeysProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options>();
   });
 });
 
@@ -133,6 +136,7 @@ describe('oneOfObjectKeysProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options>();
   });
 });

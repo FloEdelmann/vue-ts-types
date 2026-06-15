@@ -44,7 +44,8 @@ describe('vueComponentProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent | undefined>();
   });
 });
 
@@ -85,7 +86,8 @@ describe('vueComponentProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent | null>();
   });
 });
 
@@ -126,7 +128,8 @@ describe('vueComponentProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent>();
   });
 });
 
@@ -167,6 +170,7 @@ describe('vueComponentProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent>();
   });
 });

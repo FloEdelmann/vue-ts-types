@@ -64,7 +64,8 @@ describe('anyProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<any>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<any>();
   });
 });
 
@@ -126,7 +127,8 @@ describe('anyProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<any>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<any>();
   });
 });
 
@@ -198,7 +200,8 @@ describe('anyProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<any>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<any>();
   });
 });
 
@@ -253,6 +256,7 @@ describe('anyProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<any>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<any>();
   });
 });

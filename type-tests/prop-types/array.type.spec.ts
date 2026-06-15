@@ -65,7 +65,8 @@ describe('arrayProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[] | undefined>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[] | undefined>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -73,7 +74,8 @@ describe('arrayProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[] | undefined>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[] | undefined>();
   });
 });
 
@@ -136,7 +138,8 @@ describe('arrayProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[] | null>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[] | null>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -144,7 +147,8 @@ describe('arrayProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[] | null>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[] | null>();
   });
 });
 
@@ -196,7 +200,8 @@ describe('arrayProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[]>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[]>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -204,7 +209,8 @@ describe('arrayProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[]>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[]>();
   });
 });
 
@@ -258,7 +264,8 @@ describe('arrayProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[]>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[]>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -266,6 +273,7 @@ describe('arrayProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[]>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[]>();
   });
 });

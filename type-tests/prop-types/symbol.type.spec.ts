@@ -43,7 +43,8 @@ describe('symbolProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<symbol | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<symbol | undefined>();
   });
 });
 
@@ -84,7 +85,8 @@ describe('symbolProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<symbol | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<symbol | null>();
   });
 });
 
@@ -127,7 +129,8 @@ describe('symbolProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<symbol>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<symbol>();
   });
 });
 
@@ -166,6 +169,7 @@ describe('symbolProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<symbol>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<symbol>();
   });
 });

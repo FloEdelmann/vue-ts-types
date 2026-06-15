@@ -43,7 +43,8 @@ describe('booleanProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<boolean | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<boolean | undefined>();
   });
 });
 
@@ -84,7 +85,8 @@ describe('booleanProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<boolean | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<boolean | null>();
   });
 });
 
@@ -125,7 +127,8 @@ describe('booleanProp().withDefault(false)', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<boolean>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<boolean>();
   });
 });
 
@@ -166,6 +169,7 @@ describe('booleanProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<boolean>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<boolean>();
   });
 });

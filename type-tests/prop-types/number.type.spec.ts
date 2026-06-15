@@ -55,7 +55,8 @@ describe('numberProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<number | undefined>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<number | undefined>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -63,7 +64,8 @@ describe('numberProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo | undefined>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo | undefined>();
   });
 });
 
@@ -123,7 +125,8 @@ describe('numberProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<number | null>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<number | null>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -131,7 +134,8 @@ describe('numberProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo | null>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo | null>();
   });
 });
 
@@ -191,7 +195,8 @@ describe('numberProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<number>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<number>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -199,7 +204,8 @@ describe('numberProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo>();
   });
 });
 
@@ -260,7 +266,8 @@ describe('numberProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<number>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<number>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -268,6 +275,7 @@ describe('numberProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo>();
   });
 });

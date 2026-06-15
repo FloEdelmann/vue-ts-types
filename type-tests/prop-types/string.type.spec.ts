@@ -67,7 +67,8 @@ describe('stringProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<string | undefined>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<string | undefined>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -75,7 +76,8 @@ describe('stringProp().optional', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo | undefined>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo | undefined>();
   });
 });
 
@@ -138,7 +140,8 @@ describe('stringProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<string | null>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<string | null>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -146,7 +149,8 @@ describe('stringProp().nullable', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo | null>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo | null>();
   });
 });
 
@@ -209,7 +213,8 @@ describe('stringProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<string>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<string>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -217,7 +222,8 @@ describe('stringProp().withDefault', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo>();
   });
 });
 
@@ -278,7 +284,8 @@ describe('stringProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<string>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<string>();
 
     const component2 = Vue3.defineComponent({
       props: {
@@ -286,6 +293,7 @@ describe('stringProp().required', () => {
       },
       setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<Foo>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<Foo>();
   });
 });
