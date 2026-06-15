@@ -48,11 +48,10 @@ describe('instanceOfProp().optional', () => {
       props: {
         prop: instanceOfProp(User).optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User | undefined>();
   });
 });
 
@@ -91,11 +90,10 @@ describe('instanceOfProp().nullable', () => {
       props: {
         prop: instanceOfProp(User).nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User | null>();
   });
 });
 
@@ -134,11 +132,10 @@ describe('instanceOfProp().withDefault', () => {
       props: {
         prop: instanceOfProp(User).withDefault(() => new User()),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User>();
   });
 });
 
@@ -177,10 +174,9 @@ describe('instanceOfProp().required', () => {
       props: {
         prop: instanceOfProp(User).required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User>();
   });
 });

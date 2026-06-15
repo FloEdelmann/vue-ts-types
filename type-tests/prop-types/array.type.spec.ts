@@ -63,21 +63,19 @@ describe('arrayProp().optional', () => {
       props: {
         prop: arrayProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[] | undefined>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[] | undefined>();
 
     const component2 = Vue3.defineComponent({
       props: {
         prop: arrayProp<string>().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[] | undefined>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[] | undefined>();
   });
 });
 
@@ -138,21 +136,19 @@ describe('arrayProp().nullable', () => {
       props: {
         prop: arrayProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[] | null>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[] | null>();
 
     const component2 = Vue3.defineComponent({
       props: {
         prop: arrayProp<string>().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[] | null>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[] | null>();
   });
 });
 
@@ -202,21 +198,19 @@ describe('arrayProp().withDefault', () => {
       props: {
         prop: arrayProp().withDefault(() => ['foo', 'bar']),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[]>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[]>();
 
     const component2 = Vue3.defineComponent({
       props: {
         prop: arrayProp<string>().withDefault(() => ['foo', 'bar']),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[]>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[]>();
   });
 });
 
@@ -268,20 +262,18 @@ describe('arrayProp().required', () => {
       props: {
         prop: arrayProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<unknown[]>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<unknown[]>();
 
     const component2 = Vue3.defineComponent({
       props: {
         prop: arrayProp<string>().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<string[]>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<string[]>();
   });
 });

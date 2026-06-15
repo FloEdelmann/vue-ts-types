@@ -42,11 +42,10 @@ describe('vueComponentProp().optional', () => {
       props: {
         prop: vueComponentProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent | undefined>();
   });
 });
 
@@ -85,11 +84,10 @@ describe('vueComponentProp().nullable', () => {
       props: {
         prop: vueComponentProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent | null>();
   });
 });
 
@@ -128,11 +126,10 @@ describe('vueComponentProp().withDefault', () => {
       props: {
         prop: vueComponentProp().withDefault('foo'),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent>();
   });
 });
 
@@ -171,10 +168,9 @@ describe('vueComponentProp().required', () => {
       props: {
         prop: vueComponentProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<VueComponent>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<VueComponent>();
   });
 });

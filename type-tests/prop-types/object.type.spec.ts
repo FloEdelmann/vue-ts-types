@@ -58,21 +58,19 @@ describe('objectProp().optional', () => {
       props: {
         prop: objectProp().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<object | undefined>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<object | undefined>();
 
     const component2 = Vue3.defineComponent({
       props: {
         prop: objectProp<User>().optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<User | undefined>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<User | undefined>();
   });
 });
 
@@ -124,21 +122,19 @@ describe('objectProp().nullable', () => {
       props: {
         prop: objectProp().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<object | null>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<object | null>();
 
     const component2 = Vue3.defineComponent({
       props: {
         prop: objectProp<User>().nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<User | null>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<User | null>();
   });
 });
 
@@ -170,11 +166,10 @@ describe('objectProp().withDefault', () => {
       props: {
         prop: objectProp<User>().withDefault(userGenerator),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<User>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<User>();
   });
 });
 
@@ -215,20 +210,18 @@ describe('objectProp().required', () => {
       props: {
         prop: objectProp().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component1().prop).type.toBe<object>();
+    const componentInstance1 = new component1();
+    expect(componentInstance1.prop).type.toBe<object>();
 
     const component2 = Vue3.defineComponent({
       props: {
         prop: objectProp<User>().required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component2().prop).type.toBe<User>();
+    const componentInstance2 = new component2();
+    expect(componentInstance2.prop).type.toBe<User>();
   });
 });

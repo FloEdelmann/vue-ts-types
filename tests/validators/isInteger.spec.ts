@@ -10,8 +10,8 @@ describe(isInteger, () => {
 
   it('returns a string for non-integer numbers', () => {
     expect(isInteger(3.4)).toBeTypeOf('string');
-    expect(isInteger(Number.NaN)).toBeTypeOf('string');
-    expect(isInteger(Number.POSITIVE_INFINITY)).toBeTypeOf('string');
+    expect(isInteger(NaN)).toBeTypeOf('string');
+    expect(isInteger(Infinity)).toBeTypeOf('string');
   });
 
   it('returns a string for non-numbers', () => {

@@ -35,11 +35,10 @@ describe('oneOfTypesProp().optional', () => {
       props: {
         prop: oneOfTypesProp<Options>(options).optional,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options | undefined>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options | undefined>();
   });
 });
 
@@ -69,11 +68,10 @@ describe('oneOfTypesProp().nullable', () => {
       props: {
         prop: oneOfTypesProp<Options>(options).nullable,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options | null>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options | null>();
   });
 });
 
@@ -103,11 +101,10 @@ describe('oneOfTypesProp().withDefault', () => {
       props: {
         prop: oneOfTypesProp<Options>(options).withDefault('a'),
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options>();
   });
 });
 
@@ -137,10 +134,9 @@ describe('oneOfTypesProp().required', () => {
       props: {
         prop: oneOfTypesProp<Options>(options).required,
       },
-      setup(props) {
-        return props;
-      },
+      setup: (props) => props,
     });
-    expect(new component().prop).type.toBe<Options>();
+    const componentInstance = new component();
+    expect(componentInstance.prop).type.toBe<Options>();
   });
 });
