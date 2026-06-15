@@ -89,39 +89,41 @@ describe('symbolProp().nullable', () => {
 });
 
 describe('symbolProp().withDefault', () => {
+  const fooSymbol = Symbol.for('foo');
+
   test('Vue 2.6', () => {
     expect<Vue2_6.PropOptions<symbol>>().type.toBeAssignableFrom(
-      symbolProp().withDefault(Symbol.for('foo')),
+      symbolProp().withDefault(fooSymbol),
     );
     expect<Vue2_6.PropOptions<string>>().type.not.toBeAssignableFrom(
-      symbolProp().withDefault(Symbol.for('foo')),
+      symbolProp().withDefault(fooSymbol),
     );
 
-    expect(
-      createVue2Component(symbolProp().withDefault(Symbol.for('foo'))),
-    ).type.toBe<Vue2ComponentWithProp<symbol>>();
+    expect(createVue2Component(symbolProp().withDefault(fooSymbol))).type.toBe<
+      Vue2ComponentWithProp<symbol>
+    >();
   });
 
   test('Vue 2.7', () => {
     expect<Vue2_7.PropOptions<symbol>>().type.toBeAssignableFrom(
-      symbolProp().withDefault(Symbol.for('foo')),
+      symbolProp().withDefault(fooSymbol),
     );
     expect<Vue2_7.PropOptions<string>>().type.not.toBeAssignableFrom(
-      symbolProp().withDefault(Symbol.for('foo')),
+      symbolProp().withDefault(fooSymbol),
     );
   });
 
   test('Vue 3', () => {
     expect<Vue3.Prop<symbol>>().type.toBeAssignableFrom(
-      symbolProp().withDefault(Symbol.for('foo')),
+      symbolProp().withDefault(fooSymbol),
     );
     expect<Vue3.Prop<string>>().type.not.toBeAssignableFrom(
-      symbolProp().withDefault(Symbol.for('foo')),
+      symbolProp().withDefault(fooSymbol),
     );
 
     const component = Vue3.defineComponent({
       props: {
-        prop: symbolProp().withDefault(Symbol.for('foo')),
+        prop: symbolProp().withDefault(fooSymbol),
       },
       setup: (props) => props,
     });
