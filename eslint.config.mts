@@ -102,7 +102,7 @@ export default defineConfig(
         'error',
         { allowInterfaces: 'with-single-extends' },
       ],
-      '@typescript-eslint/no-explicit-any': 'off', // needed for Vue types compatibility
+      '@typescript-eslint/no-explicit-any': 'off', // needed for Vue.js types compatibility
       '@typescript-eslint/no-extraneous-class': 'off',
       '@typescript-eslint/no-unnecessary-parameter-property-assignment':
         'error',
