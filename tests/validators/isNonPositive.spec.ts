@@ -5,13 +5,13 @@ describe(isNonPositive, () => {
   it('returns undefined for non-positive numbers', () => {
     expect(isNonPositive(0)).toBeUndefined();
     expect(isNonPositive(-27)).toBeUndefined();
-    expect(isNonPositive(Number.NEGATIVE_INFINITY)).toBeUndefined();
+    expect(isNonPositive(-Infinity)).toBeUndefined();
     expect(isNonPositive(Number.MIN_SAFE_INTEGER)).toBeUndefined();
   });
 
   it('returns a string for non-positive numbers', () => {
     expect(isNonPositive(3.4)).toBeTypeOf('string');
-    expect(isNonPositive(Number.NaN)).toBeTypeOf('string');
+    expect(isNonPositive(NaN)).toBeTypeOf('string');
     expect(isNonPositive(Number.MAX_SAFE_INTEGER)).toBeTypeOf('string');
   });
 
