@@ -266,6 +266,21 @@ integerProp().withDefault(42);
 // → prop type: number
 ```
 
+### `safeIntegerProp(validator?: Validator)`
+
+Allows any [safe integer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger) (validated at runtime).
+
+```ts
+safeIntegerProp().optional;
+// → prop type: number | undefined
+safeIntegerProp().nullable;
+// → prop type: number | null
+safeIntegerProp().required;
+// → prop type: number
+safeIntegerProp().withDefault(42);
+// → prop type: number
+```
+
 ### `dateProp(validator?: Validator)`
 
 Allows any `Date` object (validated at runtime and compile time).
