@@ -79,5 +79,8 @@
   },
   "engines": {
     "node": ">=12"
+  },
+  "allowScripts": {
+    "lefthook@2.1.9": true
   }
 }
