@@ -1,9 +1,31 @@
+<a id="v1.10.0"></a>
+# [v1.10.0](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.10.0) - 2026-06-16
+
+## Features
+
+* Add `isSafeInteger` validator, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1246](https://github.com/FloEdelmann/vue-ts-types/pull/1246)
+* Export `isInteger` and `isSymbol` validators, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1247](https://github.com/FloEdelmann/vue-ts-types/pull/1247)
+* Add `safeIntegerProp` type, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1248](https://github.com/FloEdelmann/vue-ts-types/pull/1248)
+
+## Internal changes
+
+* Set explicit permissions on GitHub Actions workflows, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1181](https://github.com/FloEdelmann/vue-ts-types/pull/1181)
+* Remove token-based npm publishing, enforce OIDC-only trusted publishing, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1185](https://github.com/FloEdelmann/vue-ts-types/pull/1185)
+* Approve known npm scripts, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1245](https://github.com/FloEdelmann/vue-ts-types/pull/1245)
+* Update GitHub Actions workflows to Node.js v24, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1250](https://github.com/FloEdelmann/vue-ts-types/pull/1250)
+* Bump development dependencies, by [@dependabot](https://github.com/dependabot)
+
+**Full Changelog**: https://github.com/FloEdelmann/vue-ts-types/compare/v1.9.0...v1.10.0
+
+[Changes][v1.10.0]
+
+
 <a id="v1.9.0"></a>
 # [Version 1.9.0 (v1.9.0)](https://github.com/FloEdelmann/vue-ts-types/releases/tag/v1.9.0) - 2025-11-28
 
 ## Features
 
-* Generate ESM alongside CJS by [@FloEdelmann](https://github.com/FloEdelmann) in [#1082](https://github.com/FloEdelmann/vue-ts-types/pull/1082)
+* Generate ESM alongside CJS, by [@FloEdelmann](https://github.com/FloEdelmann) in [#1082](https://github.com/FloEdelmann/vue-ts-types/pull/1082)
 
 ## Internal changes
 
@@ -348,6 +370,7 @@ Initial release
 [Changes][v0.1.0]
 
 
+[v1.10.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.9.0...v1.10.0
 [v1.9.0]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.8.2...v1.9.0
 [v1.8.2]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.8.1...v1.8.2
 [v1.8.1]: https://github.com/FloEdelmann/vue-ts-types/compare/v1.8.0...v1.8.1
