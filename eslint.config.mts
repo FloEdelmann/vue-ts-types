@@ -82,9 +82,7 @@ export default defineConfig(
 
       // eslint-plugin-unicorn
       'unicorn/filename-case': 'off',
-      'unicorn/no-null': 'off',
-      'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
-      'unicorn/prevent-abbreviations': [
+      'unicorn/name-replacements': [
         'error',
         {
           replacements: {
@@ -93,6 +91,8 @@ export default defineConfig(
           },
         },
       ],
+      'unicorn/no-null': 'off',
+      'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
 
       // @typescript-eslint/eslint-plugin
       '@typescript-eslint/consistent-type-exports': 'error',
