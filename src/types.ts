@@ -25,12 +25,7 @@ export interface PropOptionsGenerator<T> {
 
 /** Allow simple values for primitive types, require generator function for complex types */
 export type OneOfDefaultType<T> = T extends
-  | boolean
-  | number
-  | string
-  | symbol
-  | null
-  | undefined
+  boolean | number | string | symbol | null | undefined
   ? T
   : () => T;
 
