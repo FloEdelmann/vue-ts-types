@@ -84,7 +84,7 @@ export default defineConfig(
       'unicorn/filename-case': 'off',
       'unicorn/no-null': 'off',
       'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
-      'unicorn/prevent-abbreviations': [
+      'unicorn/name-replacements': [
         'error',
         {
           replacements: {
