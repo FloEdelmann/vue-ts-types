@@ -118,6 +118,13 @@ export default defineConfig(
     },
   },
   {
+    name: 'vue-ts-types/validators',
+    files: ['src/validators/**/*.ts'],
+    rules: {
+      'unicorn/consistent-boolean-name': 'off', // these are Validator functions (or factories thereof), not booleans
+    },
+  },
+  {
     name: 'vue-ts-types/tests',
     files: ['tests/**/*.spec.ts'],
     plugins: {
