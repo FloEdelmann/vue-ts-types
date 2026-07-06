@@ -61,7 +61,7 @@
     "eslint": "^10.6.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-package-json": "^1.5.0",
-    "eslint-plugin-unicorn": "^70.0.0",
+    "eslint-plugin-unicorn": "^71.0.0",
     "jiti": "^2.7.0",
     "lefthook": "^2.1.9",
     "markdownlint-cli": "^0.49.0",
