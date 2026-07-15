@@ -12,14 +12,9 @@
         "fail_text": "Please fix the formatting issues before committing. Use `npm run format`."
       },
       "eslint": {
-        "glob": "*.{mjs,ts}",
+        "glob": "*.{mjs,ts,md}",
         "run": "npx eslint {staged_files}",
         "fail_text": "Please fix the ESLint issues before committing. Try `npx eslint --fix .`."
-      },
-      "markdownlint": {
-        "glob": "*.md",
-        "run": "npx markdownlint {staged_files}",
-        "fail_text": "Please fix the markdownlint issues before committing. Try `npx markdownlint --fix .`."
       },
       "build": {
         "glob": "src/**",
