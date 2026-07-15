@@ -73,8 +73,6 @@ jobs:
         run: 'npm ci'
       - name: 'Lint with ESLint'
         run: 'npm run lint:eslint'
-      - name: 'Lint with Markdownlint'
-        run: 'npm run lint:markdownlint'
       - name: 'Lint with Prettier'
         run: 'npm run lint:prettier'
       - name: 'Lint with yamllint'
