@@ -1,4 +1,5 @@
 import eslintJs from '@eslint/js';
+import markdown from '@eslint/markdown';
 import { defineConfig } from 'eslint/config';
 import eslintPluginPackageJson from 'eslint-plugin-package-json';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
@@ -23,7 +24,7 @@ const typescriptEslintStrictAndStylisticConfigs = [
 export default defineConfig(
   {
     name: 'vue-ts-types/ignore-dist',
-    ignores: ['dist'],
+    ignores: ['dist', 'CHANGELOG.md'],
   },
   eslintPluginPackageJson.configs['recommended-publishable'],
   eslintPluginPackageJson.configs.stylistic,
@@ -155,6 +156,16 @@ export default defineConfig(
       vitest: {
         typecheck: true,
       },
+    },
+  },
+  {
+    name: 'vue-ts-types/markdown',
+    files: ['**/*.md'],
+    language: 'markdown/gfm',
+    extends: [markdown.configs.recommended],
+    rules: {
+      'markdown/no-bare-urls': 'error',
+      'markdown/no-duplicate-headings': 'error',
     },
   },
 );
