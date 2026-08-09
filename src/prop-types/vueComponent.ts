@@ -2,7 +2,9 @@ import type { PropOptionsGenerator } from '../types';
 import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
 
-/** Has to be so broad to allow Vue.js 2 and Vue.js 3 component options or instances. */
+/**
+ * Has to be so broad to allow Vue.js 2 and Vue.js 3 component options or instances.
+ */
 export type VueComponent = object | string;
 
 /**
