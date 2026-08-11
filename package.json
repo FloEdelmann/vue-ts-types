@@ -58,7 +58,7 @@
     "@eslint/markdown": "^8.0.3",
     "@types/eslint-config-prettier": "^6.11.3",
     "@vitest/eslint-plugin": "^1.6.26",
-    "eslint": "^10.8.0",
+    "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-package-json": "^1.6.3",
     "eslint-plugin-unicorn": "^73.0.0",
