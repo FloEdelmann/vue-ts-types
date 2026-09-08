@@ -65,7 +65,7 @@
     "jiti": "^2.7.0",
     "lefthook": "^2.1.12",
     "prettier": "3.9.6",
-    "tstyche": "^7.2.3",
+    "tstyche": "^7.2.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.69.0",
     "vitest": "^5.0.0",
