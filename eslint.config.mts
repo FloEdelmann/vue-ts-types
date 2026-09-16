@@ -26,7 +26,7 @@ export default defineConfig(
     name: 'vue-ts-types/ignore-dist',
     ignores: ['dist', 'CHANGELOG.md'],
   },
-  eslintPluginPackageJson.configs['recommended-publishable'],
+  eslintPluginPackageJson.configs.recommended,
   eslintPluginPackageJson.configs.stylistic,
   {
     files: ['**/*.ts', '**/*.mts'],
