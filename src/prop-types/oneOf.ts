@@ -25,11 +25,7 @@ const getOneOfType = <T extends readonly unknown[]>(
     return undefined;
   }
 
-  if (allowedTypes.length === 1) {
-    return allowedTypes[0];
-  }
-
-  return allowedTypes;
+  return allowedTypes.length === 1 ? allowedTypes[0] : allowedTypes;
 };
 
 /**
