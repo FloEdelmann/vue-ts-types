@@ -61,7 +61,7 @@
     "eslint": "^10.10.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-package-json": "^1.8.1",
-    "eslint-plugin-unicorn": "^75.0.0",
+    "eslint-plugin-unicorn": "^76.0.0",
     "jiti": "^2.7.0",
     "lefthook": "^2.1.14",
     "prettier": "3.9.8",
