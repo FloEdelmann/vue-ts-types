@@ -29,12 +29,12 @@ const getOneOfType = <T extends readonly unknown[]>(
 };
 
 /**
- * Allows any of the specified allowed values (validated at runtime and compile time).
- *
- * @template T - can be used to adjust the inferred type at compile time, this is usually not necessary.
- * @param allowedValues - The allowed values.
- * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
- */
+Allows any of the specified allowed values (validated at runtime and compile time).
+
+@template T - can be used to adjust the inferred type at compile time, this is usually not necessary.
+@param allowedValues - The allowed values.
+@param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
+*/
 export const oneOfProp = <T extends readonly unknown[]>(
   allowedValues: T,
   validator?: Validator,
