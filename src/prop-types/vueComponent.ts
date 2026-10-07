@@ -3,15 +3,15 @@ import { propOptionsGenerator } from '../utilities';
 import type { Validator } from '../validators';
 
 /**
- * Has to be so broad to allow Vue.js 2 and Vue.js 3 component options or instances.
- */
+Has to be so broad to allow Vue.js 2 and Vue.js 3 component options or instances.
+*/
 export type VueComponent = object | string;
 
 /**
- * Allows any Vue.js component instance, name or options object. No built-in runtime validation is performed by default.
- *
- * @param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
- */
+Allows any Vue.js component instance, name or options object. No built-in runtime validation is performed by default.
+
+@param validator - Optional function for further runtime validation; should return `undefined` if valid, or an error string if invalid.
+*/
 export const vueComponentProp = (
   validator?: Validator,
 ): PropOptionsGenerator<VueComponent> =>

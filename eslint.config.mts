@@ -93,6 +93,7 @@ export default defineConfig(
         },
       ],
       'unicorn/no-null': 'off',
+      'unicorn/no-top-level-side-effects': 'off', // false positives, see https://github.com/sindresorhus/eslint-plugin-unicorn/pull/3822
       'unicorn/no-useless-undefined': 'off', // conflicts with consistent-return
 
       // @typescript-eslint/eslint-plugin
