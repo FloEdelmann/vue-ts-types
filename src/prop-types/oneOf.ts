@@ -9,15 +9,11 @@ const getOneOfType = <T extends readonly unknown[]>(
 ): PropType<T[number]> | undefined => {
   const allowedTypes: PropConstructor<T[number]>[] = [
     ...new Set(
-      values.flatMap((value) => {
-        if (value === null || value === undefined) {
-          return [];
-        }
-        return (
+      values.flatMap(
+        (value) =>
           // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          ((value as any).constructor as PropConstructor<T> | undefined) ?? []
-        );
-      }),
+          ((value as any)?.constructor as PropConstructor<T> | undefined) ?? [],
+      ),
     ),
   ];
 
