@@ -9,11 +9,6 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-    groups:
-      eslint:
-        patterns:
-          - 'eslint'
-          - '@eslint/js'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
